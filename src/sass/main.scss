@@ -1,0 +1,23 @@
+// Use variables
+@import 'variables';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+    font-kerning: normal;
+
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+	font-family: $font-family;
+	line-height: 20px;
+	text-align: left;
+	font-size: 14px;
+}

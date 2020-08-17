@@ -1,0 +1,116 @@
+// Use variables
+@import 'variables';
+
+/*
+	Отступы
+*/
+
+/* Padding All */
+.p-0 	{ padding: 0; }
+.p-xs 	{ padding: $padding-step; }
+.p-s 	{ padding: $padding-step * 2; }
+.p-m 	{ padding: $padding-step * 3; }
+.p-l 	{ padding: $padding-step * 4; }
+.p-xl 	{ padding: $padding-step * 6; }
+.p-2xl 	{ padding: $padding-step * 8; }
+.p-3xl 	{ padding: $padding-step * 10; }
+.p-4xl 	{ padding: $padding-step * 14; }
+
+/* Padding Top */
+.pt-0 	{ padding-top: 0; }
+.pt-xs 	{ padding-top: $padding-step; }
+.pt-s 	{ padding-top: $padding-step * 2; }
+.pt-m 	{ padding-top: $padding-step * 3; }
+.pt-l 	{ padding-top: $padding-step * 4; }
+.pt-xl 	{ padding-top: $padding-step * 6; }
+.pt-2xl { padding-top: $padding-step * 8; }
+.pt-3xl { padding-top: $padding-step * 10; }
+.pt-4xl { padding-top: $padding-step * 14; }
+
+/* Padding Right */
+.pr-0 	{ padding-right: 0; }
+.pr-xs 	{ padding-right: $padding-step; }
+.pr-s 	{ padding-right: $padding-step * 2; }
+.pr-m 	{ padding-right: $padding-step * 3; }
+.pr-l 	{ padding-right: $padding-step * 4; }
+.pr-xl 	{ padding-right: $padding-step * 6; }
+.pr-2xl { padding-right: $padding-step * 8; }
+.pr-3xl { padding-right: $padding-step * 10; }
+.pr-4xl { padding-right: $padding-step * 14; }
+
+/* Padding Bottom */
+.pb-0 	{ padding-bottom: 0; }
+.pb-xs 	{ padding-bottom: $padding-step; }
+.pb-s 	{ padding-bottom: $padding-step * 2; }
+.pb-m 	{ padding-bottom: $padding-step * 3; }
+.pb-l 	{ padding-bottom: $padding-step * 4; }
+.pb-xl 	{ padding-bottom: $padding-step * 6; }
+.pb-2xl { padding-bottom: $padding-step * 8; }
+.pb-3xl { padding-bottom: $padding-step * 10; }
+.pb-4xl { padding-bottom: $padding-step * 14; }
+
+/* Padding Left */
+.pl-0 	{ padding-left: 0; }
+.pl-xs 	{ padding-left: $padding-step; }
+.pl-s 	{ padding-left: $padding-step * 2; }
+.pl-m 	{ padding-left: $padding-step * 3; }
+.pl-l 	{ padding-left: $padding-step * 4; }
+.pl-xl 	{ padding-left: $padding-step * 6; }
+.pl-2xl { padding-left: $padding-step * 8; }
+.pl-3xl { padding-left: $padding-step * 10; }
+.pl-4xl { padding-left: $padding-step * 14; }
+
+/* Margin All */
+.m-0 	{ margin: 0; }
+.m-xs 	{ margin: $padding-step; }
+.m-s 	{ margin: $padding-step * 2; }
+.m-m 	{ margin: $padding-step * 3; }
+.m-l 	{ margin: $padding-step * 4; }
+.m-xl 	{ margin: $padding-step * 6; }
+.m-2xl 	{ margin: $padding-step * 8; }
+.m-3xl 	{ margin: $padding-step * 10; }
+.m-4xl 	{ margin: $padding-step * 14; }
+
+/* Margin Top */
+.mt-0 	{ margin-top: 0; }
+.mt-xs 	{ margin-top: $padding-step; }
+.mt-s 	{ margin-top: $padding-step * 2; }
+.mt-m 	{ margin-top: $padding-step * 3; }
+.mt-l 	{ margin-top: $padding-step * 4; }
+.mt-xl 	{ margin-top: $padding-step * 6; }
+.mt-2xl { margin-top: $padding-step * 8; }
+.mt-3xl { margin-top: $padding-step * 10; }
+.mt-4xl { margin-top: $padding-step * 14; }
+
+/* Margin Right */
+.mr-0 	{ margin-right: 0; }
+.mr-xs 	{ margin-right: $padding-step; }
+.mr-s 	{ margin-right: $padding-step * 2; }
+.mr-m 	{ margin-right: $padding-step * 3; }
+.mr-l 	{ margin-right: $padding-step * 4; }
+.mr-xl 	{ margin-right: $padding-step * 6; }
+.mr-2xl { margin-right: $padding-step * 8; }
+.mr-3xl { margin-right: $padding-step * 10; }
+.mr-4xl { margin-right: $padding-step * 14; }
+
+/* Margin Bottom */
+.mb-0 	{ margin-bottom: 0; }
+.mb-xs 	{ margin-bottom: $padding-step; }
+.mb-s 	{ margin-bottom: $padding-step * 2; }
+.mb-m 	{ margin-bottom: $padding-step * 3; }
+.mb-l 	{ margin-bottom: $padding-step * 4; }
+.mb-xl 	{ margin-bottom: $padding-step * 6; }
+.mb-2xl { margin-bottom: $padding-step * 8; }
+.mb-3xl { margin-bottom: $padding-step * 10; }
+.mb-4xl { margin-bottom: $padding-step * 14; }
+
+/* Margin Left */
+.ml-0 	{ margin-left: 0; }
+.ml-xs 	{ margin-left: $padding-step; }
+.ml-s 	{ margin-left: $padding-step * 2; }
+.ml-m 	{ margin-left: $padding-step * 3; }
+.ml-l 	{ margin-left: $padding-step * 4; }
+.ml-xl 	{ margin-left: $padding-step * 6; }
+.ml-2xl { margin-left: $padding-step * 8; }
+.ml-3xl { margin-left: $padding-step * 10; }
+.ml-4xl { margin-left: $padding-step * 14; }

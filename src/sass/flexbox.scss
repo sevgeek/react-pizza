@@ -1,0 +1,68 @@
+// Use variables
+@import 'variables';
+
+/*
+	Flexbox
+*/
+
+/* Контейнер */
+.flexbox {
+	display: flex;
+}
+
+/* Элемент */
+.flex-item {
+	flex: 0 0 auto;
+}
+
+	/* Направление элементов */
+		/* По горизонтали (строкой) */
+		.flex-flow_row-nowrap 		{ flex-flow: row nowrap; }
+		.flex-flow_row-wrap			{ flex-flow: row wrap; }
+
+		/* По вертикали (столбцом) */
+		.flex-flow_column-nowrap 	{ flex-flow: column nowrap; }
+		.flex-flow_column-wrap 		{ flex-flow: column wrap; }
+
+		/* Точечное направление элементов в контейнере */
+			/* По горизонтали (строкой) */
+			.flex-direction_row				{ flex-direction: row; }
+			.flex-direction_row-reverse		{ flex-direction: row-reverse; }
+
+			/* По вертикали (столбцом) */
+			.flex-direction_column			{ flex-direction: column; }
+			.flex-direction_column-reverse	{ flex-direction: column-reverse; }
+
+	/* Перенос элементов в контейнере */
+	.flex-wrap_nowrap		{ flex-wrap: nowrap; }
+	.flex-wrap_wrap 		{ flex-wrap: wrap; }
+	.flex-wrap_wrap-reverse	{ flex-wrap: wrap-reverse; }
+
+	/* Выравнивание элементов в контейнере по горизонтальной оси */
+		/* В начало контейнера */
+		.flex-justify_start 	{ justify-content: flex-start; }
+		/* В конец контейнера */
+		.flex-justify_end 		{ justify-content: flex-end; }
+		/* По центру */
+		.flex-justify_center 	{ justify-content: center; }
+		/* Равномерно распределены по контейнеру */
+		.flex-justify_between 	{ justify-content: space-between; }
+		/* Равномерно распределены по контейнеру с пространством вокруг */
+		.flex-justify_around 	{ justify-content: space-around; }
+		/* Равномерно распределены по контейнеру */
+		.flex-justify_evenly 	{ justify-content: space-evenly; }
+
+	/* Расположение вдоль поперечной оси */
+	.flex-align-items_start 		{ align-items: flex-start; }
+	.flex-align-items_end 			{ align-items: flex-end; }
+	.flex-align-items_center 		{ align-items: center; }
+	.flex-align-items_stretch 		{ align-items: stretch; }
+	.flex-align-items_baseline 		{ align-items: baseline; }
+
+	/* Выравнивание и распределение строк в контейнере (не работает, когда только одна линия) */
+	.flex-align-content_start 			{ align-content: flex-start; }
+	.flex-align-content_end 			{ align-content: flex-end; }
+	.flex-align-content_center 			{ align-content: center; }
+	.flex-align-content_stretch 		{ align-content: stretch; }
+	.flex-align-content_space-between 	{ align-content: space-between; }
+	.flex-align-content_space-around 	{ align-content: space-around; }

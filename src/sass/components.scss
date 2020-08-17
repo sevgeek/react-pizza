@@ -1,0 +1,39 @@
+// Use variables
+@import 'variables';
+
+// Root Application
+.App {
+	@include displayBlock;
+	@include blockParams(100%, 100%);
+	background-color: #ffffff;
+	padding: $grid-col-gap-3xl;
+}
+
+// Application Wrapper
+.Wrapper {
+	@include displayBlock;
+	@include blockParams(100%, 100%);
+	background-color: #ffffff;
+	padding: $grid-col-gap-2xl;
+	border-radius: $grid-step * 2;
+
+	border: 1px solid rgb(230, 230, 230);
+}
+
+// Cart components
+
+// Cart button
+.cart-button {
+	@include displayBlock;
+	border: none;
+	min-width: 100px;
+	background-color: $orange;
+	border-radius: $grid-step * 2;
+	transition: $transition;
+	color: white;
+	font-size: 16px;
+
+	&:hover {
+		background-color: rgb(217, 99, 52);
+	}
+}

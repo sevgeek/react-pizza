@@ -1,0 +1,72 @@
+// Use variables
+@import 'variables';
+
+/*
+	Typography
+*/
+.h1, .h2, .h3, .h4, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+    color: inherit;
+	font-weight: 700;
+    // scroll-margin-top: 6rem;
+	font-family: $headers-font-family;
+}
+.h1, h1 {
+	font-size: 48px;
+	line-height: 60px;
+	letter-spacing: -.6px
+}
+.h2, h2 {
+	font-size: 40px;
+	line-height: 48px;
+	letter-spacing: -.4px
+}
+.h3, h3 {
+	font-size: 32px;
+	line-height: 40px;
+}
+.h4, h4 {
+	font-size: 24px;
+	line-height: 32px;
+}
+
+.h5, h5 {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+p {
+	margin:0;
+	padding: 0;
+}
+.txt-xl {
+	font-family: $font-family;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 40px;
+}
+.txt-l {
+	font-family: $font-family;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 32px;
+}
+.txt-m {
+	font-family: $font-family;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 24px;
+}
+.txt-s {
+	font-family: $font-family;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+}
+.txt-xs {
+	font-family: $font-family;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 16px;
+}

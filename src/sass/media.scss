@@ -1,0 +1,124 @@
+// Use variables
+@import 'variables';
+
+/*
+	Color Scheme
+*/
+	/* Dark Scheme */
+	@media (prefers-color-scheme: dark) {
+		:root {
+
+		}
+	}
+
+	/* Light Scheme */
+	@media (prefers-color-scheme: light) {
+
+	}
+
+	/* No Scheme */
+	@media (prefers-color-scheme: no-preference) {
+
+	}
+
+@media screen and (min-width:1088px) and (max-width:1220px) {
+
+}
+
+@media screen and (min-width:736px) and (max-width:1087px) {
+
+}
+
+@media screen and (min-width:320px) and (max-width:735px) {
+	/* Paddings' & Margin's */
+	.p-4xl,
+	.p-3xl,
+	.p-2xl,
+	.p-xl,
+	.p-l { padding: $padding-step * 6; }
+
+	.pr-4xl,
+	.pr-3xl,
+	.pr-2xl,
+	.pr-xl,
+	.pr-l { padding-right: $padding-step * 6; }
+
+	.pl-4xl,
+	.pl-3xl,
+	.pl-2xl,
+	.pl-xl,
+	.pl-l { padding-left: $padding-step * 6; }
+
+	.pt-4xl,
+	.pt-3xl,
+	.pt-2xl,
+	.pt-xl,
+	.pt-l { padding-top: $padding-step * 6; }
+
+	.pb-4xl,
+	.pb-3xl,
+	.pb-2xl,
+	.pb-xl,
+	.pb-l { padding-bottom: $padding-step * 6; }
+
+	.m-4xl,
+	.m-3xl,
+	.m-2xl,
+	.m-xl,
+	.m-l { margin: $margin-step * 6; }
+
+	.mr-4xl,
+	.mr-3xl,
+	.mr-2xl,
+	.mr-xl,
+	.mr-l { margin-right: $margin-step * 6; }
+
+	.ml-4xl,
+	.ml-3xl,
+	.ml-2xl,
+	.ml-xl,
+	.ml-l { margin-left: $margin-step * 6; }
+
+	.mt-4xl,
+	.mt-3xl,
+	.mt-2xl,
+	.mt-xl,
+	.mt-l { margin-top: $margin-step * 6; }
+
+	.mb-4xl,
+	.mb-3xl,
+	.mb-2xl,
+	.mb-xl,
+	.mb-l { margin-bottom: $margin-step * 6; }
+
+	/* Grid's */
+	.grid-2-col,
+	.grid-3-col,
+	.grid-3-col,
+	.grid-4-col,
+	.grid-5-col,
+	.grid-6-col,
+	.grid-7-col,
+	.grid-8-col,
+	.grid-9-col,
+	.grid-10-col,
+	.grid-11-col,
+	.grid-12-col {
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	}
+
+	.col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	.col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11,
+	.col-12 {
+		grid-column: span 1;
+	}
+}

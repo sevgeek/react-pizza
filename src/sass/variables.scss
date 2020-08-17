@@ -1,0 +1,53 @@
+// SCSS Variables
+
+/*
+	Main Variables
+*/
+$font-family: 'Nunito', sans-serif;
+$headers-font-family: sans-serif;
+$transition: .4s cubic-bezier(.23,1,.32,1);
+
+/*
+	Margin and Padding's Variables
+*/
+$margin-step: 4px;
+$padding-step: 4px;
+
+/*
+	Colors Variables
+*/
+$orange: rgb(255, 105, 0);
+
+/*
+	CSS Grid Variables
+*/
+$grid-step: 4px;
+
+$grid-col-gap-xs:	$grid-step;
+$grid-col-gap-s:	$grid-step * 2;
+$grid-col-gap-m:	$grid-step * 3;
+$grid-col-gap-l:	$grid-step * 4;
+$grid-col-gap-xl:	$grid-step * 6;
+$grid-col-gap-2xl:	$grid-step * 8;
+$grid-col-gap-3xl:	$grid-step * 10;
+$grid-col-gap-4xl:	$grid-step * 14;
+
+$grid-row-gap-xs:	$grid-step;
+$grid-row-gap-s:	$grid-step * 2;
+$grid-row-gap-m:	$grid-step * 3;
+$grid-row-gap-l:	$grid-step * 4;
+$grid-row-gap-xl:	$grid-step * 6;
+$grid-row-gap-2xl:	$grid-step * 8;
+$grid-row-gap-3xl:	$grid-step * 10;
+$grid-row-gap-4xl:	$grid-step * 14;
+
+// Mixins
+@mixin displayBlock {
+	display: block;
+	box-sizing: border-box;
+}
+
+@mixin blockParams($width, $height) {
+	width: $width;
+	height: $height;
+}
