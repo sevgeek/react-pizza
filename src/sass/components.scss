@@ -24,14 +24,15 @@
 	@include displayBlock;
 	border: none;
 	min-width: 100px;
-	background-color: $orange;
+	background-color: #ffffff;
+	border: 1px solid $orange;
 	border-radius: $padding-step * 2;
 	transition: $transition;
-	color: white;
-	font-size: 16px;
+	color: $orange;
 
 	&:hover {
 		cursor: pointer;
+		color: #ffffff;
 		background-color: rgb(217, 99, 52);
 	}
 

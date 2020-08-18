@@ -73,5 +73,5 @@ export default {
 			price: 445
 		}
 	],
-	selectedPizzaType: '',
+	selectedPizzaType: undefined,
 }

@@ -1,14 +1,16 @@
 import React from 'react'
 
-const Pizza = ({ pizzas }) => {
+const Pizza = ({ pizzas, selectedPizzaType = 'all' }) => {
 	return (
 		<React.Fragment>
-			{renderPizzas(pizzas)}
+			{selectedPizzaType === 'all'
+				? renderPizzas(pizzas)
+				: renderPizzas(pizzas.filter((pizza) => pizza.type === selectedPizzaType))}
 		</React.Fragment>
 	)
 }
 
-const renderPizzas = data => data.map(({type, img, title, content, price}, index) => (
+const renderPizzas = data => data.map(({ type, img, title, content, price }, index) => (
 	<div className='col-1'>
 		<div key={`${type}_${index}`} className='pizza'>
 			<img className='pizza-img mb-s' alt={title} src={img} />

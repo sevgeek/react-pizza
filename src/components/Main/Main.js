@@ -6,11 +6,11 @@ import { connect } from 'react-redux'
 /** Import components */
 import Pizza from './Pizza/Pizza'
 
-const Main = ({ pizzas }) => {
+const Main = ({ pizzas, selectedPizzaType }) => {
 	return (
 		<section className='mt-xl'>
 			<div className='grid grid-3-col grid-gap-xl col-justify-self_center'>
-				<Pizza pizzas={pizzas} />
+				<Pizza selectedPizzaType={selectedPizzaType} pizzas={pizzas} />
 			</div>
 		</section>
 	)
@@ -20,10 +20,11 @@ const Main = ({ pizzas }) => {
  * mapStateToProps
  * @name mapStateToProps
  * @description Преобразование состояния из хранилища в props
- * @param {Object} mapStateToProps Массив всех пицц
+ * @param {Object} pizzas Массив всех пицц
+ * @param {String} selectedPizzaType Выбранный тип пицц
  */
-const mapStateToProps = ({ pizzas }) => ({
-	pizzas
+const mapStateToProps = ({ pizzas, selectedPizzaType }) => ({
+	pizzas, selectedPizzaType
 })
 
 export default connect(mapStateToProps)(Main)
