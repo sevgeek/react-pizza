@@ -4,9 +4,9 @@ const Logo = ({ imagePath }) => (
 	<div className='flexbox flex-align-items_center'>
 		<img
 			alt='Logo'
-			width='125px'
+			width='65px'
 			src={imagePath}
-			className='flex-item' />
+			className='flex-item mr-xl' />
 		<h1 className='flex-item'>React Pizza</h1>
 	</div>
 )
