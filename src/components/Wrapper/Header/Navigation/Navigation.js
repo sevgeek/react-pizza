@@ -5,7 +5,10 @@ const Navigation = ({ pizzaTypes }) => {
 		<ul className='navigation flexbox flex-justify_around'>
 			{pizzaTypes.map((type, index) => {
 				return (
-					<li className="flex-item" key={`pizzaType_${index}`}>{type.title}</li>
+					<li
+						key={`pizzaType_${index}`}
+						className="flex-item txt-m"
+					><i className={`em ${type.emoji} mr-m`}></i>{type.title}</li>
 				)
 			})}
 		</ul>

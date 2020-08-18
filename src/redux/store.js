@@ -2,19 +2,23 @@ export default {
 	pizzaTypes: [
 		{
 			title: "Все",
-			value: "all"
+			value: "all",
+			emoji: "em-pizza"
 		},
 		{
 			title: "Мясные",
-			value: "meaty"
+			value: "meaty",
+			emoji: "em-cut_of_meat"
 		},
 		{
 			title: "Сырные",
-			value: "chesee"
+			value: "chesee",
+			emoji: "em-cheese_wedge"
 		},
 		{
 			title: "Вегетарианские",
-			value: "vegetarian"
+			value: "vegetarian",
+			emoji: "em-leafy_green"
 		},
 
 	]

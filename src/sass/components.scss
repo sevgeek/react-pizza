@@ -54,8 +54,16 @@
 
 	li {
 		display: block;
+		min-width: 50px;
+		text-align: center;
 		border-radius: 16px;
+		transition: $transition;
 		padding: $grid-col-gap-xl;
 		background-color: $ligthGrey;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #dddde0;
+		}
 	}
 }
