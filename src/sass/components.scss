@@ -1,24 +1,17 @@
 // Use variables
 @import 'variables';
 
-// Root Application
+// Application
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
 	background-color: #ffffff;
-	padding: $grid-col-gap-4xl;
-}
-
-// Application Wrapper
-.Wrapper {
-	@include displayBlock;
-	@include blockParams(100%, 100%);
-	background-color: #ffffff;
-	padding: $grid-col-gap-xl $grid-col-gap-2xl;
+	padding: $padding-step * 6 $padding-step * 8;
+	margin: $margin-step * 10;
 	border-radius: $grid-step * 2;
-
 	border: 1px solid rgb(230, 230, 230);
 }
+
 
 // Cart components
 
@@ -29,7 +22,7 @@
 	min-width: 100px;
 	background-color: $orange;
 	border: none;
-	border-radius: $grid-step * 2;
+	border-radius: $padding-step * 2;
 	transition: $transition;
 	color: white;
 	font-size: 16px;
@@ -59,7 +52,7 @@
 		border-radius: 16px;
 		border: 1px solid transparent;
 		transition: $transition;
-		padding: $grid-col-gap-m $grid-col-gap-xl;
+		padding: $padding-step * 2 $padding-step * 6;
 
 		&:hover {
 			cursor: pointer;
