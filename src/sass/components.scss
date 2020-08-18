@@ -43,3 +43,19 @@
 		outline: none;
 	}
 }
+
+// Navigation components
+
+// Navigation list
+.navigation {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: block;
+		border-radius: 16px;
+		padding: $grid-col-gap-xl;
+		background-color: $ligthGrey;
+	}
+}
