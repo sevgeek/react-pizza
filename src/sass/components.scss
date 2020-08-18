@@ -74,6 +74,7 @@
 .pizza {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
+	width: 250px;
 }
 
 .pizza-img {

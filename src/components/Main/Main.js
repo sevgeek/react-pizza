@@ -8,8 +8,8 @@ import Pizza from './Pizza/Pizza'
 
 const Main = ({ pizzas }) => {
 	return (
-		<section className='grid grid-4-col grid-gap-xl'>
-			<Pizza />
+		<section className='grid grid-3-col grid-gap-xl'>
+			<Pizza pizzas={pizzas} />
 		</section>
 	)
 }
