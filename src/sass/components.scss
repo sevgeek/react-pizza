@@ -1,15 +1,19 @@
 // Use variables
 @import 'variables';
 
+#root {
+	@include displayBlock;
+	padding: $padding-step * 12;
+}
+
 // Application
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
 	background-color: #ffffff;
 	padding: $padding-step * 6 $padding-step * 8;
-	margin: $margin-step * 10;
 	border-radius: $grid-step * 2;
-	border: 1px solid rgb(230, 230, 230);
+	// border: 1px solid rgb(230, 230, 230);
 }
 
 
@@ -21,7 +25,6 @@
 	border: none;
 	min-width: 100px;
 	background-color: $orange;
-	border: none;
 	border-radius: $padding-step * 2;
 	transition: $transition;
 	color: white;
@@ -63,5 +66,44 @@
 	li.selected {
 		color: $orange;
 		border: 1px solid $orange;
+	}
+}
+
+// Pizza component
+
+.pizza {
+	@include displayBlock;
+	@include blockParams(100%, 100%);
+}
+
+.pizza-img {
+	transition: $transition;
+
+	&:hover {
+		transform: translateY(-4px);
+	}
+}
+
+.pizza-content {
+	color: rgb(115, 121, 140)
+}
+
+.pizza-order {
+	@include displayBlock;
+	border: none;
+	border: 1px solid $orange;
+	background-color: #ffffff;
+	padding: $padding-step * 2 $padding-step * 6;
+	border-radius: $padding-step;
+	transition: $transition;
+	color: $orange;
+	font-size: 16px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
 	}
 }

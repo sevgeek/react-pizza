@@ -3,11 +3,14 @@ import React from 'react'
 /** Redux */
 import { connect } from 'react-redux'
 
+/** Import components */
+import Pizza from './Pizza/Pizza'
+
 const Main = ({ pizzas }) => {
 	return (
-		<main>
-
-		</main>
+		<section className='grid grid-4-col grid-gap-xl'>
+			<Pizza />
+		</section>
 	)
 }
 
