@@ -5,7 +5,7 @@ const Logo = ({ classes, imagePath }) => (
 	<div className={classNames(classes)} >
 		<img
 			alt='Logo'
-			width='85px'
+			width='125px'
 			src={imagePath}
 		/>
 	</div >
