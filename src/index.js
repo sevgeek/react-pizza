@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 // Redux
 import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import rootReducer from './redux/rootReducer'
+import reducer from './redux/reducer'
 
 // Redux DevTools
 const composeEnhancers =
@@ -22,7 +22,7 @@ const enhancer = composeEnhancers(
 );
 
 // Create Redux store
-const store = createStore(rootReducer, enhancer)
+const store = createStore(reducer, enhancer)
 
 ReactDOM.render(
   <React.StrictMode>

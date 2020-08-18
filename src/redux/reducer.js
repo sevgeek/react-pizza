@@ -1,5 +1,5 @@
-import initState from '../store/store'
-import { ADD } from '../actions/actionTypes'
+import initState from './store'
+import { } from './actions/actionTypes'
 
 /** Main reducer */
 export default function reducer(state = initState, action) {
