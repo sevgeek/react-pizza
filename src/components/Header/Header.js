@@ -10,9 +10,9 @@ import Logo from './Logo/Logo'
 import Navigation from './Navigation/Navigation'
 
 const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
-	<header className='grid grid-2-col grid-gap-m'>
+	<header className='grid grid-3-col grid-gap-m'>
 		{/* Pizza Logo */}
-		<div className='col-1 col-align-self_center col-justify-self_start'>
+		<div className='col-2 col-align-self_center col-justify-self_start'>
 			<Logo imagePath='/img/svg/react-pizza-logo.svg' />
 		</div>
 
@@ -22,7 +22,7 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
 		</div>
 
 		{/* Navigation */}
-		<div className='col-2'>
+		<div className='col-3'>
 			<Navigation pizzaTypes={pizzaTypes} selectedPizzaType={selectedPizzaType} choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />
 		</div>
 	</header>

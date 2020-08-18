@@ -7,7 +7,8 @@ const Logo = ({ imagePath }) => (
 			width='65px'
 			src={imagePath}
 			className='flex-item mr-xl' />
-		<h1 className='flex-item'>React Pizza</h1>
+		<h1 className='flex-item mr-m'>React Pizza</h1>
+		<p className='txt-m'>Реактивное веб-приложение интернет-магазина пиццы</p>
 	</div>
 )
 
