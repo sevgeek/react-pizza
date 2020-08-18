@@ -3,9 +3,32 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// Redux
+import { createStore, compose, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './redux/rootReducer'
+
+// Redux DevTools
+const composeEnhancers =
+  typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+    }) : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(),
+  // other store enhancers if any
+);
+
+// Create Redux store
+const store = createStore(rootReducer, enhancer)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
