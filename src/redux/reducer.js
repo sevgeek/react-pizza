@@ -1,7 +1,12 @@
 import initState from './store'
 import { SELECT_PIZZA_TYPE } from './actions/actionTypes'
 
-/** Main reducer */
+/**
+ * @name reducer
+ * @description Main reducer
+ * @param {Object} state Initial store
+ * @param {Object} action Action object
+ */
 export default function reducer(state = initState, action) {
 	/** Switch actions */
 	switch (action.type) {

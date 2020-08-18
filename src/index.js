@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// Redux
+/** Redux */
 import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './redux/reducer'
 
-// Redux DevTools
+/** Redux DevTools */
 const composeEnhancers =
   typeof window === 'object' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -18,10 +18,9 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(
   applyMiddleware(),
-  // other store enhancers if any
 );
 
-// Create Redux store
+/** Create Redux store */
 const store = createStore(reducer, enhancer)
 
 ReactDOM.render(

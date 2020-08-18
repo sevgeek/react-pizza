@@ -4,26 +4,36 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { selectPizzaType } from '../../redux/actions/actions'
 
-// Import components
+/** Import components */
 import Cart from './Cart/Cart'
 import Logo from './Logo/Logo'
 import Navigation from './Navigation/Navigation'
 
+/**
+ * @name Header
+ * @description Функциональный компонент шапки сайта
+ * @param {Array} pizzaTypes Массив видов пицц
+ * @param {String} selectedPizzaType Значение выбранного типа пиццы
+ * @param {Function} onSelectPizzaType Функция передачи выбранного типа пиццы в reducer
+ */
 const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
 	<header className='grid grid-3-col grid-gap-m'>
-		{/* Pizza Logo */}
+		{/* Logo */}
 		<div className='col-2 col-align-self_center col-justify-self_start'>
 			<Logo imagePath='/img/svg/react-pizza-logo.svg' />
 		</div>
 
-		{/* Cart Button */}
+		{/* Cart */}
 		<div className='col-1 col-align-self_center col-justify-self_end'>
 			<Cart />
 		</div>
 
 		{/* Navigation */}
 		<div className='col-3'>
-			<Navigation pizzaTypes={pizzaTypes} selectedPizzaType={selectedPizzaType} choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />
+			<Navigation
+				pizzaTypes={pizzaTypes}
+				selectedPizzaType={selectedPizzaType}
+				choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />
 		</div>
 	</header>
 )

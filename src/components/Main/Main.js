@@ -6,21 +6,25 @@ import { connect } from 'react-redux'
 /** Import components */
 import Pizza from './Pizza/Pizza'
 
-const Main = ({ pizzas, selectedPizzaType }) => {
-	return (
-		<section className='mt-xl'>
-			<div className='grid grid-3-col grid-gap-xl col-justify-self_center'>
-				<Pizza selectedPizzaType={selectedPizzaType} pizzas={pizzas} />
-			</div>
-		</section>
-	)
-}
+/**
+ * @name Main
+ * @description Функциональный компонент контейнера для всех компонентов пицц
+ * @param {Array} pizzas Pizzas array from store
+ * @param {String} selectedPizzaType Selected pizza type
+ */
+const Main = ({ pizzas, selectedPizzaType }) => (
+	<section className='mt-xl'>
+		<div className='grid grid-3-col grid-gap-xl col-justify-self_center'>
+			<Pizza selectedPizzaType={selectedPizzaType} pizzas={pizzas} />
+		</div>
+	</section>
+)
 
 /**
  * mapStateToProps
  * @name mapStateToProps
  * @description Преобразование состояния из хранилища в props
- * @param {Object} pizzas Массив всех пицц
+ * @param {Array} pizzas Массив всех пицц
  * @param {String} selectedPizzaType Выбранный тип пицц
  */
 const mapStateToProps = ({ pizzas, selectedPizzaType }) => ({

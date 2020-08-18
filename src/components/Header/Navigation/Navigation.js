@@ -4,10 +4,10 @@ import classNames from 'classnames'
 /**
  * Navigation
  * @name Navigation
- * @description Компонент вывода всех видов пицц
+ * @description Функциональный компонент вывода всех видов пицц
  * @param {Array} pizzaTypes Массив видов пиццы
  * @param {String} selectedPizzaType Значение выбранного типа пиццы
- * @param {CallableFunction} choosingTheTypeOfPizza Функция передачи значения выбранного вида пиццы
+ * @param {Function} choosingTheTypeOfPizza Функция передачи значения выбранного вида пиццы
  */
 const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) => {
 	return (

@@ -1,21 +1,14 @@
 // Use variables
 @import 'variables';
 
-// #root {
-// 	@include displayBlock;
-// 	padding: $padding-step * 2;
-// }
 
 // Application
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
-	background-color: #ffffff;
 	padding: $padding-step * 6;
-	// border-radius: $grid-step * 2;
-	// border: 1px solid rgb(230, 230, 230);
+	background-color: #ffffff;
 }
-
 
 // Cart components
 
@@ -23,12 +16,12 @@
 .cart-button {
 	@include displayBlock;
 	border: none;
-	min-width: 100px;
-	background-color: #ffffff;
-	border: 1px solid $orange;
-	border-radius: $padding-step * 2;
-	transition: $transition;
 	color: $orange;
+	min-width: 100px;
+	transition: $transition;
+	border: 1px solid $orange;
+	background-color: #ffffff;
+	border-radius: $padding-step * 2;
 
 	&:hover {
 		cursor: pointer;

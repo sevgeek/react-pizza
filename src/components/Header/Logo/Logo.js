@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * @name Logo
+ * @description Функциональный компонент отображения логотипа
+ * @param {String} imagePath Путь к изображению логотипа
+ */
 const Logo = ({ imagePath }) => (
 	<div className='flexbox flex-align-items_center'>
 		<img
