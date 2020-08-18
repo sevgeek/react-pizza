@@ -9,7 +9,7 @@ import Cart from './Cart/Cart'
 import Logo from './Logo/Logo'
 import Navigation from './Navigation/Navigation'
 
-const Header = ({ pizzaTypes, onSelectPizzaType }) => (
+const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
 	<header className='grid grid-2-col grid-gap-0'>
 		{/* Pizza Logo */}
 		<div className='col-1 col-align-self_center col-justify-self_start'>
@@ -23,22 +23,26 @@ const Header = ({ pizzaTypes, onSelectPizzaType }) => (
 
 		{/* Navigation */}
 		<div className='col-2'>
-			<Navigation pizzaTypes={pizzaTypes} choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />
+			<Navigation pizzaTypes={pizzaTypes} selectedPizzaType={selectedPizzaType} choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />
 		</div>
 	</header>
 )
 
 /**
  * mapStateToProps
+ * @name mapStateToProps
  * @description Преобразование состояния из хранилища в props
  * @param {Array} pizzaTypes Массив видов пиццы
+ * @param {String} selectedPizzaType Значение выбранного типа пиццы
  */
-const mapStateToProps = ({ pizzaTypes }) => ({
-	pizzaTypes
+const mapStateToProps = ({ pizzaTypes, selectedPizzaType }) => ({
+	pizzaTypes,
+	selectedPizzaType
 })
 
 /**
  * mapDispatchToProps
+ * @name mapDispatchToProps
  * @description Преобразование dispatch в пропсы
  * @param {Function} dispatch Функция Redux по доставке action в reducer
  */

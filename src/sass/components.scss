@@ -54,16 +54,21 @@
 
 	li {
 		display: block;
-		min-width: 50px;
+		min-width: 100px;
 		text-align: center;
 		border-radius: 16px;
+		border: 1px solid transparent;
 		transition: $transition;
-		padding: $grid-col-gap-xl;
-		background-color: $ligthGrey;
+		padding: $grid-col-gap-m $grid-col-gap-xl;
 
 		&:hover {
 			cursor: pointer;
-			background-color: #dddde0;
+			border: 1px solid $orange;
 		}
+	}
+
+	li.selected {
+		color: $orange;
+		border: 1px solid $orange;
 	}
 }
