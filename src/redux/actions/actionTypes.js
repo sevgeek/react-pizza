@@ -1,2 +1,2 @@
 /** Actions types */
-export const ADD = 'ADD'
+export const SELECT_PIZZA_TYPE = 'SELECT_PIZZA_TYPE'

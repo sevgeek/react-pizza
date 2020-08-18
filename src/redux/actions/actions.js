@@ -1,8 +1,8 @@
 /** Import actions types */
-import { ADD } from './actionTypes'
+import { SELECT_PIZZA_TYPE } from './actionTypes'
 
 /** Actions creators */
-export const add = number => ({
-	type: ADD,
-	number
+export const selectPizzaType = pizzaType => ({
+	type: SELECT_PIZZA_TYPE,
+	pizzaType
 })

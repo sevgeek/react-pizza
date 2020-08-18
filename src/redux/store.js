@@ -21,5 +21,6 @@ export default {
 			emoji: "em-leafy_green"
 		},
 
-	]
+	],
+	selectedPizzaType: null,
 }
