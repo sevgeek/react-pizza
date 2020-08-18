@@ -1,11 +1,10 @@
 import React from 'react'
-import classNames from 'classnames'
 
 const Cart = ({ classes }) => {
 	return (
-		<div className={classNames(classes, 'cart')}>
+		<React.Fragment>
 			<button className='cart-button p-m'>Корзина</button>
-		</div>
+		</React.Fragment>
 	)
 }
 

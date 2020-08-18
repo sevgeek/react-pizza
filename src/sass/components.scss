@@ -14,7 +14,7 @@
 	@include displayBlock;
 	@include blockParams(100%, 100%);
 	background-color: #ffffff;
-	padding: $grid-col-gap-2xl;
+	padding: $grid-col-gap-xl $grid-col-gap-2xl;
 	border-radius: $grid-step * 2;
 
 	border: 1px solid rgb(230, 230, 230);

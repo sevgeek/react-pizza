@@ -7,12 +7,13 @@ import Logo from './Logo/Logo'
 const Header = () => (
 	<header className='grid grid-2-col grid-gap-0'>
 		{/* Pizza Logo */}
-		<Logo
-			classes='col-1'
-			imagePath='/img/svg/react-pizza-logo.svg' />
-
+		<div className='col-1 col-align-self_center col-justify-self_start'>
+			<Logo imagePath='/img/svg/react-pizza-logo.svg' />
+		</div>
 		{/* Cart Button */}
-		<Cart classes={['col-1', 'col-align-self_center', 'col-justify-self_end']} />
+		<div className='col-1 col-align-self_center col-justify-self_end'>
+			<Cart />
+		</div>
 	</header>
 )
 

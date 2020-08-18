@@ -1,14 +1,13 @@
 import React from 'react'
-import classNames from 'classnames'
 
-const Logo = ({ classes, imagePath }) => (
-	<div className={classNames(classes)} >
+const Logo = ({ imagePath }) => (
+	<React.Fragment>
 		<img
 			alt='Logo'
 			width='125px'
 			src={imagePath}
 		/>
-	</div >
+	</React.Fragment>
 )
 
 export default Logo
