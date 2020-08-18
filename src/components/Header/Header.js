@@ -10,7 +10,7 @@ import Logo from './Logo/Logo'
 import Navigation from './Navigation/Navigation'
 
 const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
-	<header className='grid grid-2-col grid-gap-0'>
+	<header className='grid grid-2-col grid-gap-m'>
 		{/* Pizza Logo */}
 		<div className='col-1 col-align-self_center col-justify-self_start'>
 			<Logo imagePath='/img/svg/react-pizza-logo.svg' />

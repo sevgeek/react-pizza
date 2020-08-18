@@ -10,8 +10,8 @@ $transition: .4s cubic-bezier(.23,1,.32,1);
 /*
 	Margin and Padding's Variables
 */
-$margin-step: 4px;
-$padding-step: 4px;
+$margin-step: 8px;
+$padding-step: 8px;
 
 /*
 	Colors Variables
@@ -23,7 +23,7 @@ $ligthGrey: rgb(243, 243, 247);
 /*
 	CSS Grid Variables
 */
-$grid-step: 4px;
+$grid-step: 8px;
 
 $grid-col-gap-xs:	$grid-step;
 $grid-col-gap-s:	$grid-step * 2;

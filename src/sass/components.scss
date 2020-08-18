@@ -1,18 +1,18 @@
 // Use variables
 @import 'variables';
 
-#root {
-	@include displayBlock;
-	padding: $padding-step * 12;
-}
+// #root {
+// 	@include displayBlock;
+// 	padding: $padding-step * 2;
+// }
 
 // Application
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
 	background-color: #ffffff;
-	padding: $padding-step * 6 $padding-step * 8;
-	border-radius: $grid-step * 2;
+	padding: $padding-step * 6;
+	// border-radius: $grid-step * 2;
 	// border: 1px solid rgb(230, 230, 230);
 }
 
@@ -55,7 +55,7 @@
 		border-radius: 16px;
 		border: 1px solid transparent;
 		transition: $transition;
-		padding: $padding-step * 2 $padding-step * 6;
+		padding: $padding-step $padding-step * 2;
 
 		&:hover {
 			cursor: pointer;
@@ -70,11 +70,9 @@
 }
 
 // Pizza component
-
 .pizza {
-	@include displayBlock;
-	@include blockParams(100%, 100%);
-	width: 250px;
+	width: 300px;
+	margin: 0 auto;
 }
 
 .pizza-img {
