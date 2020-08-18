@@ -3,7 +3,7 @@ import React from 'react'
 /** Redux */
 import { connect } from 'react-redux'
 
-const Main = () => {
+const Main = ({ pizzas }) => {
 	return (
 		<main>
 
@@ -11,4 +11,14 @@ const Main = () => {
 	)
 }
 
-export default connect()(Main)
+/**
+ * mapStateToProps
+ * @name mapStateToProps
+ * @description Преобразование состояния из хранилища в props
+ * @param {Object} mapStateToProps Массив всех пицц
+ */
+const mapStateToProps = ({ pizzas }) => ({
+	pizzas
+})
+
+export default connect(mapStateToProps)(Main)

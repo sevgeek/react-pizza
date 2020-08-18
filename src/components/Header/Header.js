@@ -2,7 +2,7 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
-import { selectPizzaType } from '../../../redux/actions/actions'
+import { selectPizzaType } from '../../redux/actions/actions'
 
 // Import components
 import Cart from './Cart/Cart'

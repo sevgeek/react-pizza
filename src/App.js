@@ -3,7 +3,7 @@ import './sass/style.scss'
 
 // Import components
 import Main from './components/Main/Main'
-import Header from './components/Wrapper/Header/Header'
+import Header from './components/Header/Header'
 
 const App = () => {
 	return (
