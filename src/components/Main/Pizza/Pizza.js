@@ -30,7 +30,12 @@ const renderPizzas = data => data.map(({ type, config, img, title, content, pric
 			<p className='pizza-title txt-l mb-s'>{title}</p>
 			<p className='pizza-content txt-m mb-s'>{firstLetterToUpperCase(content.join(', '))}</p>
 
-			<PizzaConfig config={config} />
+			{/* Render pizza config's */}
+			<PizzaConfig
+				config={config}
+				pizzaIndex={index}
+				selectConfigItem={(newConfig) => console.table(newConfig)}
+			/>
 
 			<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 				<p className='pizza-price col-1 txt-l col-align-self_center'>от {price} ₽</p>
