@@ -6,7 +6,7 @@ import React from 'react'
  */
 const Cart = () => (
 	<React.Fragment>
-		<button className='cart-button pt-xs pb-xs pr-s pl-s txt-m'>
+		<button className='cart-button p-xs txt-m'>
 			<img src='/img/svg/cart.svg' alt='Cart' width='25' />
 		</button>
 	</React.Fragment>

@@ -20,13 +20,12 @@
 	min-width: 100px;
 	transition: $transition;
 	border: 1px solid $orange;
-	background-color: #ffffff;
-	border-radius: $padding-step * 2;
+	border-radius: $padding-step;
+	background-color: $orange;
 
 	&:hover {
 		cursor: pointer;
-		// color: #ffffff;
-		// background-color: rgb(217, 99, 52);
+		background-color: $orangeDark;
 	}
 
 	&:focus {
