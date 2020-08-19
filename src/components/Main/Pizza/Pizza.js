@@ -28,13 +28,13 @@ const renderPizzas = data => data.map(({ type, config, img, title, content, pric
 		<div className='pizza'>
 			<img className='pizza-img mb-s' alt={title} src={img} />
 			<p className='pizza-title txt-l mb-s'>{title}</p>
-			<p className='pizza-content txt-m mb-xl'>{firstLetterToUpperCase(content.join(', '))}</p>
+			<p className='pizza-content txt-m mb-s'>{firstLetterToUpperCase(content.join(', '))}</p>
 
 			<PizzaConfig config={config} />
 
-			<div className='flexbox flex-justify_between flex-align-items_center'>
-				<p className='pizza-price flex-item txt-l'>от {price} ₽</p>
-				<button className='pizza-order flex-item'>Выбрать</button>
+			<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
+				<p className='pizza-price col-1 txt-l col-align-self_center'>от {price} ₽</p>
+				<button className='pizza-order col-1'>Выбрать</button>
 			</div>
 		</div>
 	</div>

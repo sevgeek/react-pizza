@@ -77,7 +77,8 @@
 }
 
 .pizza-content {
-	height: 75px;
+	height: auto;
+	min-height: 75px;
 	color: rgb(115, 121, 140)
 }
 
@@ -89,8 +90,8 @@
 }
 
 .pizza-config_value {
-	width: auto;
 	display: block;
+	width: auto;
 	text-align: center;
 	border-radius: 5px;
 	box-sizing: border-box;
@@ -105,10 +106,11 @@
 
 .pizza-order {
 	@include displayBlock;
+	width: 145px;
 	border: none;
 	border: 1px solid $orange;
 	background-color: #ffffff;
-	padding: $padding-step * 2 $padding-step * 6;
+	padding: $padding-step $padding-step * 4;
 	border-radius: $padding-step;
 	transition: $transition;
 	color: $orange;
