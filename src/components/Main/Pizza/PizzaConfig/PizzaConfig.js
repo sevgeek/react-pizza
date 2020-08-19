@@ -12,8 +12,10 @@ import pizzaProps from './pizzaProps'
 const PizzaConfig = ({ config, pizzaIndex, selectConfigItem }) => (
 	<React.Fragment>
 		<section className='mb-s'>
-			<div className='pizza-config grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
-				{renderSizeConfigForPizza(pizzaProps, config, pizzaIndex, selectConfigItem)}
+			<div className='mb-xs'>
+				<div className='pizza-config grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
+					{renderSizeConfigForPizza(pizzaProps, config, pizzaIndex, selectConfigItem)}
+				</div>
 			</div>
 			<div className='pizza-config grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 				{renderDoughConfigForPizza(pizzaProps, config, pizzaIndex, selectConfigItem)}
