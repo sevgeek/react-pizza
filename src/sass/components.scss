@@ -82,18 +82,20 @@
 }
 
 .pizza-config {
+	padding: 4px 6px;
 	box-sizing: border-box;
 	background-color: $ligthGrey;
-	padding: $padding-step / 2;
 	border-radius: $padding-step;
 }
 
 .pizza-config_value {
+	width: auto;
 	display: block;
+	text-align: center;
 	border-radius: 5px;
 	box-sizing: border-box;
 	transition: $transition;
-	padding: $padding-step / 2 $padding-step;
+	padding: $padding-step / 2 $padding-step * 2;
 }
 
 .pizza-config_value.selected {
