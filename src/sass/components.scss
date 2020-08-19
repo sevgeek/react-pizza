@@ -81,6 +81,26 @@
 	color: rgb(115, 121, 140)
 }
 
+.pizza-config {
+	box-sizing: border-box;
+	background-color: $ligthGrey;
+	padding: $padding-step / 2;
+	border-radius: $padding-step;
+}
+
+.pizza-config_value {
+	display: block;
+	border-radius: 5px;
+	box-sizing: border-box;
+	transition: $transition;
+	padding: $padding-step / 2 $padding-step;
+}
+
+.pizza-config_value.selected {
+	background-color: #ffffff;
+	box-shadow: 3px 0px 9px #cccccc;
+}
+
 .pizza-order {
 	@include displayBlock;
 	border: none;

@@ -26,6 +26,13 @@ const renderPizzas = data => data.map(({ type, img, title, content, price }, ind
 			<img className='pizza-img mb-s' alt={title} src={img} />
 			<p className='pizza-title txt-l mb-s'>{title}</p>
 			<p className='pizza-content txt-m mb-xl'>{firstLetterToUpperCase(content.join(', '))}</p>
+
+			<div className='pizza-config mb-m flexbox flex-justify_between'>
+				<div className='pizza-config_value flex-item selected'>Маленькая</div>
+				<div className='pizza-config_value flex-item'>Средняя</div>
+				<div className='pizza-config_value flex-item'>Большая</div>
+			</div>
+
 			<div className='flexbox flex-justify_between flex-align-items_center'>
 				<p className='pizza-price flex-item txt-l'>от {price} ₽</p>
 				<button className='pizza-order flex-item'>Выбрать</button>
