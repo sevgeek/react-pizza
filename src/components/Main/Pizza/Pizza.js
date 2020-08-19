@@ -1,5 +1,8 @@
 import React from 'react'
 
+/** Import components */
+import PizzaConfig from './PizzaConfig/PizzaConfig'
+
 /**
  * @name Pizza
  * @description Функциональный компонент отображения пиццы
@@ -20,18 +23,14 @@ const Pizza = ({ pizzas, selectedPizzaType = 'all' }) => (
  * @description Функция рендера массива пицц
  * @param {Array} data Массив объектов: пицц
  */
-const renderPizzas = data => data.map(({ type, img, title, content, price }, index) => (
+const renderPizzas = data => data.map(({ type, config, img, title, content, price }, index) => (
 	<div className='col-1' key={`${type}_${index}`}>
 		<div className='pizza'>
 			<img className='pizza-img mb-s' alt={title} src={img} />
 			<p className='pizza-title txt-l mb-s'>{title}</p>
 			<p className='pizza-content txt-m mb-xl'>{firstLetterToUpperCase(content.join(', '))}</p>
 
-			<div className='pizza-config mb-m flexbox flex-justify_between'>
-				<div className='pizza-config_value flex-item selected'>Маленькая</div>
-				<div className='pizza-config_value flex-item'>Средняя</div>
-				<div className='pizza-config_value flex-item'>Большая</div>
-			</div>
+			<PizzaConfig config={config} />
 
 			<div className='flexbox flex-justify_between flex-align-items_center'>
 				<p className='pizza-price flex-item txt-l'>от {price} ₽</p>
