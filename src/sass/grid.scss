@@ -142,6 +142,57 @@
 	grid-column-gap: $grid-col-gap-xl;
 }
 
+/* Отступы для строк сетки */
+.grid-row-gap-0 {
+	grid-row-gap: 0px;
+}
+
+.grid-row-gap-xs {
+	grid-row-gap: $grid-row-gap-xs;
+}
+
+.grid-row-gap-s {
+	grid-row-gap: $grid-row-gap-s;
+}
+
+.grid-row-gap-m {
+	grid-row-gap: $grid-row-gap-m;
+}
+
+.grid-row-gap-l {
+	grid-row-gap: $grid-row-gap-l;
+}
+
+.grid-row-gap-xl {
+	grid-row-gap: $grid-row-gap-xl;
+}
+
+/* Отступы для столбцов сетки */
+
+.grid-col-gap-0 {
+	grid-column-gap: 0px;
+}
+
+.grid-col-gap-xs {
+	grid-column-gap: $grid-col-gap-xs;
+}
+
+.grid-col-gap-s {
+	grid-column-gap: $grid-col-gap-s;
+}
+
+.grid-col-gap-m {
+	grid-column-gap: $grid-col-gap-m;
+}
+
+.grid-col-gap-l {
+	grid-column-gap: $grid-col-gap-l;
+}
+
+.grid-col-gap-xl {
+	grid-column-gap: $grid-col-gap-xl;
+}
+
 /* Колонки сетки */
 .col-1 	{
 	grid-column: span 1;

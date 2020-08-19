@@ -14,7 +14,7 @@ import Pizza from './Pizza/Pizza'
  */
 const Main = ({ pizzas, selectedPizzaType }) => (
 	<section className='mt-xl'>
-		<div className='grid grid-3-col grid-gap-xl col-justify-self_center'>
+		<div className='grid grid-3-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
 			<Pizza selectedPizzaType={selectedPizzaType} pizzas={pizzas} />
 		</div>
 	</section>
