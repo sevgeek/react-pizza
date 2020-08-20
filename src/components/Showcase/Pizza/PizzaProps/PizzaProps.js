@@ -11,16 +11,16 @@ import props from './props'
  */
 const PizzaProps = ({ config, pizzaIndex, selectProps }) => (
 	<React.Fragment>
-		<section className='mb-s'>
-			<div className='mb-xs'>
-				<div className='pizza-config grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
-					{renderSizeProps(props, config, pizzaIndex, selectProps)}
-				</div>
+		<div className='pizza-config'>
+			<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
+				{renderSizeProps(props, config, pizzaIndex, selectProps)}
 			</div>
-			<div className='pizza-config grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
+		</div>
+		<div className='pizza-config'>
+			<div className='grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 				{renderDoughProps(props, config, pizzaIndex, selectProps)}
 			</div>
-		</section>
+		</div>
 	</React.Fragment>
 )
 

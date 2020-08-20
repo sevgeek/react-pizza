@@ -29,7 +29,7 @@ export default {
 				size: 'small',
 				dough: 'standart',
 			},
-			img: 'https://cdn.dodostatic.net/static/Img/Products/1e414bf6663645f592d166329e1fec83_292x292.jpeg',
+			img: 'https://cdn.dodostatic.net/static/Img/Products/b34fe0f729174354b87251de9214e461_292x292.jpeg',
 			title: 'Карбонара',
 			content: ['бекон', 'сыры чеддер и пармезан', 'моцарелла', 'томаты черри', 'красный лук', 'чеснок', 'сливочный соус', 'итальянские травы'],
 			defaultPrice: 395,

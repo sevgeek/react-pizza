@@ -64,7 +64,7 @@
 
 // Pizza component
 .pizza {
-	width: 300px;
+	width: 318px;
 	margin: 0 auto;
 }
 
@@ -84,7 +84,7 @@
 
 .pizza-config {
 	padding: 4px 6px;
-	box-sizing: border-box;
+	margin-bottom: $margin-step * 1.5;
 	background-color: $ligthGrey;
 	border-radius: $padding-step;
 }
@@ -102,13 +102,13 @@
 
 .pizza-config_value.selected {
 	background-color: #ffffff;
-	box-shadow: 3px 0px 9px #cccccc;
+	// box-shadow: 3px 0px 9px #cccccc;
+	box-shadow: 1px 0px 6px 0px #cccccc;
 }
 
 .pizza-order {
 	@include displayBlock;
-	width: 145px;
-	border: none;
+	min-width: 50%;
 	border: 1px solid $orange;
 	background-color: #ffffff;
 	padding: $padding-step $padding-step * 4;

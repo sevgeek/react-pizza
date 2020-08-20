@@ -39,7 +39,7 @@ const renderPizzas = (data, selectProps) => data.map(({ type, config, img, title
 			/>
 
 			<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
-				<p className='pizza-price col-1 txt-l col-align-self_center'>от {price} ₽</p>
+				<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
 				<button className='pizza-order col-1'>Выбрать</button>
 			</div>
 		</div>
