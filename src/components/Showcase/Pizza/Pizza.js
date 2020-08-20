@@ -34,7 +34,7 @@ const renderAllPizzas = (data, selectProps) => Object.values(data).map((type) =>
 			{/* Render pizza config's */}
 			<PizzaProps
 				config={config}
-				pizzaIndex={id}
+				pizza={{ id, type }}
 				selectProps={(props) => selectProps(props)}
 			/>
 
@@ -62,7 +62,7 @@ const renderPizzas = (data, selectProps) => (data).map(({ id, type, title, img, 
 			{/* Render pizza config's */}
 			<PizzaProps
 				config={config}
-				pizzaIndex={id}
+				pizza={{ id, type }}
 				selectProps={(props) => selectProps(props)}
 			/>
 

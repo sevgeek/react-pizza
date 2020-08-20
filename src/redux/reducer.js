@@ -35,36 +35,43 @@ export default function reducer(state = initState, action) {
  * @param {String} dough Свойство пиццы: вид теста
  * @returns {Array} Новое состояние
  */
-const changePropsOfPizza = (state, { index, size, dough }) => {
-	// Copy actual pizzas from state
-	let pizzas = [...state.pizzas]
+const changePropsOfPizza = (state, { id, type, size, dough }) => {
+	// Копируем массив всех пицц из хранилища
+	let allPizzas = { ...state.pizzas }
 
-	// The change of the price according to the size
-	let price = state.pizzas[index].defaultPrice
+	// Получаем объект выбранной пиццы
+	const currentPizza = allPizzas[type].filter(pizza => pizza.id === id)[0]
+
+	// Получаем инлекс выбранной пиццы
+	const currenPizzaIndex = allPizzas[type].indexOf(currentPizza, 0)
+
+	// Получаем свойства
+	let { price, defaultPrice } = currentPizza
+
 	switch (size) {
 		// Leave default price
 		case 'small':
-			price = state.pizzas[index].defaultPrice
+			price = defaultPrice
 			break;
 
 		// Increase by 75
 		case 'medium':
-			price = state.pizzas[index].defaultPrice + 75
+			price = price + 75
 			break;
 
 		// Increase by 100
 		case 'big':
-			price = state.pizzas[index].defaultPrice + 100
+			price = price + 100
 			break;
 
 		default:
-			price = state.pizzas[index].defaultPrice
+			price = defaultPrice
 			break;
 	}
 
-	// Create new properties for chenged pizza
-	const newPizza = {
-		...state.pizzas[index],
+	// Обновляем свойства выбранной пиццы
+	const newPropsForCurrentPizza = {
+		...currentPizza,
 		price,
 		config: {
 			size,
@@ -72,11 +79,12 @@ const changePropsOfPizza = (state, { index, size, dough }) => {
 		}
 	}
 
-	// Splice pizza in copied actual state
-	pizzas.splice(index, 1, newPizza)
+	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
+	allPizzas[type].splice(currenPizzaIndex, 1, newPropsForCurrentPizza)
 
+	// Возвращаем обновлённое состояние
 	return {
 		...state,
-		pizzas
+		pizzas: allPizzas
 	}
 }

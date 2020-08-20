@@ -20,7 +20,7 @@ export default {
 		},
 		{
 			dough: 'thin',
-			alias: 'Тонкое',
+			alias: 'Тонкое тесто',
 		}
 	]
 }
