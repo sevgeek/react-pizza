@@ -1,24 +1,24 @@
 import React from 'react'
 import classNames from 'classnames'
-import pizzaProps from './pizzaProps'
+import props from './props'
 
 /**
- * @name PizzaConfig
+ * @name PizzaProps
  * @description Функциональный компонент отображения основных характеристик для пиццы
  * @param {Object} config Характеристики пиццы из store
  * @param {Number} pizzaIndex Порядковый номер (индекс) пиццы
  * @param {Function} selectConfigItem Call-back function: нажатие на характеристику
  */
-const PizzaConfig = ({ config, pizzaIndex, selectConfigItem }) => (
+const PizzaProps = ({ config, pizzaIndex, selectConfigItem }) => (
 	<React.Fragment>
 		<section className='mb-s'>
 			<div className='mb-xs'>
 				<div className='pizza-config grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
-					{renderSizeConfigForPizza(pizzaProps, config, pizzaIndex, selectConfigItem)}
+					{renderSizeConfigForPizza(props, config, pizzaIndex, selectConfigItem)}
 				</div>
 			</div>
 			<div className='pizza-config grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
-				{renderDoughConfigForPizza(pizzaProps, config, pizzaIndex, selectConfigItem)}
+				{renderDoughConfigForPizza(props, config, pizzaIndex, selectConfigItem)}
 			</div>
 		</section>
 	</React.Fragment>
@@ -27,12 +27,12 @@ const PizzaConfig = ({ config, pizzaIndex, selectConfigItem }) => (
 /**
  * @name renderSizeConfigForPizza
  * @description Преобразование размера для пиццы, исходя из стандартных значений
- * @param {Object} pizzaProps Описание всех характеристик для пиццы
+ * @param {Object} props Описание всех характеристик для пиццы
  * @param {Object} config Характеристики пиццы из store
  * @param {Number} pizzaIndex Порядковый номер (индекс) пиццы
  * @param {Function} callbackFunction Call-back function: нажатие на характеристику
  */
-const renderSizeConfigForPizza = (pizzaProps, config, pizzaIndex, callbackFunction) => pizzaProps.size.map(({ size, alias }) => {
+const renderSizeConfigForPizza = (props, config, pizzaIndex, callbackFunction) => props.size.map(({ size, alias }) => {
 	// Определяем активную характеристику
 	const selected = config.size === size ? true : false
 	return (
@@ -46,12 +46,12 @@ const renderSizeConfigForPizza = (pizzaProps, config, pizzaIndex, callbackFuncti
 /**
  * @name renderDoughConfigForPizza
  * @description Преобразование теста для пиццы, исходя из стандартных значений
- * @param {Object} pizzaProps Описание всех характеристик для пиццы
+ * @param {Object} props Описание всех характеристик для пиццы
  * @param {Object} config Характеристики пиццы из store
  * @param {Number} pizzaIndex Порядковый номер (индекс) пиццы
  * @param {Function} callbackFunction Call-back function: нажатие на характеристику
  */
-const renderDoughConfigForPizza = (pizzaProps, config, pizzaIndex, callbackFunction) => pizzaProps.dough.map(({ dough, alias }) => {
+const renderDoughConfigForPizza = (props, config, pizzaIndex, callbackFunction) => props.dough.map(({ dough, alias }) => {
 	// Определяем активную характеристику
 	const selected = config.dough === dough ? true : false
 	return (
@@ -62,4 +62,4 @@ const renderDoughConfigForPizza = (pizzaProps, config, pizzaIndex, callbackFunct
 	)
 })
 
-export default PizzaConfig
+export default PizzaProps

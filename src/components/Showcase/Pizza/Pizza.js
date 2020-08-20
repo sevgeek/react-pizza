@@ -1,7 +1,7 @@
 import React from 'react'
 
 /** Import components */
-import PizzaConfig from './PizzaConfig/PizzaConfig'
+import PizzaProps from './PizzaProps/PizzaProps'
 
 /**
  * @name Pizza
@@ -31,7 +31,7 @@ const renderPizzas = data => data.map(({ type, config, img, title, content, pric
 			<p className='pizza-content txt-m mb-s'>{firstLetterToUpperCase(content.join(', '))}</p>
 
 			{/* Render pizza config's */}
-			<PizzaConfig
+			<PizzaProps
 				config={config}
 				pizzaIndex={index}
 				selectConfigItem={(newConfig) => console.table(newConfig)}
