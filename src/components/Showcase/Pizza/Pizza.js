@@ -34,7 +34,7 @@ const renderPizzas = data => data.map(({ type, config, img, title, content, pric
 			<PizzaProps
 				config={config}
 				pizzaIndex={index}
-				selectConfigItem={(newConfig) => console.table(newConfig)}
+				selectProps={(newConfig) => console.table(newConfig)}
 			/>
 
 			<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
