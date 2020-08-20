@@ -2,13 +2,13 @@ import React from 'react';
 import './sass/style.scss'
 
 /** Import components */
-import Main from './components/Main/Main'
+import Showcase from './components/Showcase/Showcase'
 import Header from './components/Header/Header'
 
 const App = () => (
 	<div className="App">
 		<Header />
-		<Main />
+		<Showcase />
 	</div>
 )
 

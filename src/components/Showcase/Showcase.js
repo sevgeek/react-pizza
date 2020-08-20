@@ -12,16 +12,15 @@ import Pizza from './Pizza/Pizza'
  * @param {Array} pizzas Pizzas array from store
  * @param {String} selectedPizzaType Selected pizza type
  */
-const Main = ({ pizzas, selectedPizzaType }) => (
+const Showcase = ({ pizzas, selectedPizzaType }) => (
 	<section className='mt-xl'>
 		<div className='grid grid-3-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
-			<Pizza selectedPizzaType={selectedPizzaType} pizzas={pizzas} />
+			<Pizza pizzas={pizzas} selectedPizzaType={selectedPizzaType} />
 		</div>
 	</section>
 )
 
 /**
- * mapStateToProps
  * @name mapStateToProps
  * @description Преобразование состояния из хранилища в props
  * @param {Array} pizzas Массив всех пицц
@@ -31,4 +30,4 @@ const mapStateToProps = ({ pizzas, selectedPizzaType }) => ({
 	pizzas, selectedPizzaType
 })
 
-export default connect(mapStateToProps)(Main)
+export default connect(mapStateToProps)(Showcase)
