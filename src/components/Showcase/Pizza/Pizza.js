@@ -24,8 +24,8 @@ const Pizza = ({ pizzas, selectedPizzaType = 'all', selectProps }) => (
  * @param {Array} data Массив объектов: пицц
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderPizzas = (data, selectProps) => data.map(({ type, config, img, title, content, price }, index) => (
-	<div className='col-1' key={`${type}_${index}`}>
+const renderPizzas = (data, selectProps) => Object.values(data).map((type) => type.map(({ id, type, title, img, content, config, price }) => (
+	<div className='col-1' key={`${type}${id}`}>
 		<div className='pizza'>
 			<img className='pizza-img mb-s' alt={title} src={img} />
 			<p className='pizza-title txt-l mb-s'>{title}</p>
@@ -34,7 +34,7 @@ const renderPizzas = (data, selectProps) => data.map(({ type, config, img, title
 			{/* Render pizza config's */}
 			<PizzaProps
 				config={config}
-				pizzaIndex={index}
+				pizzaIndex={id}
 				selectProps={(props) => selectProps(props)}
 			/>
 
@@ -44,7 +44,7 @@ const renderPizzas = (data, selectProps) => data.map(({ type, config, img, title
 			</div>
 		</div>
 	</div>
-))
+)))
 
 /**
  * @name firstLetterToUpperCase
