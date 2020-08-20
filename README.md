@@ -1,9 +1,7 @@
 # React Pizza
-
-## Веб-приложение интернет магазина пиццы на ReactJS и Redux
+Веб-приложение интернет магазина пиццы на ReactJS и Redux
 
 ## Установка
-
 Клонируйте репозиторий на свой компьютер.
 ```
 git clone git@github.com:sevgeek/react-pizza.git
