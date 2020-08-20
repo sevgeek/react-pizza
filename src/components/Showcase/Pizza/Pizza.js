@@ -9,12 +9,12 @@ import PizzaProps from './PizzaProps/PizzaProps'
  * @param {Array} pizzas Pizzas array from store
  * @param {String} selectedPizzaType Selected pizza type
  */
-const Pizza = ({ pizzas, selectedPizzaType = 'all' }) => (
+const Pizza = ({ pizzas, selectedPizzaType = 'all', selectProps }) => (
 	<React.Fragment>
 		{/* Делаем проверку выбора пользователя */}
 		{selectedPizzaType === 'all'
-			? renderPizzas(pizzas)
-			: renderPizzas(pizzas.filter((pizza) => pizza.type === selectedPizzaType))}
+			? renderPizzas(pizzas, selectProps)
+			: renderPizzas((pizzas.filter((pizza) => pizza.type === selectedPizzaType)), selectProps)}
 	</React.Fragment>
 )
 
@@ -22,8 +22,9 @@ const Pizza = ({ pizzas, selectedPizzaType = 'all' }) => (
  * @name renderPizzas
  * @description Функция рендера массива пицц
  * @param {Array} data Массив объектов: пицц
+ * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderPizzas = data => data.map(({ type, config, img, title, content, price }, index) => (
+const renderPizzas = (data, selectProps) => data.map(({ type, config, img, title, content, price }, index) => (
 	<div className='col-1' key={`${type}_${index}`}>
 		<div className='pizza'>
 			<img className='pizza-img mb-s' alt={title} src={img} />
@@ -34,7 +35,7 @@ const renderPizzas = data => data.map(({ type, config, img, title, content, pric
 			<PizzaProps
 				config={config}
 				pizzaIndex={index}
-				selectProps={(newConfig) => console.table(newConfig)}
+				selectProps={(props) => selectProps(props)}
 			/>
 
 			<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
