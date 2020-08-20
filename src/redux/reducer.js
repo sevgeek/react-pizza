@@ -30,23 +30,24 @@ export default function reducer(state = initState, action) {
  * @name changePropsOfPizza
  * @description Изменение свойств пиццы
  * @param {Object} state Актуальное состояние из хранилища
- * @param {Number} index Порядковый индекс изменяемой пиццы
+ * @param {Number} id Индентификатор изменяемой пиццы
+ * @param {String} type Тип изменяемой пиццы
  * @param {String} size Свойство пиццы: размер
  * @param {String} dough Свойство пиццы: вид теста
  * @returns {Array} Новое состояние
  */
 const changePropsOfPizza = (state, { id, type, size, dough }) => {
-	// Копируем массив всех пицц из хранилища
+	// Копируем актуальный объект всех пицц из хранилища
 	let allPizzas = { ...state.pizzas }
 
 	// Получаем объект выбранной пиццы
 	const currentPizza = allPizzas[type].filter(pizza => pizza.id === id)[0]
 
-	// Получаем инлекс выбранной пиццы
+	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = allPizzas[type].indexOf(currentPizza, 0)
 
 	// Получаем свойства
-	let { price, defaultPrice } = currentPizza
+	let { price, defaultPrice, config: { size: prevSize, dough: prevDough } } = currentPizza
 
 	switch (size) {
 		// Leave default price
