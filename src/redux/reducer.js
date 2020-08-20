@@ -19,28 +19,64 @@ export default function reducer(state = initState, action) {
 
 		// Select pizza props...
 		case SELECT_PIZZA_PROPS:
-			// Copy actual pizzas from state
-			let newPizzasArray = [...state.pizzas]
-
-			// Create new properties for chenged pizza
-			const newPizza = {
-				...state.pizzas[action.props.index],
-				config: {
-					size: action.props.size,
-					dough: action.props.dough
-				}
-			}
-
-			// Splice pizza in copied actual state
-			newPizzasArray.splice(action.props.index, 1, newPizza)
-
-			// Return new state
-			return {
-				...state,
-				pizzas: newPizzasArray
-			}
+			return changePropsOfPizza(state, action.props)
 
 		default:
 			return state;
+	}
+}
+
+/**
+ * @name changePropsOfPizza
+ * @description Изменение свойств пиццы
+ * @param {Object} state Актуальное состояние из хранилища
+ * @param {Number} index Порядковый индекс изменяемой пиццы
+ * @param {String} size Свойство пиццы: размер
+ * @param {String} dough Свойство пиццы: вид теста
+ * @returns {Array} Новое состояние
+ */
+const changePropsOfPizza = (state, { index, size, dough }) => {
+	// Copy actual pizzas from state
+	let pizzas = [...state.pizzas]
+
+	// The change of the price according to the size
+	let price = state.pizzas[index].defaultPrice
+	switch (size) {
+		// Leave default price
+		case 'small':
+			price = state.pizzas[index].defaultPrice
+			break;
+
+		// Increase by 75
+		case 'medium':
+			price = state.pizzas[index].defaultPrice + 75
+			break;
+
+		// Increase by 100
+		case 'big':
+			price = state.pizzas[index].defaultPrice + 100
+			break;
+
+		default:
+			price = state.pizzas[index].defaultPrice
+			break;
+	}
+
+	// Create new properties for chenged pizza
+	const newPizza = {
+		...state.pizzas[index],
+		price,
+		config: {
+			size,
+			dough
+		}
+	}
+
+	// Splice pizza in copied actual state
+	pizzas.splice(index, 1, newPizza)
+
+	return {
+		...state,
+		pizzas
 	}
 }
