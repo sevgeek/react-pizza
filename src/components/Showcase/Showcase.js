@@ -2,6 +2,7 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
+import { selectPizzaProps } from '../../redux/actions/actions'
 
 /** Import components */
 import Pizza from './Pizza/Pizza'
@@ -13,13 +14,13 @@ import Pizza from './Pizza/Pizza'
  * @param {String} selectedPizzaType Selected pizza type
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const Showcase = ({ pizzas, selectedPizzaType }) => (
+const Showcase = ({ pizzas, selectedPizzaType, onSelectPizzaProps }) => (
 	<section className='mt-xl'>
 		<div className='grid grid-3-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
 			<Pizza
 				pizzas={pizzas}
 				selectedPizzaType={selectedPizzaType}
-				selectProps={(props) => console.table(props)}
+				selectProps={(props) => onSelectPizzaProps(props)}
 			/>
 		</div>
 	</section>
@@ -35,4 +36,9 @@ const mapStateToProps = ({ pizzas, selectedPizzaType }) => ({
 	pizzas, selectedPizzaType
 })
 
-export default connect(mapStateToProps)(Showcase)
+const mapDispatchToProps = dispatch => ({
+	onSelectPizzaProps: props => dispatch(selectPizzaProps(props))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Showcase)

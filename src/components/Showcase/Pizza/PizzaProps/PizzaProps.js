@@ -38,7 +38,7 @@ const renderSizeProps = (props, config, pizzaIndex, selectProps) => props.size.m
 	return (
 		<div
 			key={`${pizzaIndex}${size}`}
-			onClick={() => selectProps({ index: pizzaIndex, size })}
+			onClick={() => selectProps({ index: pizzaIndex, size, dough: config.dough })}
 			className={classNames('pizza-config_value', 'col-1', { 'selected': selected })}>{alias}</div>
 	)
 })
@@ -57,7 +57,7 @@ const renderDoughProps = (props, config, pizzaIndex, selectProps) => props.dough
 	return (
 		<div
 			key={`${pizzaIndex}${dough}`}
-			onClick={() => selectProps({ index: pizzaIndex, dough })}
+			onClick={() => selectProps({ index: pizzaIndex, dough, size: config.size })}
 			className={classNames('pizza-config_value', 'col-1', { 'selected': selected })}>{alias}</div>
 	)
 })
