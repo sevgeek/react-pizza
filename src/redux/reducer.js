@@ -43,7 +43,7 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	const currentPizza = allPizzas[type].filter(pizza => pizza.id === id)[0]
 
 	// Получаем инлекс выбранной пиццы
-	const currenPizzaIndex = allPizzas[type].indexOf(currentPizza, 0)
+	const currentPizzaIndex = allPizzas[type].indexOf(currentPizza, 0)
 
 	// Получаем свойства
 	let { price, defaultPrice } = currentPizza
@@ -80,7 +80,7 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	}
 
 	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
-	allPizzas[type].splice(currenPizzaIndex, 1, newPropsForCurrentPizza)
+	allPizzas[type].splice(currentPizzaIndex, 1, newPropsForCurrentPizza)
 
 	// Возвращаем обновлённое состояние
 	return {
