@@ -8,28 +8,33 @@ import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './redux/reducer'
 
+/** React Router */
+import { BrowserRouter } from "react-router-dom";
+
 /** Redux DevTools */
 const composeEnhancers =
-  typeof window === 'object' &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-    }) : compose;
+	typeof window === 'object' &&
+		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+			// Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+		}) : compose;
 
 const enhancer = composeEnhancers(
-  applyMiddleware(),
+	applyMiddleware(),
 );
 
 /** Create Redux store */
 const store = createStore(reducer, enhancer)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<BrowserRouter>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</BrowserRouter>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

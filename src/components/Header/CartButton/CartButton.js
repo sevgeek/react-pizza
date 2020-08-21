@@ -1,5 +1,8 @@
 import React from 'react'
 
+/** Import components */
+import { Link } from 'react-router-dom'
+
 /**
  * @name CartButton
  * @description Функциональный компонент корзины заказа
@@ -11,14 +14,16 @@ const CartButton = ({ cart = [] }) => {
 		: null
 
 	return (
-		<div className='cart'>
-			<button className='cart-button pt-xs pb-xs pr-s pl-s txt-m'>
-				<div className='flexbox'>
-					<p className='flex-item cart-text'>Корзина</p>
-					{orderCountNode}
+		<Link to='/cart'>
+			<div className='cart'>
+				<div className='cart-button pt-xs pb-xs pr-s pl-s txt-m'>
+					<div className='flexbox'>
+						<p className='flex-item cart-text'>Корзина</p>
+						{orderCountNode}
+					</div>
 				</div>
-			</button>
-		</div>
+			</div>
+		</Link>
 	)
 }
 

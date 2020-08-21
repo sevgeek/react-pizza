@@ -1,7 +1,14 @@
 import React from 'react';
 import './sass/style.scss'
 
+/** Import React Router */
+import {
+	Switch,
+	Route
+} from "react-router-dom";
+
 /** Import components */
+import Cart from './components/Cart/Cart'
 import Header from './components/Header/Header'
 import Showcase from './components/Showcase/Showcase'
 
@@ -12,7 +19,14 @@ import Showcase from './components/Showcase/Showcase'
 const App = () => (
 	<div className="App">
 		<Header />
-		<Showcase />
+		<Switch>
+			<Route path='/' exact={true}>
+				<Showcase />
+			</Route>
+			<Route path='/cart'>
+				<Cart />
+			</Route>
+		</Switch>
 	</div>
 )
 
