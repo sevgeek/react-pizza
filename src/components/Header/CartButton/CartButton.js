@@ -10,19 +10,17 @@ import { Link } from 'react-router-dom'
  */
 const CartButton = ({ cart = [] }) => {
 	let orderCountNode = cart.length > 0
-		? <div className='flex-item cart-count'>{cart.length}</div>
+		? <div className='flex-item cart-button_count'>{cart.length}</div>
 		: null
 
 	return (
 		<Link to='/cart'>
-			<div className='cart'>
 				<div className='cart-button pt-xs pb-xs pr-s pl-s txt-m'>
 					<div className='flexbox'>
-						<p className='flex-item cart-text'>Корзина</p>
+						<p className='flex-item cart-button_text'>Корзина</p>
 						{orderCountNode}
 					</div>
 				</div>
-			</div>
 		</Link>
 	)
 }
