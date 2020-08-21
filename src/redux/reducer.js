@@ -47,7 +47,7 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	const currentPizzaIndex = allPizzas[type].indexOf(currentPizza, 0)
 
 	// Получаем свойства
-	let { price, defaultPrice, config: { size: prevSize, dough: prevDough } } = currentPizza
+	let { price, defaultPrice } = currentPizza
 
 	switch (size) {
 		// Leave default price

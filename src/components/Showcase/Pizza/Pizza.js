@@ -1,6 +1,7 @@
 import React from 'react'
 
 /** Import components */
+import PizzaItem from './PizzaItem'
 import PizzaProps from './PizzaProps/PizzaProps'
 
 /**
@@ -21,30 +22,10 @@ const Pizza = ({ pizzas, selectedPizzaType = 'all', selectProps }) => (
 /**
  * @name renderAllPizzas
  * @description Функция рендера массива всех пицц
- * @param {Array} data Массив объектов: пицц
+ * @param {Array} allPizzas Массив объектов: всех пицц
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderAllPizzas = (data, selectProps) => Object.values(data).map((type) => type.map(({ id, type, title, img, content, config, price }) => (
-	<div className='col-1' key={`${type}${id}`}>
-		<div className='pizza'>
-			<img className='pizza-img mb-s' alt={title} src={img} />
-			<p className='pizza-title txt-l mb-s'>{title}</p>
-			<p className='pizza-content txt-m mb-s'>{firstLetterToUpperCase(content.join(', '))}</p>
-
-			{/* Render pizza config's */}
-			<PizzaProps
-				config={config}
-				pizza={{ id, type }}
-				selectProps={(props) => selectProps(props)}
-			/>
-
-			<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
-				<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
-				<button className='pizza-order col-1'>Выбрать</button>
-			</div>
-		</div>
-	</div>
-)))
+const renderAllPizzas = (allPizzas, selectProps) => Object.values(allPizzas).map((data, index) => <PizzaItem data={data} key={index} selectProps={selectProps} />)
 
 /**
  * @name renderPizzas
