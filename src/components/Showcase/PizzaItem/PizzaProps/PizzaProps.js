@@ -4,7 +4,7 @@ import props from './props'
 
 /**
  * @name PizzaProps
- * @description Функциональный компонент отображения основных характеристик для пиццы
+ * @description Функциональный компонент: отображение основных свойств для пиццы
  * @param {Object} config Характеристики пиццы из store
  * @param {Object} pizza Данные о пицце: id, type
  * @param {Function} selectProps Функция выбора свойства пиццы
@@ -13,11 +13,13 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
 	<React.Fragment>
 		<div className='pizza-config'>
 			<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
+				{/* Рендер свойств размера пиццы */}
 				{renderSizeProps(props, config, pizza, selectProps)}
 			</div>
 		</div>
 		<div className='pizza-config'>
 			<div className='grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
+				{/* Рендер свойств вида пиццы */}
 				{renderDoughProps(props, config, pizza, selectProps)}
 			</div>
 		</div>
@@ -33,7 +35,7 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
 const renderSizeProps = (props, config, pizza, selectProps) => props.size.map(({ size, alias }, index) => {
-	// Определяем активную характеристику
+	// Определяем актуальное свойство
 	const selected = config.size === size ? true : false
 	return (
 		<div
@@ -57,7 +59,7 @@ const renderSizeProps = (props, config, pizza, selectProps) => props.size.map(({
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
 const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(({ dough, alias }, index) => {
-	// Определяем активную характеристику
+	// Определяем актуальное свойство
 	const selected = config.dough === dough ? true : false
 	return (
 		<div
