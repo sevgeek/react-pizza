@@ -101,8 +101,11 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 }
 
 const addPizzaToCart = (state, pizza) => {
-	console.table(pizza)
+	const prevCartArray = [...state.cart]
+	prevCartArray.push(state.pizzas[pizza.type][pizza.id - 1])
+
 	return {
-		...state
+		...state,
+		cart: prevCartArray
 	}
 }
