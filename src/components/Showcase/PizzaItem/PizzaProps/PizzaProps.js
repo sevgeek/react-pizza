@@ -39,6 +39,7 @@ const renderSizeProps = (props, config, pizza, selectProps) => props.size.map(({
 	const selected = config.size === size ? true : false
 	return (
 		<div
+			data-props='size'
 			key={`${pizza.type}${pizza.id}_${index}`}
 			onClick={() => selectProps({
 				id: pizza.id,
@@ -63,6 +64,7 @@ const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(
 	const selected = config.dough === dough ? true : false
 	return (
 		<div
+			data-props='dough'
 			key={`${pizza.type}${pizza.id}_${index}`}
 			onClick={() => selectProps({
 				id: pizza.id,
