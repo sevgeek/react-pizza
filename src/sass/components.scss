@@ -91,6 +91,7 @@
 }
 
 .pizza-img {
+	width: 292px;
 	transition: $transition;
 
 	&:hover {
@@ -142,6 +143,7 @@
 	min-width: 50%;
 	color: $orange;
 	font-size: 16px;
+	text-align: center;
 	transition: $transition;
 	border: 1px solid $orange;
 	background-color: #ffffff;
