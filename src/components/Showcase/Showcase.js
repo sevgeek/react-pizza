@@ -34,6 +34,7 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps }) => 
 const renderAllPizzas = (allPizzas, selectProps) =>
 	Object.values(allPizzas)
 		.map(data => data
+			.sort(() => Math.random() - 0.5)
 			.map((array, index) => <PizzaItem key={index} data={array} selectProps={selectProps} />))
 
 /**

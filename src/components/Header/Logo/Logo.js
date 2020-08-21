@@ -5,12 +5,12 @@ import React from 'react'
  * @description Функциональный компонент отображения логотипа
  * @param {String} imagePath Путь к изображению логотипа
  */
-const Logo = ({ imagePath }) => (
+const Logo = ({ path }) => (
 	<div className='flexbox flex-align-items_center'>
 		<img
 			alt='Logo'
 			width='120px'
-			src={imagePath}
+			src={path}
 			className='flex-item mr-m' />
 		<h1 className='flex-item mr-m'>React Pizza</h1>
 		<p className='txt-m'>Реактивное веб-приложение интернет-магазина пиццы</p>
