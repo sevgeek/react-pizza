@@ -47,27 +47,33 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	const currentPizzaIndex = allPizzas[type].indexOf(currentPizza, 0)
 
 	// Получаем свойства
-	let { price, defaultPrice } = currentPizza
+	let { price, defaultPrice, config: { size: prevSize } } = currentPizza
 
-	switch (size) {
-		// Leave default price
-		case 'small':
-			price = defaultPrice
-			break;
+	// Делаем проверку на изменение размера пиццы
+	if (prevSize !== size) {
+		console.log(`Размер пиццы изменился`)
+		switch (size) {
+			// Leave default price
+			case 'small':
+				price = defaultPrice
+				break;
 
-		// Increase by 75
-		case 'medium':
-			price = price + 75
-			break;
+			// Increase by 75
+			case 'medium':
+				price = price + 75
+				break;
 
-		// Increase by 100
-		case 'big':
-			price = price + 100
-			break;
+			// Increase by 100
+			case 'big':
+				price = price + 100
+				break;
 
-		default:
-			price = defaultPrice
-			break;
+			default:
+				price = defaultPrice
+				break;
+		}
+	} else {
+		console.log(`Размер пиццы не изменился`)
 	}
 
 	// Обновляем свойства выбранной пиццы
