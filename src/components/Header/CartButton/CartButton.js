@@ -1,11 +1,11 @@
 import React from 'react'
 
 /**
- * @name Cart
+ * @name CartButton
  * @description Функциональный компонент корзины заказа
  * @param {Array} cart Корзина заказа
  */
-const Cart = ({ cart = [] }) => {
+const CartButton = ({ cart = [] }) => {
 	let orderCountNode = cart.length > 0
 		? <div className='flex-item cart-count'>{cart.length}</div>
 		: null
@@ -22,4 +22,4 @@ const Cart = ({ cart = [] }) => {
 	)
 }
 
-export default Cart
+export default CartButton

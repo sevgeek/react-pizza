@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { selectPizzaType } from '../../redux/actions/actions'
 
 /** Import components */
-import Cart from './Cart/Cart'
+import CartButton from './CartButton/CartButton'
 import Logo from './Logo/Logo'
 import Navigation from './Navigation/Navigation'
 
@@ -26,7 +26,7 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType, cart }) => (
 		</div>
 
 		<div className='col-1 col-align-self_center col-justify-self_end'>
-			<Cart cart={cart} />
+			<CartButton cart={cart} />
 		</div>
 
 		<div className='col-3'>
