@@ -16,8 +16,9 @@ import Navigation from './Navigation/Navigation'
  * @param {Array} pizzaTypes Массив всех видов пицц
  * @param {String} selectedPizzaType Значение выбранного типа пиццы, с которым взаимодействуют
  * @param {Function} onSelectPizzaType Функция передачи выбранного типа пиццы
+ * @param {Array} cart Корзина заказа
  */
-const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
+const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType, cart }) => (
 	<header className='grid grid-3-col grid-gap-m'>
 
 		<div className='col-2 col-align-self_center col-justify-self_start'>
@@ -25,7 +26,7 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
 		</div>
 
 		<div className='col-1 col-align-self_center col-justify-self_end'>
-			<Cart />
+			<Cart order={cart} />
 		</div>
 
 		<div className='col-3'>
@@ -44,8 +45,10 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
  * @description Преобразование state в props
  * @param {Array} pizzaTypes Массив видов пиццы
  * @param {String} selectedPizzaType Значение выбранного типа пиццы
+ * @param {Array} cart Корзина заказа
  */
-const mapStateToProps = ({ pizzaTypes, selectedPizzaType }) => ({
+const mapStateToProps = ({ pizzaTypes, selectedPizzaType, cart }) => ({
+	cart,
 	pizzaTypes,
 	selectedPizzaType
 })

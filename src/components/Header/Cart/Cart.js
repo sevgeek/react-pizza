@@ -3,13 +3,23 @@ import React from 'react'
 /**
  * @name Cart
  * @description Функциональный компонент корзины заказа
+ * @param {Array} cart Корзина заказа
  */
-const Cart = () => (
-	<React.Fragment>
-		<button className='cart-button p-xs txt-m'>
-			<img src='/img/svg/cart.svg' alt='Cart' width='25' />
-		</button>
-	</React.Fragment>
-)
+const Cart = ({ cart = [] }) => {
+	let orderCountNode = cart.length > 0
+		? <div className='flex-item cart-count'>{cart.length}</div>
+		: null
+
+	return (
+		<div className='cart'>
+			<button className='cart-button pt-xs pb-xs pr-s pl-s txt-m'>
+				<div className='flexbox'>
+					<p className='flex-item cart-text'>Корзина</p>
+					{orderCountNode}
+				</div>
+			</button>
+		</div>
+	)
+}
 
 export default Cart

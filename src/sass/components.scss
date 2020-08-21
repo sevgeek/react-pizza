@@ -15,8 +15,8 @@
 // Cart button
 .cart-button {
 	@include displayBlock;
-	border: none;
-	color: $orange;
+	width: auto;
+	color: #ffffff;
 	min-width: 100px;
 	transition: $transition;
 	border: 1px solid $orange;
@@ -31,6 +31,15 @@
 	&:focus {
 		outline: none;
 	}
+}
+
+.cart-text {
+	color: #ffffff;
+}
+
+.cart-count {
+	width: 35px;
+	color: #ffffff;
 }
 
 // Navigation components

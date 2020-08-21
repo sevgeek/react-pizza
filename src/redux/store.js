@@ -148,4 +148,5 @@ export default {
 		]
 	},
 	selectedPizzaType: undefined,
+	cart: []
 }
