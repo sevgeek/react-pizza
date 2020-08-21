@@ -26,7 +26,7 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType, cart }) => (
 		</div>
 
 		<div className='col-1 col-align-self_center col-justify-self_end'>
-			<Cart order={cart} />
+			<Cart cart={cart} />
 		</div>
 
 		<div className='col-3'>
