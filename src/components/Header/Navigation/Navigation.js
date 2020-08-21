@@ -4,10 +4,10 @@ import classNames from 'classnames'
 /**
  * Navigation
  * @name Navigation
- * @description Функциональный компонент вывода всех видов пицц
+ * @description Функциональный компонент вывода меню пицц
  * @param {Array} pizzaTypes Массив видов пиццы
  * @param {String} selectedPizzaType Значение выбранного типа пиццы
- * @param {Function} choosingTheTypeOfPizza Функция передачи значения выбранного вида пиццы
+ * @param {Function} choosingTheTypeOfPizza Функция передачи выбранного типа пиццы
  */
 const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) => {
 	return (
@@ -16,8 +16,8 @@ const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) =
 				return (
 					<li
 						key={`pizzaType_${index}`}
-						className={classNames('flex-item', 'txt-l', { selected: (selectedPizzaType === type.value) })}
-						onClick={() => choosingTheTypeOfPizza(type.value)} >
+						onClick={() => choosingTheTypeOfPizza(type.value)}
+						className={classNames('txt-l', 'flex-item', { selected: (selectedPizzaType === type.value) })}>
 						<i className={`em ${type.emoji} mr-m`}></i>{type.title}
 					</li>
 				)

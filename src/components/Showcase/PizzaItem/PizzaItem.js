@@ -8,12 +8,12 @@ import transfromPizzaContentToText from '../../../functions'
 
 /**
  * @name PizzaItem
- * @description Функциональный компонент: отображение компонента пиццы
+ * @description Функциональный компонент пиццы
  * @param {Object} data Данные о пицце
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
 const PizzaItem = ({ data, selectProps }) => {
-	// Get properties
+	// Get data
 	const { id, type, title, img, content, config, price } = data
 
 	return (
@@ -23,7 +23,7 @@ const PizzaItem = ({ data, selectProps }) => {
 				<p className='pizza-title txt-l mb-s'>{title}</p>
 				<p className='pizza-content txt-m mb-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
-				{/* Render pizza config's */}
+				{/* Render pizza props */}
 				<PizzaProps
 					config={config}
 					pizza={{ id, type }}

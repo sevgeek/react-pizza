@@ -2,6 +2,7 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
+// Import actions
 import { selectPizzaProps } from '../../redux/actions/actions'
 
 /** Import components */
@@ -9,7 +10,7 @@ import PizzaItem from './PizzaItem/PizzaItem'
 
 /**
  * @name Showcase
- * @description Функциональный компонент: контейнер для компонентов пицц
+ * @description Функциональный компонент: контейнер для PizzaItem компонентов
  * @param {Array} pizzas Массив всех пицц из store
  * @param {String} selectedPizzaType Выбранная пользователем пицца
  * @param {Function} onSelectPizzaProps Функция выбора свойства пиццы
@@ -27,19 +28,18 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps }) => 
 
 /**
  * @name renderAllPizzas
- * @description Функция рендера массива всех пицц
+ * @description Функция рендера всех пицц
  * @param {Array} allPizzas Массив объектов всех пицц
  * @param {Function} selectProps Функция изменения свойств пиццы
  */
 const renderAllPizzas = (allPizzas, selectProps) =>
 	Object.values(allPizzas)
 		.map(data => data
-			.sort(() => Math.random() - 0.5)
 			.map((array, index) => <PizzaItem key={index} data={array} selectProps={selectProps} />))
 
 /**
  * @name renderPizzas
- * @description Функция рендера массива определённого типа пиццы
+ * @description Функция рендера выбранного типа пицц
  * @param {Object} data Массив объектов пицц
  * @param {Function} selectProps Функция изменения свойств пиццы
  */
@@ -51,7 +51,7 @@ const renderPizzas = (data, selectProps) => data.map((array, index) =>
 
 /**
  * @name mapStateToProps
- * @description Функция Redux: преобразование состояния из хранилища в props
+ * @description Преобразование state в props
  * @param {Array} pizzas Массив всех пицц
  * @param {String} selectedPizzaType Выбранный тип пицц
  */
@@ -61,7 +61,7 @@ const mapStateToProps = ({ pizzas, selectedPizzaType }) => ({
 
 /**
  * @name mapDispatchToProps
- * @description Функция Redux: преобразование dispatch action's в props
+ * @description Преобразование dispatch в props
  * @param {Object} dispatch
  */
 const mapDispatchToProps = dispatch => ({
