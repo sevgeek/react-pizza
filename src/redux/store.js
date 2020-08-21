@@ -6,14 +6,14 @@ export default {
 			emoji: "em-pizza"
 		},
 		{
-			title: "Мясные",
-			value: "meaty",
-			emoji: "em-cut_of_meat"
-		},
-		{
 			title: "Сырные",
 			value: "chesee",
 			emoji: "em-cheese_wedge"
+		},
+		{
+			title: "Мясные",
+			value: "meaty",
+			emoji: "em-cut_of_meat"
 		},
 		{
 			title: "Острые",
@@ -63,6 +63,19 @@ export default {
 				defaultPrice: 295,
 				price: 295
 			},
+			{
+				id: 4,
+				type: 'meaty',
+				config: {
+					size: 'small',
+					dough: 'standart',
+				},
+				img: 'https://cdn.dodostatic.net/static/Img/Products/Pizza/ru-RU/895590f5-b88c-4bba-baf9-134f9ee48302.jpg',
+				title: 'Цыпленок ранч',
+				content: ['цыпленок', 'ветчина', 'соус ранч', 'моцарелла', 'томаты', 'чеснок'],
+				defaultPrice: 445,
+				price: 445
+			},
 		],
 		chesee: [
 			{
@@ -104,6 +117,19 @@ export default {
 				defaultPrice: 445,
 				price: 445
 			},
+			{
+				id: 4,
+				type: 'chesee',
+				config: {
+					size: 'small',
+					dough: 'standart',
+				},
+				img: 'https://cdn.dodostatic.net/static/Img/Products/Pizza/ru-RU/b952eb17-77b8-4a14-b982-42fbf5ceaf0e.jpg',
+				title: 'Гавайская',
+				content: ['цыпленок', 'томатный', 'моцарелла', 'ананасы'],
+				defaultPrice: 395,
+				price: 395
+			},
 		],
 		spicy: [
 			{
@@ -144,7 +170,20 @@ export default {
 				content: ['пикантная пепперони', 'увеличенная порция моцареллы', 'томатный соус'],
 				defaultPrice: 395,
 				price: 395
-			}
+			},
+			{
+				id: 4,
+				type: 'spicy',
+				config: {
+					size: 'small',
+					dough: 'standart',
+				},
+				img: 'https://cdn.dodostatic.net/static/Img/Products/c541efb07523453e877610a28b794907_292x292.jpeg',
+				title: 'Аррива!',
+				content: ['соус бургер', 'цыпленок', 'соус ранч', 'чоризо', 'сладкий перец', 'красный лук', 'моцарелла', 'томаты', 'чеснок'],
+				defaultPrice: 395,
+				price: 395
+			},
 		]
 	},
 	selectedPizzaType: undefined,

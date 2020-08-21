@@ -17,7 +17,7 @@ import PizzaItem from './PizzaItem/PizzaItem'
  */
 const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPizzaToCart }) => (
 	<section className='mt-xl'>
-		<div className='grid grid-3-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
+		<div className='grid grid-4-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
 			{/* Делаем проверку выбора пользователя */}
 			{selectedPizzaType === 'all'
 				? renderAllPizzas(pizzas, onSelectPizzaProps, addPizzaToCart)

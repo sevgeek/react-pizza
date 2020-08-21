@@ -6,7 +6,7 @@
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
-	padding: $padding-step * 6;
+	padding: $padding-step * 6 $padding-step * 8;
 	background-color: #ffffff;
 }
 
@@ -38,8 +38,21 @@
 }
 
 .cart-count {
+	display: inherit;
 	width: 35px;
 	color: #ffffff;
+
+	&::before {
+		content: "";
+		display: inline-block;
+		height: 20px;
+		width: 1px;
+		opacity: 0.4;
+		position: relative;
+		top: 4px;
+		margin: -2px 12px;
+		background: rgb(255, 255, 255);
+	}
 }
 
 // Navigation components
@@ -127,16 +140,18 @@
 .pizza-order {
 	@include displayBlock;
 	min-width: 50%;
-	border: 1px solid $orange;
-	background-color: #ffffff;
-	padding: $padding-step $padding-step * 4;
-	border-radius: $padding-step;
-	transition: $transition;
 	color: $orange;
 	font-size: 16px;
+	transition: $transition;
+	border: 1px solid $orange;
+	background-color: #ffffff;
+	border-radius: $padding-step;
+	padding: $padding-step $padding-step * 4;
 
 	&:hover {
 		cursor: pointer;
+		color: $orangeDark;
+		border: 1px solid $orangeDark;
 	}
 
 	&:focus {

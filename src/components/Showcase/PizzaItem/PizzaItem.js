@@ -36,7 +36,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 					<button
 						className='pizza-order col-1'
 						onClick={() => addPizzaToCart(pizzaID)}
-					>Выбрать</button>
+					>В корзину</button>
 				</div>
 			</div>
 		</div>
