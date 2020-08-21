@@ -9,7 +9,7 @@ import props from './props'
  * @param {Object} pizza Данные о пицце: id, type
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const PizzaProps = ({ pizza, config, selectProps }) => (
+const PizzaProps = ({ config, pizza, selectProps }) => (
 	<React.Fragment>
 		<div className='pizza-config'>
 			<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>

@@ -25,7 +25,9 @@ const Pizza = ({ pizzas, selectedPizzaType = 'all', selectProps }) => (
  * @param {Array} allPizzas Массив объектов: всех пицц
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderAllPizzas = (allPizzas, selectProps) => Object.values(allPizzas).map((data, index) => <PizzaItem data={data} key={index} selectProps={selectProps} />)
+const renderAllPizzas = (allPizzas, selectProps) =>
+	Object.values(allPizzas).map((data, index) =>
+		<PizzaItem key={index} data={data} selectProps={selectProps} />)
 
 /**
  * @name renderPizzas
