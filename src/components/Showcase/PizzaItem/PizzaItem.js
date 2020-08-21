@@ -11,10 +11,12 @@ import transfromPizzaContentToText from '../../../functions'
  * @description Функциональный компонент пиццы
  * @param {Object} data Данные о пицце
  * @param {Function} selectProps Функция выбора свойства пиццы
+ * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
  */
-const PizzaItem = ({ data, selectProps }) => {
+const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 	// Get data
 	const { id, type, title, img, content, config, price } = data
+	const pizzaID = { id, type }
 
 	return (
 		<div className='col-1' key={`${type}${id}`}>
@@ -26,12 +28,15 @@ const PizzaItem = ({ data, selectProps }) => {
 				{/* Render pizza props */}
 				<PizzaProps
 					config={config}
-					pizza={{ id, type }}
+					pizza={pizzaID}
 					selectProps={(props) => selectProps(props)} />
 
 				<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 					<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
-					<button className='pizza-order col-1'>Выбрать</button>
+					<button
+						className='pizza-order col-1'
+						onClick={() => addPizzaToCart(pizzaID)}
+					>Выбрать</button>
 				</div>
 			</div>
 		</div>
