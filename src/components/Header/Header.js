@@ -20,7 +20,7 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType }) => (
 	<header className='grid grid-3-col grid-gap-m'>
 		{/* Logo */}
 		<div className='col-2 col-align-self_center col-justify-self_start'>
-			<Logo imagePath='/img/svg/react-pizza-logo.svg' />
+			<Logo imagePath='/img/svg/react-pizza.svg' />
 		</div>
 
 		{/* Cart */}

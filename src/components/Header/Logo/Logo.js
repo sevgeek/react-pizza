@@ -9,9 +9,9 @@ const Logo = ({ imagePath }) => (
 	<div className='flexbox flex-align-items_center'>
 		<img
 			alt='Logo'
-			width='65px'
+			width='120px'
 			src={imagePath}
-			className='flex-item mr-xl' />
+			className='flex-item mr-m' />
 		<h1 className='flex-item mr-m'>React Pizza</h1>
 		<p className='txt-m'>Реактивное веб-приложение интернет-магазина пиццы</p>
 	</div>
