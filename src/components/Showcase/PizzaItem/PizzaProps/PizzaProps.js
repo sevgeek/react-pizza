@@ -12,12 +12,12 @@ import props from './props'
 const PizzaProps = ({ config, pizza, selectProps }) => (
 	<React.Fragment>
 		<div className='pizza-config'>
-			<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
-				{/* Рендер свойств размера пиццы */}
-				{renderSizeProps(props, config, pizza, selectProps)}
+			<div className='mb-xs'>
+				<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
+					{/* Рендер свойств размера пиццы */}
+					{renderSizeProps(props, config, pizza, selectProps)}
+				</div>
 			</div>
-		</div>
-		<div className='pizza-config'>
 			<div className='grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 				{/* Рендер свойств вида пиццы */}
 				{renderDoughProps(props, config, pizza, selectProps)}
