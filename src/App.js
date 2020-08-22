@@ -20,12 +20,8 @@ const App = () => (
 	<div className="App">
 		<Header />
 		<Switch>
-			<Route path='/' exact={true}>
-				<Showcase />
-			</Route>
-			<Route path='/cart'>
-				<Cart />
-			</Route>
+			<Route path='/' exact={true} component={Showcase} />
+			<Route path='/cart' component={Cart} />
 		</Switch>
 	</div>
 )
