@@ -11,7 +11,7 @@ import PizzaItem from './PizzaItem/PizzaItem'
 /**
  * @name Showcase
  * @description Функциональный компонент: контейнер для PizzaItem компонентов
- * @param {Array} pizzas Массив всех пицц из store
+ * @param {Object} pizzas Массив всех пицц из store
  * @param {String} selectedPizzaType Выбранная пользователем пицца
  * @param {Function} onSelectPizzaProps Функция выбора свойства пиццы
  */
@@ -29,7 +29,7 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPi
 /**
  * @name renderAllPizzas
  * @description Функция рендера всех пицц
- * @param {Array} allPizzas Массив объектов всех пицц
+ * @param {Object} allPizzas Массив объектов всех пицц
  * @param {Function} selectProps Функция изменения свойств пиццы
  * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
  */
