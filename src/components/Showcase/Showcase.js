@@ -21,7 +21,7 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPi
 			{/* Делаем проверку выбора пользователя */}
 			{selectedPizzaType === 'all'
 				? renderAllPizzas(pizzas, onSelectPizzaProps, addPizzaToCart)
-				: renderPizzas(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart)}
+				: renderPizzaType(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart)}
 		</div>
 	</section>
 )
@@ -45,7 +45,7 @@ const renderAllPizzas = (allPizzas, selectProps, addPizzaToCart) =>
  * @param {Function} selectProps Функция изменения свойств пиццы
  * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
  */
-const renderPizzas = (data, selectProps, addPizzaToCart) => data.map((array, index) =>
+const renderPizzaType = (data, selectProps, addPizzaToCart) => data.map((array, index) =>
 	<PizzaItem
 		key={index}
 		data={array}
