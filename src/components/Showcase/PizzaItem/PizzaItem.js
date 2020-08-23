@@ -1,6 +1,9 @@
 import React from 'react'
 
 /** Import components */
+import { Link } from 'react-router-dom'
+
+/** Import components */
 import PizzaProps from './PizzaProps/PizzaProps'
 
 /** Import functions */
@@ -18,6 +21,20 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 	const { id, type, title, img, content, config, price } = data
 	const pizzaID = { id, type }
 
+	/** State: добавление пиццы в корзину */
+	const [addedToCart, addToCart] = React.useState(false)
+
+	let pizzaButton = (<div
+		className='pizza-order col-1'
+		onClick={() => {
+			addPizzaToCart(pizzaID)
+			addToCart(true)
+		}}>Выбрать</div>)
+
+	if (addedToCart) {
+		pizzaButton = (<Link to='/cart'><div style={{color: '#ffffff', backgroundColor: 'rgb(255, 105, 0)'}} className='pizza-order col-1'>В корзину</div></Link>)
+	}
+
 	return (
 		<div className='col-1' key={`${type}${id}`}>
 			<div className='pizza'>
@@ -33,9 +50,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 
 				<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 					<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
-					<div
-						className='pizza-order col-1'
-						onClick={() => addPizzaToCart(pizzaID)}>В корзину</div>
+					{pizzaButton}
 				</div>
 			</div>
 		</div>
