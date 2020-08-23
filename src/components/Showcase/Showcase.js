@@ -35,8 +35,13 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPi
  */
 const renderAllPizzas = (allPizzas, selectProps, addPizzaToCart) =>
 	Object.values(allPizzas)
-		.map(data => data
-			.map((array, index) => <PizzaItem key={index} data={array} selectProps={selectProps} addPizzaToCart={addPizzaToCart} />))
+		.map(arrayPizzaType => arrayPizzaType
+			.map((pizzasArray, index) =>
+				<PizzaItem
+					key={index}
+					data={pizzasArray}
+					selectProps={selectProps}
+					addPizzaToCart={addPizzaToCart} />))
 
 /**
  * @name renderPizzas
