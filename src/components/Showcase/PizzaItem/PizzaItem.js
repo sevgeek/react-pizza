@@ -27,16 +27,15 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 
 				{/* Render pizza props */}
 				<PizzaProps
-					config={config}
 					pizza={pizzaID}
+					config={config}
 					selectProps={(props) => selectProps(props)} />
 
 				<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 					<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
 					<div
 						className='pizza-order col-1'
-						onClick={() => addPizzaToCart(pizzaID)}
-					>В корзину</div>
+						onClick={() => addPizzaToCart(pizzaID)}>В корзину</div>
 				</div>
 			</div>
 		</div>
