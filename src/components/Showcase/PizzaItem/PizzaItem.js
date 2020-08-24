@@ -46,10 +46,12 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 				<p className='pizza-content txt-m mb-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 				{/* Render pizza props */}
-				<PizzaProps
-					pizza={pizzaID}
-					config={config}
-					selectProps={(props) => selectProps(props)} />
+				{addedToCart
+					? null
+					: <PizzaProps
+						pizza={pizzaID}
+						config={config}
+						selectProps={(props) => selectProps(props)} />}
 
 				<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 					<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
