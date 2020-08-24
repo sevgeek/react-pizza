@@ -10,14 +10,14 @@ import { Link } from 'react-router-dom'
  */
 const CartButton = ({ cart = [] }) => {
 
-	let orderedPizzas, totalPrice, totalPriceNode = undefined
+	let orderedPizzas, totalPriceNode = undefined
 
 	if (cart.length > 0) {
 		// Определяем количество пицц в заказе
 		orderedPizzas = <div className='flex-item cart-button_count'>{cart.length}</div>
+
 		// Определяем итоговую стоимость и формируем DOM-узел
-		totalPrice = cart.reduce((total, pizza) => total + pizza.price, 0)
-		totalPriceNode = <p className='flex-item cart-button_text'>{totalPrice} ₽</p>
+		totalPriceNode = <p className='flex-item cart-button_text'>{cart.reduce((total, pizza) => total + pizza.price, 0)} ₽</p>
 	} else {
 		orderedPizzas = null
 		totalPriceNode = <p className='flex-item cart-button_text'>Корзина</p>
