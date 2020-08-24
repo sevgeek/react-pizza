@@ -14,13 +14,17 @@ import transfromPizzaContentToText from '../../functions'
  * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая объект (пиццу) из массива (state.cart)
  */
 const Cart = ({ cart, onRemovePizzaFromCart }) => {
-
 	// Итоговая цена
 	const totalPrice = cart.length > 0 ? cart.reduce((total, pizza) => total + pizza.price, 0) : 0
 
+	// DOM-узел кнопки завершения заказа
 	const orderButton = cart.length > 0
 		? <button className='cart-order flex-item p-s'>Заказать</button>
-		: <button className='cart-order flex-item p-s' style={{ backgroundColor: 'rgb(246, 172, 119)', color: 'rgba(255, 255, 255, 0.5)' }}>Заказать</button>
+		: <button className='cart-order flex-item p-s' style={
+			{
+				color: 'rgba(255, 255, 255, 0.5)',
+				backgroundColor: 'rgb(246, 172, 119)',
+			}}>Заказать</button>
 
 	return (
 		<section className='cart'>
@@ -32,10 +36,8 @@ const Cart = ({ cart, onRemovePizzaFromCart }) => {
 
 			<div className='flexbox flex-justify_between flex-align-items_center mt-m'>
 				<h4 className='cart__total-price flex-item'>Сумма заказа: <span>{totalPrice}</span> ₽</h4>
-				{orderButton}
+				{totalPrice > 0 ? orderButton : null}
 			</div>
-
-
 		</section>
 	)
 }
@@ -48,9 +50,8 @@ const Cart = ({ cart, onRemovePizzaFromCart }) => {
  * @returns DOM-nodes
  */
 const renderCartItems = (data, onRemovePizzaFromCart) => data.map(({ id, type, config, img, title, content, price }) => {
-	let size = undefined
-	let dough = undefined
 	let pizzaId = { id, type }
+	let size, dough = undefined
 
 	// Switch size
 	switch (config.size) {
