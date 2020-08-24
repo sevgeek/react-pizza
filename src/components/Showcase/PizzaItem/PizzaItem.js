@@ -24,15 +24,18 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 	/** State: добавление пиццы в корзину */
 	const [addedToCart, addToCart] = React.useState(false)
 
-	let pizzaButton = (<div
-		className='pizza-order col-1'
-		onClick={() => {
-			addPizzaToCart(pizzaID)
-			addToCart(true)
-		}}>Выбрать</div>)
+	// DOM node: button for adding pizza to the cart
+	let pizzaButtonNode = undefined
 
 	if (addedToCart) {
-		pizzaButton = (<Link to='/cart'><div style={{color: '#ffffff', backgroundColor: 'rgb(255, 105, 0)'}} className='pizza-order col-1'>В корзину</div></Link>)
+		pizzaButtonNode = (<Link to='/cart'><div className='added pizza-order col-1'>В корзину</div></Link>)
+	} else {
+		pizzaButtonNode = (<div
+			className='pizza-order col-1'
+			onClick={() => {
+				addPizzaToCart(pizzaID)
+				addToCart(true)
+			}}>Выбрать</div>)
 	}
 
 	return (
@@ -50,7 +53,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 
 				<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 					<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
-					{pizzaButton}
+					{pizzaButtonNode}
 				</div>
 			</div>
 		</div>

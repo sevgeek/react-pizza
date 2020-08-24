@@ -150,6 +150,18 @@
 	border-radius: $padding-step;
 	padding: $padding-step $padding-step * 4;
 
+	&.added {
+		color: #ffffff;
+		background-color: $orange;
+
+		&:hover {
+			cursor: pointer;
+			color: #ffffff;
+			background-color: $orangeDark;
+			border: 1px solid $orangeDark;
+		}
+	}
+
 	&:hover {
 		cursor: pointer;
 		color: $orangeDark;
