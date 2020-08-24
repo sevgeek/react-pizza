@@ -1,13 +1,20 @@
 // Use variables
 @import 'variables';
 
+// root
+#root {
+	@include displayBlock;
+	padding: $padding-step * 6 $padding-step * 8;
+	background-color: $blanche;
+}
 
 // Application
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
-	padding: $padding-step * 6 $padding-step * 8;
 	background-color: #ffffff;
+	border-radius: $padding-step;
+	padding: $padding-step * 6;
 }
 
 // Cart components
@@ -67,26 +74,25 @@
 		display: block;
 		min-width: 100px;
 		text-align: center;
-		border-radius: 16px;
-		border: 1px solid transparent;
+		border-radius: 14px;
 		transition: $transition;
-		padding: $padding-step $padding-step * 2;
+		background-color: $ligthGrey;
+		padding: $padding-step * 1.5 $padding-step * 4;
 
 		&:hover {
 			cursor: pointer;
-			border: 1px solid $orange;
+			color: $orange;
 		}
 	}
 
 	li.selected {
 		color: $orange;
-		border: 1px solid $orange;
 	}
 }
 
 // Pizza component
 .pizza {
-	width: 318px;
+	width: 325px;
 	margin: 0 auto;
 }
 
@@ -106,7 +112,7 @@
 }
 
 .pizza-config {
-	padding: 6px 8px;
+	padding: 8px;
 	margin-bottom: $margin-step * 1.5;
 	background-color: $ligthGrey;
 	border-radius: $padding-step;
