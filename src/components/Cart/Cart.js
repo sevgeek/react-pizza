@@ -7,6 +7,12 @@ import { removePizzaFromCart } from '../../redux/actions/actions'
 /** Function */
 import transfromPizzaContentToText from '../../functions'
 
+/**
+ * @name Cart
+ * @description Функциональный компонент корзины
+ * @param {Array} cart Массив объектов (пицц) в корзине (state.cart)
+ * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая объект (пиццу) из массива (state.cart)
+ */
 const Cart = ({ cart, onRemovePizzaFromCart }) => {
 
 	// Итоговая цена
@@ -34,6 +40,13 @@ const Cart = ({ cart, onRemovePizzaFromCart }) => {
 	)
 }
 
+/**
+ * @name renderCartItems
+ * @description Функция рендера элементов корзины
+ * @param {Array} data Массив объектов (пицц) в корзине (state.cart)
+ * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая объект (пиццу) из массива (state.cart)
+ * @returns DOM-nodes
+ */
 const renderCartItems = (data, onRemovePizzaFromCart) => data.map(({ id, type, config, img, title, content, price }) => {
 	let size = undefined
 	let dough = undefined
