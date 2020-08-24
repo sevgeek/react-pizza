@@ -21,46 +21,28 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPi
 		<div className='grid grid-4-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
 			{/* Делаем проверку выбора пользователя */}
 			{selectedPizzaType === 'all'
-				? renderAllPizzas(pizzas, onSelectPizzaProps, addPizzaToCart, cart)
-				: renderPizzaType(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart, cart)}
+				? Object.values(pizzas)
+					.map(array => renderPizzaItems(array, onSelectPizzaProps, addPizzaToCart))
+				: renderPizzaItems(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart)}
 		</div>
 	</section>
 )
 
 /**
- * @name renderAllPizzas
- * @description Функция рендера всех пицц
- * @param {Object} allPizzas Массив объектов всех пицц
+ * @name renderPizzaItems
+ * @description Функция рендера пицц
+ * @param {Object} data Массив пицц
  * @param {Function} selectProps Функция изменения свойств пиццы
  * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
  * @param {Array} cart Массив объектов в корзине
  */
-const renderAllPizzas = (allPizzas, selectProps, addPizzaToCart, cart) =>
-	Object.values(allPizzas)
-		.map(arrayPizzaType => arrayPizzaType
-			.map((pizzasArray, index) =>
-				<PizzaItem
-					key={index}
-					cart={cart}
-					data={pizzasArray}
-					selectProps={selectProps}
-					addPizzaToCart={addPizzaToCart} />))
-
-/**
- * @name renderPizzas
- * @description Функция рендера выбранного типа пицц
- * @param {Object} data Массив объектов пицц
- * @param {Function} selectProps Функция изменения свойств пиццы
- * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
- * @param {Array} cart Массив объектов в корзине
- */
-const renderPizzaType = (data, selectProps, addPizzaToCart, cart) => data.map((array, index) =>
-	<PizzaItem
-		key={index}
-		data={array}
-		cart={cart}
-		selectProps={selectProps}
-		addPizzaToCart={addPizzaToCart} />)
+const renderPizzaItems = (data, selectProps, addPizzaToCart, cart) =>
+	data.map((item, index) =>
+		<PizzaItem
+			key={index}
+			data={item}
+			selectProps={selectProps}
+			addPizzaToCart={addPizzaToCart} />)
 
 /**
  * @name mapStateToProps
