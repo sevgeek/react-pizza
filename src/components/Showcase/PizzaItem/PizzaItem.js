@@ -28,7 +28,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 	let pizzaButtonNode = undefined
 
 	if (addedToCart) {
-		pizzaButtonNode = (<Link to='/cart'><div className='added pizza-order col-1'>В корзину</div></Link>)
+		pizzaButtonNode = (<Link to='/cart'><div className='added pizza-order col-1'>Оформить</div></Link>)
 	} else {
 		pizzaButtonNode = (<div
 			className='pizza-order col-1'
