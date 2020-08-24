@@ -17,6 +17,18 @@
 	padding: $padding-step * 6;
 }
 
+// Logo
+#logo-text {
+	transition: $transition;
+
+	h1 {
+		transition: $transition;
+		&:hover {
+			color: $orange;
+		}
+	}
+}
+
 // Cart components
 
 // Cart button
