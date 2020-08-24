@@ -19,7 +19,7 @@ import transfromPizzaContentToText from '../../../functions'
 const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 	// Get data
 	const { id, type, title, img, content, config, price } = data
-	const pizzaID = { id, type }
+	const pizzaId = { id, type }
 
 	/** State: добавление пиццы в корзину */
 	const [addedToCart, addToCart] = React.useState(false)
@@ -33,7 +33,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 		pizzaButtonNode = (<div
 			className='pizza-order col-1'
 			onClick={() => {
-				addPizzaToCart(pizzaID)
+				addPizzaToCart(pizzaId)
 				addToCart(true)
 			}}>Выбрать</div>)
 	}
@@ -49,7 +49,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
 				{addedToCart
 					? null
 					: <PizzaProps
-						pizza={pizzaID}
+						pizza={pizzaId}
 						config={config}
 						selectProps={(props) => selectProps(props)} />}
 
