@@ -18,7 +18,7 @@ import Navigation from './Navigation/Navigation'
  * @param {Function} onSelectPizzaType Функция передачи выбранного типа пиццы
  * @param {Array} cart Корзина заказа
  */
-const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType, cart }) => (
+const Header = ({ displayNavigation, pizzaTypes, selectedPizzaType, onSelectPizzaType, cart }) => (
 	<header className='grid grid-3-col grid-gap-m'>
 
 		<div className='col-2 col-align-self_center col-justify-self_start'>
@@ -30,10 +30,11 @@ const Header = ({ pizzaTypes, selectedPizzaType, onSelectPizzaType, cart }) => (
 		</div>
 
 		<div className='col-3'>
-			<Navigation
-				pizzaTypes={pizzaTypes}
-				selectedPizzaType={selectedPizzaType}
-				choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />
+			{displayNavigation
+				&& <Navigation
+					pizzaTypes={pizzaTypes}
+					selectedPizzaType={selectedPizzaType}
+					choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />}
 		</div>
 
 	</header>
