@@ -38,7 +38,7 @@ export default function reducer(state = initState, action) {
  * @param {String} type Тип изменяемой пиццы
  * @param {String} size Свойство пиццы: размер
  * @param {String} dough Свойство пиццы: вид теста
- * @returns {Array} Новое состояние
+ * @returns {Object} Новое состояние
  */
 const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	// Копируем актуальный объект всех пицц из хранилища
@@ -100,8 +100,18 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	}
 }
 
+/**
+ * @name addPizzaToCart
+ * @description Добавление пиццы в корзину
+ * @param {Object} state Актуальное состояние из хранилища
+ * @param {Object} pizza Объект добавляемой пиццы
+ * @returns {Object} Новое состояние
+ */
 const addPizzaToCart = (state, pizza) => {
+	// Копируем актуальный state
 	const prevCartArray = [...state.cart]
+
+	// Добавляем объект пиццы
 	prevCartArray.push(state.pizzas[pizza.type][pizza.id - 1])
 
 	return {
