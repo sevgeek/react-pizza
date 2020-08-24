@@ -153,7 +153,7 @@ export default {
 					dough: 'standart',
 				},
 				img: 'https://cdn.dodostatic.net/static/Img/Products/Pizza/ru-RU/dcc14f3c-0bcd-4e22-9c94-d694750a790b.jpg',
-				title: 'Кисло-сладкий цыпленок',
+				title: 'Жгучий соус',
 				content: ['острый цыпленок', 'томатный соус', 'моцарелла', 'кисло-сладкий соус'],
 				defaultPrice: 295,
 				price: 295
