@@ -78,7 +78,7 @@ const renderCartItems = (data, onRemovePizzaFromCart) => data.map(({ id, type, c
 			<img className='col-1 col-align-self_center col-justify-self_center' width='100' src={img} alt={title} />
 			<div className='col-3'>
 				<h4>{title}</h4>
-				<p className='cart-list__config txt-s mb-xs'>{size}, {dough}</p>
+				<p className='cart-list__config txt-s'>{size}, {dough}</p>
 				<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 			</div>
 			<div className='col-1 flexbox flex-justify_between'>
