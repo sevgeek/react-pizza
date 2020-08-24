@@ -1,5 +1,5 @@
 /** Import actions types */
-import { SELECT_PIZZA_TYPE, SELECT_PIZZA_PROPS, ADD_CART } from './actionTypes'
+import { SELECT_PIZZA_TYPE, SELECT_PIZZA_PROPS, ADD_CART, REMOVE_FROM_CART } from './actionTypes'
 
 /** Actions creators */
 
@@ -18,5 +18,10 @@ export const selectPizzaProps = props => ({
 /** Add pizza to cart */
 export const addPizzaToCart = pizza => ({
 	type: ADD_CART,
+	pizza
+})
+
+export const removePizzaFromCart = pizza => ({
+	type: REMOVE_FROM_CART,
 	pizza
 })

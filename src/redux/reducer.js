@@ -1,5 +1,5 @@
 import initState from './store'
-import { SELECT_PIZZA_TYPE, SELECT_PIZZA_PROPS, ADD_CART } from './actions/actionTypes'
+import { SELECT_PIZZA_TYPE, SELECT_PIZZA_PROPS, ADD_CART, REMOVE_FROM_CART } from './actions/actionTypes'
 
 /**
  * @name reducer
@@ -24,6 +24,10 @@ export default function reducer(state = initState, action) {
 		// Add pizza to cart...
 		case ADD_CART:
 			return addPizzaToCart(state, action.pizza)
+
+		// Remove pizza from cart...
+		case REMOVE_FROM_CART:
+			return removePizzaFromCart(state, action.pizza)
 
 		default:
 			return state;
@@ -113,6 +117,29 @@ const addPizzaToCart = (state, pizza) => {
 
 	// Добавляем объект пиццы
 	prevCartArray.push(state.pizzas[pizza.type][pizza.id - 1])
+
+	return {
+		...state,
+		cart: prevCartArray
+	}
+}
+
+/**
+ * @name removePizzaFromCart
+ * @description Удаление пиццы из корзины
+ * @param {Object} state Актуальное состояние из хранилища
+ * @param {Object} pizza Объект удаляемой пиццы
+ * @returns {Object} Новое состояние
+ */
+const removePizzaFromCart = (state, pizza) => {
+	// Копируем актуальный state
+	const prevCartArray = [...state.cart]
+
+	// Определяем индекс удаляемой пиццы
+	const removedPizzaiIndex = prevCartArray.findIndex(item => item.type === pizza.type && item.id === pizza.id)
+
+	// Удаляем пиццу
+	prevCartArray.splice(removedPizzaiIndex, 1)
 
 	return {
 		...state,
