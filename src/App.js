@@ -18,12 +18,17 @@ import Showcase from './components/Showcase/Showcase'
  */
 const App = () => (
 	<div className="App">
-		<Header />
 		<Switch>
-			<Route path='/' exact={true} component={Showcase} />
-			<Route path='/cart' component={Cart} />
+			<Route path='/' exact={true}>
+				<Header displayNavigation={true} />
+				<Showcase />
+			</Route>
+			<Route path='/cart'>
+				<Header displayNavigation={false} />
+				<Cart />
+			</Route>
 		</Switch>
-	</div>
+	</div >
 )
 
 export default App
