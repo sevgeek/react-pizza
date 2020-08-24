@@ -23,7 +23,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 	const pizzaId = { id, type }
 
 	/** State: добавление пиццы в корзину */
-	const [addedToCart, addToCart] = React.useState(cart.find(item => item.type === type && item.id === id))
+	const [addedToCart, addToCart] = React.useState(false)
 
 	// DOM node: button for adding pizza to the cart
 	let pizzaButtonNode = undefined
