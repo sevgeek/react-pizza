@@ -46,7 +46,8 @@
 
 .cart-button_count {
 	display: inherit;
-	width: 35px;
+	width: auto;
+	min-width: 50px;
 	color: #ffffff;
 
 	&::before {
