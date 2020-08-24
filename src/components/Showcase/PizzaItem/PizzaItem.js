@@ -15,14 +15,15 @@ import transfromPizzaContentToText from '../../../functions'
  * @param {Object} data Данные о пицце
  * @param {Function} selectProps Функция выбора свойства пиццы
  * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
+ * @param {Array} cart Массив объектов в корзине
  */
-const PizzaItem = ({ data, selectProps, addPizzaToCart }) => {
+const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 	// Get data
 	const { id, type, title, img, content, config, price } = data
 	const pizzaId = { id, type }
 
 	/** State: добавление пиццы в корзину */
-	const [addedToCart, addToCart] = React.useState(false)
+	const [addedToCart, addToCart] = React.useState(cart.find(item => item.type === type && item.id === id))
 
 	// DOM node: button for adding pizza to the cart
 	let pizzaButtonNode = undefined

@@ -14,14 +14,15 @@ import PizzaItem from './PizzaItem/PizzaItem'
  * @param {Object} pizzas Массив всех пицц из store
  * @param {String} selectedPizzaType Выбранная пользователем пицца
  * @param {Function} onSelectPizzaProps Функция выбора свойства пиццы
+ * @param {Array} cart Массив объектов в корзине
  */
-const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPizzaToCart }) => (
+const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPizzaToCart, cart }) => (
 	<section className='mt-xl'>
 		<div className='grid grid-4-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
 			{/* Делаем проверку выбора пользователя */}
 			{selectedPizzaType === 'all'
-				? renderAllPizzas(pizzas, onSelectPizzaProps, addPizzaToCart)
-				: renderPizzaType(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart)}
+				? renderAllPizzas(pizzas, onSelectPizzaProps, addPizzaToCart, cart)
+				: renderPizzaType(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart, cart)}
 		</div>
 	</section>
 )
@@ -32,13 +33,15 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPi
  * @param {Object} allPizzas Массив объектов всех пицц
  * @param {Function} selectProps Функция изменения свойств пиццы
  * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
+ * @param {Array} cart Массив объектов в корзине
  */
-const renderAllPizzas = (allPizzas, selectProps, addPizzaToCart) =>
+const renderAllPizzas = (allPizzas, selectProps, addPizzaToCart, cart) =>
 	Object.values(allPizzas)
 		.map(arrayPizzaType => arrayPizzaType
 			.map((pizzasArray, index) =>
 				<PizzaItem
 					key={index}
+					cart={cart}
 					data={pizzasArray}
 					selectProps={selectProps}
 					addPizzaToCart={addPizzaToCart} />))
@@ -49,11 +52,13 @@ const renderAllPizzas = (allPizzas, selectProps, addPizzaToCart) =>
  * @param {Object} data Массив объектов пицц
  * @param {Function} selectProps Функция изменения свойств пиццы
  * @param {Function} addPizzaToCart Функция добавления пиццы в корзину
+ * @param {Array} cart Массив объектов в корзине
  */
-const renderPizzaType = (data, selectProps, addPizzaToCart) => data.map((array, index) =>
+const renderPizzaType = (data, selectProps, addPizzaToCart, cart) => data.map((array, index) =>
 	<PizzaItem
 		key={index}
 		data={array}
+		cart={cart}
 		selectProps={selectProps}
 		addPizzaToCart={addPizzaToCart} />)
 
@@ -62,9 +67,10 @@ const renderPizzaType = (data, selectProps, addPizzaToCart) => data.map((array, 
  * @description Преобразование state в props
  * @param {Array} pizzas Массив всех пицц
  * @param {String} selectedPizzaType Выбранный тип пицц
+ * @param {Array} cart Массив объектов в корзине
  */
-const mapStateToProps = ({ pizzas, selectedPizzaType }) => ({
-	pizzas, selectedPizzaType
+const mapStateToProps = ({ pizzas, selectedPizzaType, cart }) => ({
+	pizzas, selectedPizzaType, cart
 })
 
 /**
