@@ -22,22 +22,13 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 	const { id, type, title, img, content, config, price } = data
 	const pizzaId = { id, type }
 
-	/** State: добавление пиццы в корзину */
-	const [addedToCart, addToCart] = React.useState(false)
-
 	// DOM node: button for adding pizza to the cart
 	let pizzaButtonNode = undefined
 
-	if (addedToCart) {
-		pizzaButtonNode = (<Link to='/cart'><div className='added pizza-order col-1'>Оформить</div></Link>)
-	} else {
-		pizzaButtonNode = (<div
-			className='pizza-order col-1'
-			onClick={() => {
-				addPizzaToCart(pizzaId)
-				addToCart(true)
-			}}>Выбрать</div>)
-	}
+	// Check pizza in the cart
+	checkPizzaInTheCart(pizzaId, cart)
+		? pizzaButtonNode = (<Link to='/cart'><div className='added pizza-order col-1'>Оформить</div></Link>)
+		: pizzaButtonNode = (<div className='pizza-order col-1' onClick={() => { addPizzaToCart(pizzaId) }}>Выбрать</div>)
 
 	return (
 		<div className='col-1' key={`${type}${id}`}>
@@ -47,7 +38,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 				<p className='pizza-content txt-m mb-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 				{/* Render pizza props */}
-				{addedToCart
+				{checkPizzaInTheCart(pizzaId, cart)
 					? null
 					: <PizzaProps
 						pizza={pizzaId}
