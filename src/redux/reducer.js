@@ -5,7 +5,8 @@ import {
 	REMOVE_FROM_CART,
 	SELECT_PIZZA_TYPE,
 	SELECT_PIZZA_PROPS,
-	SELECT_PIZZA_PROPS_IN_CART
+	SELECT_PIZZA_PROPS_IN_CART,
+	CHANGE_PIZZA_COUNT_IN_CART,
 } from './actions/actionTypes'
 
 /**
@@ -43,6 +44,10 @@ export default function reducer(state = initState, action) {
 		// Order cart
 		case ORDER_CART:
 			return orderCart(state)
+
+		// Change pizza count in cart
+		case CHANGE_PIZZA_COUNT_IN_CART:
+			return changePizzaCountInCart(state, action.props)
 
 		default:
 			return state;
@@ -236,10 +241,51 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 	}
 }
 
+/**
+ * @name orderCart
+ * @description Оформление заказа: очистка корзины
+ * @param {Object} state Актуальное состояние из хранилища
+ * @returns {Object} Новое состояние
+ */
 const orderCart = state => {
 	return {
 		...state,
 		selectedPizzaType: undefined,
 		cart: []
+	}
+}
+
+/**
+ * @name changePizzaCountInCart
+ * @description Изменение количества пиццы в корзине
+ * @param {Object} state Актуальное состояние из хранилища
+ * @param {Number} id Индентификатор изменяемой пиццы
+ * @param {String} type Тип изменяемой пиццы
+ * @param {String} count Количество пиццы
+ * @returns {Object} Новое состояние
+ */
+const changePizzaCountInCart = (state, { id, type, count }) => {
+	// Копируем актуальный объект всех пицц из корзины
+	let cart = [...state.cart]
+
+	// Получаем объект выбранной пиццы
+	const currentPizza = cart.filter(pizza => pizza.id === id && pizza.type === type)[0]
+
+	// Получаем индекс выбранной пиццы
+	const currentPizzaIndex = cart.indexOf(currentPizza)
+
+	// Обновляем свойства выбранной пиццы
+	const newCountForCurrentPizza = {
+		...currentPizza,
+		count
+	}
+
+	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
+	cart.splice(currentPizzaIndex, 1, newCountForCurrentPizza)
+
+	// Возвращаем обновлённое состояние
+	return {
+		...state,
+		cart
 	}
 }
