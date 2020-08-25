@@ -235,6 +235,7 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 const orderCart = state => {
 	return {
 		...state,
+		selectedPizzaType: undefined,
 		cart: []
 	}
 }
