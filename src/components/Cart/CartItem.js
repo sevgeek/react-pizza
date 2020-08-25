@@ -55,7 +55,7 @@ const CartItem = ({ data, callBack, selectProps }) => {
 	return (
 		<div key={`${type}_${id}`} className='cart-list__item flex-item mt-m grid grid-5-col grid-gap-s'>
 			<img className='col-1 col-align-self_center col-justify-self_center' width='170' src={img} alt={title} />
-			<div className='col-3'>
+			<div className='col-3 col-justify-self_center'>
 				<div style={{
 					width: '450px'
 				}}>
@@ -64,14 +64,11 @@ const CartItem = ({ data, callBack, selectProps }) => {
 					<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 					{/* PizzaProps */}
-					<div style={{
-						marginTop: 12
-					}}>
+					<div style={{ marginTop: '12px' }}>
 						<PizzaProps
 							config={config}
 							pizza={pizzaId}
-							selectProps={(props) => selectProps(props)}
-						/>
+							selectProps={(props) => selectProps(props)} />
 					</div>
 				</div>
 			</div>
