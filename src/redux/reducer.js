@@ -130,8 +130,12 @@ const addPizzaToCart = (state, pizza) => {
 	// Копируем актуальный state
 	const prevCartArray = [...state.cart]
 
+	// Получаем добавляему пиццу, определяем свойство count
+	const addedPizza = state.pizzas[pizza.type][pizza.id - 1]
+	addedPizza.count = 1
+
 	// Добавляем объект пиццы
-	prevCartArray.push(state.pizzas[pizza.type][pizza.id - 1])
+	prevCartArray.push(addedPizza)
 
 	return {
 		...state,
