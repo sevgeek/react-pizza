@@ -18,17 +18,22 @@ import transfromPizzaContentToText from '../../../functions'
  * @param {Array} cart Массив объектов в корзине
  */
 const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
-	// Get data
+	// Получаем данные
 	const { id, type, title, img, content, config, price } = data
+
+	// Получаем данные для однозначной идентификации пиццы
 	const pizzaId = { id, type }
 
-	// DOM node: button for adding pizza to the cart
-	let pizzaButtonNode = undefined
+	// Проверяем наличие пиццы в корзине
+	const pizzaStatus = checkPizzaInTheCart(pizzaId, cart)
 
-	// Check pizza in the cart
-	checkPizzaInTheCart(pizzaId, cart)
-		? pizzaButtonNode = (<Link to='/cart'><div className='added pizza-order col-1'>Оформить</div></Link>)
-		: pizzaButtonNode = (<div className='pizza-order col-1' onClick={() => { addPizzaToCart(pizzaId) }}>Выбрать</div>)
+	// DOM node: кнопка для добавления пиццы или перехода к корзине
+	const pizzaButtonNode = pizzaStatus
+		? <Link to='/cart'><div className='added pizza-order col-1'>Оформить</div></Link>
+		: <React.Fragment>
+			<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
+			<div className='pizza-order col-1' onClick={() => { addPizzaToCart(pizzaId) }}>Выбрать</div>
+		</React.Fragment>
 
 	return (
 		<div className='col-1' key={`${type}${id}`}>
@@ -38,7 +43,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 				<p className='pizza-content txt-m mb-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 				{/* Render pizza props */}
-				{checkPizzaInTheCart(pizzaId, cart)
+				{pizzaStatus
 					? null
 					: <PizzaProps
 						pizza={pizzaId}
@@ -46,7 +51,6 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 						selectProps={(props) => selectProps(props)} />}
 
 				<div className='grid grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
-					<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
 					{pizzaButtonNode}
 				</div>
 			</div>
