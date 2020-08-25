@@ -3,13 +3,17 @@ import React from 'react'
 /** Function */
 import transfromPizzaContentToText from '../../functions'
 
+/** Import components */
+import PizzaProps from '../Showcase/PizzaItem/PizzaProps/PizzaProps'
+
 /**
  * @name CartItem
  * @description Функциональный компонент элемента корзины
  * @param {Object} data Объекты пиццы
  * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая пиццу из массива state.cart
+ * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const CartItem = ({ data, callBack }) => {
+const CartItem = ({ data, callBack, selectProps }) => {
 	const { id, type, config, img, title, content, price } = data
 	const pizzaId = { id, type }
 	let sizeText, doughText = undefined
@@ -49,12 +53,27 @@ const CartItem = ({ data, callBack }) => {
 	}
 
 	return (
-		<div key={`${type}_${id}`} className='cart-list__item flex-item mt-m grid grid-5-col grid-gap-xs'>
-			<img className='col-1 col-align-self_center col-justify-self_center' width='100' src={img} alt={title} />
+		<div key={`${type}_${id}`} className='cart-list__item flex-item mt-m grid grid-5-col grid-gap-s'>
+			<img className='col-1 col-align-self_center col-justify-self_center' width='170' src={img} alt={title} />
 			<div className='col-3'>
-				<h4>{title}</h4>
-				<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
-				<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
+				<div style={{
+					width: '450px'
+				}}>
+					<h4>{title}</h4>
+					<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
+					<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
+
+					{/* PizzaProps */}
+					<div style={{
+						marginTop: 12
+					}}>
+						<PizzaProps
+							config={config}
+							pizza={pizzaId}
+							selectProps={(props) => selectProps(props)}
+						/>
+					</div>
+				</div>
 			</div>
 			<div className='col-1 flexbox flex-justify_between'>
 				<h4 className='cart-list__price flex-item'>{price} ₽</h4>

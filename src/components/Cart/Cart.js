@@ -2,7 +2,7 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
-import { removePizzaFromCart } from '../../redux/actions/actions'
+import { removePizzaFromCart, selectPizzaPropsInCart } from '../../redux/actions/actions'
 
 /** Import components */
 import CartItem from './CartItem'
@@ -12,8 +12,9 @@ import CartItem from './CartItem'
  * @description Функциональный компонент корзины
  * @param {Array} cart Массив объектов (пицц) в корзине (state.cart)
  * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая объект (пиццу) из массива (state.cart)
+ * @param {Function} selectProps Функция выбора свойства пиццы в корзине
  */
-const Cart = ({ cart, onRemovePizzaFromCart }) => {
+const Cart = ({ cart, onRemovePizzaFromCart, selectProps }) => {
 	// Итоговая цена
 	const totalPrice = cart.length > 0 ? cart.reduce((total, pizza) => total + pizza.price, 0) : 0
 
@@ -31,7 +32,12 @@ const Cart = ({ cart, onRemovePizzaFromCart }) => {
 			<h2 className='cart_title'>Корзина</h2>
 
 			{cart.length > 0
-				? cart.map((item, index) => <CartItem key={index} data={item} callBack={onRemovePizzaFromCart} />)
+				? cart.map((item, index) =>
+					<CartItem
+						key={index}
+						data={item}
+						selectProps={selectProps}
+						callBack={onRemovePizzaFromCart} />)
 				: <p className='txt-m mt-m'>Добавьте что-нибудь из меню.</p>}
 
 			<div className='flexbox flex-justify_between flex-align-items_center mt-m'>
@@ -58,6 +64,7 @@ const mapStateToProps = ({ cart }) => ({
  * @param {Object} dispatch
  */
 const mapDispatchToProps = dispatch => ({
+	selectProps: props => dispatch(selectPizzaPropsInCart(props)),
 	onRemovePizzaFromCart: props => dispatch(removePizzaFromCart(props))
 })
 
