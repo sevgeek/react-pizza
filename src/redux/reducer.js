@@ -157,19 +157,43 @@ const addPizzaToCart = (state, pizza) => {
  * @param {Object} pizza Объект удаляемой пиццы
  * @returns {Object} Новое состояние
  */
-const removePizzaFromCart = (state, pizza) => {
-	// Копируем актуальный state
-	const prevCartArray = [...state.cart]
+const removePizzaFromCart = (state, { type, id }) => {
+	// Копируем актуальный state: корзина и все пицыы
+	const cart = [...state.cart]
+	const pizzas = {...state.pizzas}
 
-	// Определяем индекс удаляемой пиццы
-	const removedPizzaiIndex = prevCartArray.findIndex(item => item.type === pizza.type && item.id === pizza.id)
+	/** Работаем с корзиной */
+
+	// Определяем индекс удаляемой пиццы из корзины
+	const removedPizzaiIndex = cart.findIndex(item => item.type === type && item.id === id)
 
 	// Удаляем пиццу
-	prevCartArray.splice(removedPizzaiIndex, 1)
+	cart.splice(removedPizzaiIndex, 1)
+
+	/** Работаем с массивом всех пицц */
+
+	// Получаем объект выбранной пиццы
+	const currentPizza = pizzas[type].filter(pizza => pizza.id === id)[0]
+
+	// Получаем индекс выбранной пиццы
+	const currentPizzaIndex = pizzas[type].indexOf(currentPizza, 0)
+
+	// Сбрасываем свойства пиццы
+	const newPropsForDeletedPizza = {
+		...currentPizza,
+		config: {
+			size: 'small',
+			dough: 'standart'
+		}
+	}
+
+	// Заменяем объект удалённой пиццы на новый, модифицируя копию массива
+	pizzas[type].splice(currentPizzaIndex, 1, newPropsForDeletedPizza)
 
 	return {
 		...state,
-		cart: prevCartArray
+		pizzas,
+		cart
 	}
 }
 
