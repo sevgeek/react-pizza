@@ -31,7 +31,7 @@ const Cart = ({ cart, onRemovePizzaFromCart }) => {
 			<h2 className='cart_title'>Корзина</h2>
 
 			{cart.length > 0
-				? cart.map(item => <CartItem data={item} callBack={onRemovePizzaFromCart} />)
+				? cart.map((item, index) => <CartItem key={index} data={item} callBack={onRemovePizzaFromCart} />)
 				: <p className='txt-m mt-m'>Добавьте что-нибудь из меню.</p>}
 
 			<div className='flexbox flex-justify_between flex-align-items_center mt-m'>
