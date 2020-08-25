@@ -109,6 +109,41 @@
 	color: #ffffff;
 }
 
+.cart__count {
+	width: 45px;
+	border: none;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 22px;
+	transition: $transition;
+}
+
+.cart__count-button {
+	display: inline-block;
+	box-sizing: border-box;
+	height: 45px;
+	width: 45px;
+	border: none;
+	border-radius: 4px;
+	padding: 10px;
+	font-size: 22px;
+	background-color: $ligthGrey;
+	transition: $transition;
+
+	&:hover {
+		cursor: pointer;
+		color: $orange;
+		box-shadow: 1px 0px 6px 0px #cccccc;
+	}
+}
+
+.cart__count-button[disabled] {
+	&:hover {
+		cursor: not-allowed;
+		box-shadow: none;
+	}
+}
+
 .cart-button_count {
 	display: inherit;
 	width: auto;
