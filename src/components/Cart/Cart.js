@@ -2,7 +2,7 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
-import { removePizzaFromCart, selectPizzaPropsInCart } from '../../redux/actions/actions'
+import { removePizzaFromCart, selectPizzaPropsInCart, orderCart } from '../../redux/actions/actions'
 
 /** Import components */
 import CartItem from './CartItem'
@@ -13,17 +13,26 @@ import CartItem from './CartItem'
  * @param {Array} cart Массив объектов (пицц) в корзине (state.cart)
  * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая объект (пиццу) из массива (state.cart)
  * @param {Function} selectProps Функция выбора свойства пиццы в корзине
+ * @param {Function} orderCart Функция Redux, очищающая корзину после заказа
  */
-const Cart = ({ cart, onRemovePizzaFromCart, selectProps }) => {
+const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart }) => {
 	// Итоговая цена
 	const totalPrice = cart.length > 0 ? cart.reduce((total, pizza) => total + pizza.price, 0) : 0
 
 	/** State: статус заказа */
 	const [ordered, setOrder] = React.useState(false)
 
-	// DOM-узел кнопки завершения заказа
+	/** Оформление заказа */
+	const orderReg = () => {
+		setOrder(true)
+		orderCart()
+	}
+
+	// DOM-node: кнопка завершения заказа
 	const orderButton = cart.length > 0
-		? <button onClick={() => setOrder(true)} className='cart-order flex-item p-s'>Заказать</button>
+		? <button
+			onClick={() => orderReg()}
+			className='cart-order flex-item p-s'>Заказать</button>
 		: <button
 			className='cart-order flex-item p-s'
 			style={{ color: 'rgba(255, 255, 255, 0.5)', backgroundColor: 'rgb(246, 172, 119)' }}
@@ -49,7 +58,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps }) => {
 	// DOM-node: заказ оформлен
 	const orderedCart =
 		<div className='flex-align-items_center flex-justify_around flexbox'>
-			<p className='flex-item txt-m mt-m'>Спасибо за Ваш заказ!<br />Ваша пицца уже в пути! <span style={{color: 'rgb(171, 173, 186)'}}>(но это не точно)</span></p>
+			<p className='flex-item txt-m mt-m'>Спасибо за Ваш заказ!<br />Ваша пицца уже в пути! <span style={{ color: 'rgb(171, 173, 186)' }}>(но это не точно)</span></p>
 			<img className='flex-item' src='/img/svg/delivery.svg' width='350px' alt='Delivery' />
 		</div>
 
@@ -78,6 +87,7 @@ const mapStateToProps = ({ cart }) => ({
  * @param {Object} dispatch
  */
 const mapDispatchToProps = dispatch => ({
+	orderCart: () => dispatch(orderCart()),
 	selectProps: props => dispatch(selectPizzaPropsInCart(props)),
 	onRemovePizzaFromCart: props => dispatch(removePizzaFromCart(props))
 })
