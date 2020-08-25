@@ -1,5 +1,11 @@
 import initState from './store'
-import { SELECT_PIZZA_TYPE, SELECT_PIZZA_PROPS, ADD_CART, REMOVE_FROM_CART } from './actions/actionTypes'
+import {
+	ADD_CART,
+	SELECT_PIZZA_TYPE,
+	SELECT_PIZZA_PROPS,
+	REMOVE_FROM_CART,
+	SELECT_PIZZA_PROPS_IN_CART
+} from './actions/actionTypes'
 
 /**
  * @name reducer
@@ -28,6 +34,10 @@ export default function reducer(state = initState, action) {
 		// Remove pizza from cart...
 		case REMOVE_FROM_CART:
 			return removePizzaFromCart(state, action.pizza)
+
+		// Select pizza props in cart
+		case SELECT_PIZZA_PROPS_IN_CART:
+			return changePropsOfPizzaInCart(state, action.props)
 
 		default:
 			return state;
@@ -144,5 +154,75 @@ const removePizzaFromCart = (state, pizza) => {
 	return {
 		...state,
 		cart: prevCartArray
+	}
+}
+
+/**
+ * @name changePropsOfPizzaInCart
+ * @description Изменение свойств пиццы из корзины
+ * @param {Object} state Актуальное состояние из хранилища
+ * @param {Number} id Индентификатор изменяемой пиццы
+ * @param {String} type Тип изменяемой пиццы
+ * @param {String} size Свойство пиццы: размер
+ * @param {String} dough Свойство пиццы: вид теста
+ * @returns {Object} Новое состояние
+ */
+const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
+	// Копируем актуальный объект всех пицц из хранилища
+	let allPizzas = [...state.cart]
+
+	// Получаем объект выбранной пиццы
+	const currentPizza = allPizzas.filter(pizza => pizza.id === id && pizza.type === type)[0]
+
+	// Получаем индекс выбранной пиццы
+	const currentPizzaIndex = allPizzas.indexOf(currentPizza)
+
+	// Получаем свойства
+	let { price, defaultPrice, config: { size: prevSize } } = currentPizza
+
+	// Делаем проверку на изменение размера пиццы
+	if (prevSize !== size) {
+		console.log(`Размер пиццы изменился`)
+		switch (size) {
+			// Leave default price
+			case 'small':
+				price = defaultPrice
+				break;
+
+			// Increase by 75
+			case 'medium':
+				price = price + 75
+				break;
+
+			// Increase by 100
+			case 'big':
+				price = price + 100
+				break;
+
+			default:
+				price = defaultPrice
+				break;
+		}
+	} else {
+		console.log(`Размер пиццы не изменился`)
+	}
+
+	// Обновляем свойства выбранной пиццы
+	const newPropsForCurrentPizza = {
+		...currentPizza,
+		price,
+		config: {
+			size,
+			dough
+		}
+	}
+
+	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
+	allPizzas.splice(currentPizzaIndex, 1, newPropsForCurrentPizza)
+
+	// Возвращаем обновлённое состояние
+	return {
+		...state,
+		cart: allPizzas
 	}
 }
