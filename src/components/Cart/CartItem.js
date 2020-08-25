@@ -72,15 +72,35 @@ const CartItem = ({ data, callBack, selectProps }) => {
 					</div>
 				</div>
 			</div>
-			<div className='col-1 flexbox flex-justify_between'>
-				<h4 className='cart-list__price flex-item'>{price} ₽</h4>
+			<div className='col-1'>
+				<div className='grid grid-2-col grid-col-gap-0 grid-row-gap-s'>
+					<h4 className='cart-list__price col-1 col-align-self_center'>{price * count} ₽</h4>
+
 				<img
 					alt='Удалить'
 					src='/img/svg/trash.svg'
 					title='Удалить из корзины'
-					className='cart-list__item-trash'
 					onClick={() => callBack(pizzaId)}
-				/>
+						className='cart-list__item-trash col-1 col-align-self_center col-justify-self_end' />
+
+					<div className='col-2 flexbox flex-justify_around flex-align-items_center'>
+						{/* Button incremented */}
+						<button
+							type='button'
+							onClick={() => updateCount(count + 1)}
+							className='flex-item cart__count-button'> + </button>
+
+						{/* Count */}
+						<span className='flex-item cart__count'>{count}</span>
+
+						{/* Button decremented */}
+						<button
+							type='button'
+							onClick={() => updateCount(count - 1)}
+							disabled={count <= 1 ? true : false}
+							className='flex-item cart__count-button'> - </button>
+					</div>
+				</div>
 			</div>
 		</div>
 	)
