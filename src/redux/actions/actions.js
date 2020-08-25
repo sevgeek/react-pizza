@@ -1,10 +1,11 @@
 /** Import actions types */
 import {
 	ADD_CART,
+	ORDER_CART,
+	REMOVE_FROM_CART,
 	SELECT_PIZZA_TYPE,
 	SELECT_PIZZA_PROPS,
-	REMOVE_FROM_CART,
-	SELECT_PIZZA_PROPS_IN_CART
+	SELECT_PIZZA_PROPS_IN_CART,
 } from './actionTypes'
 
 /** Actions creators */
@@ -37,4 +38,9 @@ export const removePizzaFromCart = pizza => ({
 export const selectPizzaPropsInCart = props => ({
 	type: SELECT_PIZZA_PROPS_IN_CART,
 	props,
+})
+
+/** Order cart */
+export const orderCart = () => ({
+	type: ORDER_CART
 })

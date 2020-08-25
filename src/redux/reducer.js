@@ -1,9 +1,10 @@
 import initState from './store'
 import {
 	ADD_CART,
+	ORDER_CART,
+	REMOVE_FROM_CART,
 	SELECT_PIZZA_TYPE,
 	SELECT_PIZZA_PROPS,
-	REMOVE_FROM_CART,
 	SELECT_PIZZA_PROPS_IN_CART
 } from './actions/actionTypes'
 
@@ -38,6 +39,10 @@ export default function reducer(state = initState, action) {
 		// Select pizza props in cart
 		case SELECT_PIZZA_PROPS_IN_CART:
 			return changePropsOfPizzaInCart(state, action.props)
+
+		// Order cart
+		case ORDER_CART:
+			return orderCart(state)
 
 		default:
 			return state;
@@ -224,5 +229,12 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 	return {
 		...state,
 		cart: allPizzas
+	}
+}
+
+const orderCart = state => {
+	return {
+		...state,
+		cart: []
 	}
 }
