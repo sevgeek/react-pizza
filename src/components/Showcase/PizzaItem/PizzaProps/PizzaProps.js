@@ -34,23 +34,27 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
  * @param {Object} pizza Порядковый номер (индекс) пиццы
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderSizeProps = (props, config, pizza, selectProps) => props.size.map(({ size, alias }, index) => {
-	// Определяем актуальное свойство
-	const selected = config.size === size ? true : false
+const renderSizeProps = (props, config, pizza, selectProps) =>
+	props.size.map(({ size, alias }, index) => {
+		// Определяем актуальное свойство
+		const selected = config.size === size ? true : false
 
-	return (
-		<div
-			data-props='size'
-			key={`${pizza.type}${pizza.id}_${index}`}
-			onClick={() => selectProps({
-				size,
-				id: pizza.id,
-				type: pizza.type,
-				dough: config.dough,
-			})}
-			className={classNames('pizza-config_value', 'col-1', { 'selected': selected })}>{alias}</div>
-	)
-})
+		return (
+			<div
+				data-props='size'
+				onClick={() => selectProps({
+					size,
+					id: pizza.id,
+					type: pizza.type,
+					dough: config.dough,
+				})}
+				className={classNames(
+					'col-1',
+					'pizza-config_value',
+					{ 'selected': selected })}
+				key={`${pizza.type}${pizza.id}_${index}`}>{alias}</div>
+		)
+	})
 
 /**
  * @name renderDoughProps
@@ -67,14 +71,17 @@ const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(
 	return (
 		<div
 			data-props='dough'
-			key={`${pizza.type}${pizza.id}_${index}`}
 			onClick={() => selectProps({
 				dough,
 				id: pizza.id,
 				type: pizza.type,
 				size: config.size,
 			})}
-			className={classNames('pizza-config_value', 'col-1', { 'selected': selected })}>{alias}</div>
+			className={classNames(
+				'col-1',
+				'pizza-config_value',
+				{ 'selected': selected })}
+			key={`${pizza.type}${pizza.id}_${index}`}>{alias}</div>
 	)
 })
 

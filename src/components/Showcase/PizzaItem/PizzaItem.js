@@ -70,6 +70,7 @@ export function checkPizzaInTheCart(pizza, cart) {
 		// Search pizza
 		const searchPizza = cart.filter(item =>
 			item.type === pizza.type && item.id === pizza.id)
+
 		// Return result
 		return searchPizza.length > 0 ? true : false
 	} else return false

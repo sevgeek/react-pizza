@@ -47,7 +47,12 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 			className='cart-order flex-item p-s'>Заказать</button>
 		: <button
 			className='cart-order flex-item p-s'
-			style={{ color: 'rgba(255, 255, 255, 0.5)', backgroundColor: 'rgb(246, 172, 119)' }}>Заказать</button>
+			style={
+				{
+					color: 'rgba(255, 255, 255, 0.5)',
+					backgroundColor: 'rgb(246, 172, 119)'
+				}
+			}>Заказать</button>
 
 	// DOM-node: заказ пустой
 	const emptyCart = <React.Fragment>
@@ -81,7 +86,9 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 			<h2 className='cart_title'>Корзина</h2>
 
 			{/* Вывод DOM-nodes */}
-			{!ordered ? emptyCart : orderedCart}
+			{!ordered
+				? emptyCart
+				: orderedCart}
 		</section>
 	)
 }
@@ -89,8 +96,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 /**
  * @name mapStateToProps
  * @description Преобразование state в props
- * @param {Array} pizzas Массив всех пицц
- * @param {String} selectedPizzaType Выбранный тип пицц
+ * @param {Array} cart Массив всех пицц из корзины
  */
 const mapStateToProps = ({ cart }) => ({
 	cart

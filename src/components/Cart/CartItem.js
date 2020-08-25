@@ -69,13 +69,20 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 
 	return (
 		<div key={`${type}_${id}`} className='cart-list__item flex-item mt-m grid grid-5-col grid-gap-s'>
-			<img className='col-1 col-align-self_center col-justify-self_center' width='170' src={img} alt={title} />
+			{/* Pizza Image */}
+			<img
+				src={img}
+				width='170'
+				alt={title}
+				className='col-1 col-align-self_center col-justify-self_center' />
+
+			{/* Props */}
 			<div className='col-3 col-justify-self_center'>
-				<div style={{
-					width: '450px'
-				}}>
+				<div style={{ width: '450px' }}>
 					<h4>{title}</h4>
+
 					<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
+
 					<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 					{/* PizzaProps */}
@@ -87,6 +94,8 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 					</div>
 				</div>
 			</div>
+
+			{/* Price, count */}
 			<div className='col-1'>
 				<div className='grid grid-2-col grid-col-gap-0 grid-row-gap-s'>
 					<h4 className='cart-list__price col-1 col-align-self_center'>{price * count} ₽</h4>

@@ -16,8 +16,11 @@ const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) =
 				return (
 					<li
 						key={`pizzaType_${index}`}
-						onClick={() => choosingTheTypeOfPizza(type.value)}
-						className={classNames('h4', 'flex-item', { selected: (selectedPizzaType === type.value) })}>
+						className={classNames(
+							'h4',
+							'flex-item',
+							{ selected: (selectedPizzaType === type.value) })}
+						onClick={() => choosingTheTypeOfPizza(type.value)}>
 						<i className={`em ${type.emoji} mr-s`}></i>{type.title}
 					</li>
 				)

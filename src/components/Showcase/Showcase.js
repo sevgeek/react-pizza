@@ -10,7 +10,7 @@ import PizzaItem from './PizzaItem/PizzaItem'
 
 /**
  * @name Showcase
- * @description Функциональный компонент: контейнер для PizzaItem компонентов
+ * @description Функциональный компонент: контейнер для PizzaItem's компонентов
  * @param {Object} pizzas Массив всех пицц из store
  * @param {String} selectedPizzaType Выбранная пользователем пицца
  * @param {Function} onSelectPizzaProps Функция выбора свойства пиццы
@@ -19,10 +19,12 @@ import PizzaItem from './PizzaItem/PizzaItem'
 const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPizzaToCart, cart }) => (
 	<section className='mt-xl'>
 		<div className='grid grid-4-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
-			{/* Делаем проверку выбора пользователя */}
+
+			{/* Делаем проверку типа отображаемых пицц */}
 			{selectedPizzaType === 'all'
 				? Object.values(pizzas)
-					.map(array => renderPizzaItems(array, onSelectPizzaProps, addPizzaToCart, cart))
+					.map(array =>
+						renderPizzaItems(array, onSelectPizzaProps, addPizzaToCart, cart))
 				: renderPizzaItems(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart, cart)}
 		</div>
 	</section>

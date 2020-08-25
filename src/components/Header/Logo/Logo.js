@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 /**
  * @name Logo
  * @description Функциональный компонент логотипа
- * @param {String} imagePath Путь к изображению логотипа
+ * @param {String} path Путь к изображению логотипа
  */
 const Logo = ({ path }) => (
 	<Link to='/'>
