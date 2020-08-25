@@ -15,7 +15,7 @@ const Logo = ({ path }) => (
 				width='120px'
 				className='flex-item mr-m' />
 			<div id='logo-text' className='flex-item'>
-				<h1 className='mr-m'>React Pizza</h1>
+				<h1 className='mr-m'>REACT PIZZA</h1>
 				<h5 className='txt-m m-0 p-0'>Реактивное веб-приложение для заказа пиццы</h5>
 			</div>
 		</div>
