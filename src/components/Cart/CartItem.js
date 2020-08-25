@@ -12,11 +12,26 @@ import PizzaProps from '../Showcase/PizzaItem/PizzaProps/PizzaProps'
  * @param {Object} data Объекты пиццы
  * @param {Function} onRemovePizzaFromCart Функция Redux, удаляющая пиццу из массива state.cart
  * @param {Function} selectProps Функция выбора свойства пиццы
+ * @param {Function} upPizzaCount Функция поднятия состояния count к родителю
  */
-const CartItem = ({ data, callBack, selectProps }) => {
-	const { id, type, config, img, title, content, price } = data
-	const pizzaId = { id, type }
+const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
+	// Получаем данные
+	const { id, type, config, img, title, content, price, count: defaultCount } = data
+
+	// Уникальный идентификатор пиццы
+	const pizzaId = { id, type, count: defaultCount }
+
+	// Текстовое представление
 	let sizeText, doughText = undefined
+
+	/** State: pizza count */
+	const [count, setCount] = React.useState(defaultCount)
+
+	/** Update count */
+	const updateCount = value => {
+		setCount(value)
+		upPizzaCount({ ...pizzaId, count: value })
+	}
 
 	// Switch size
 	switch (config.size) {
@@ -76,11 +91,11 @@ const CartItem = ({ data, callBack, selectProps }) => {
 				<div className='grid grid-2-col grid-col-gap-0 grid-row-gap-s'>
 					<h4 className='cart-list__price col-1 col-align-self_center'>{price * count} ₽</h4>
 
-				<img
-					alt='Удалить'
-					src='/img/svg/trash.svg'
-					title='Удалить из корзины'
-					onClick={() => callBack(pizzaId)}
+					<img
+						alt='Удалить'
+						src='/img/svg/trash.svg'
+						title='Удалить из корзины'
+						onClick={() => callBack(pizzaId)}
 						className='cart-list__item-trash col-1 col-align-self_center col-justify-self_end' />
 
 					<div className='col-2 flexbox flex-justify_around flex-align-items_center'>
