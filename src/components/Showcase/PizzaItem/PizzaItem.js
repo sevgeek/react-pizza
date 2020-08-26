@@ -29,10 +29,14 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 
 	// DOM node: кнопка для добавления пиццы или перехода к корзине
 	const pizzaButtonNode = pizzaStatus
-		? <Link to='/cart'><div className='added pizza-order col-1'>Оформить</div></Link>
+		? <Link to='/cart'>
+			<div className='added pizza-order col-1'>Оформить</div>
+		</Link>
 		: <React.Fragment>
 			<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
-			<div className='pizza-order col-1' onClick={() => { addPizzaToCart(pizzaId) }}>Выбрать</div>
+			<div
+				className='pizza-order col-1'
+				onClick={() => { addPizzaToCart(pizzaId) }}>Выбрать</div>
 		</React.Fragment>
 
 	return (
