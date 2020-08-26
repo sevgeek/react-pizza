@@ -108,21 +108,21 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 						className='cart-list__item-trash col-1 col-align-self_center col-justify-self_end' />
 
 					<div className='col-2 flexbox flex-justify_around flex-align-items_center'>
-						{/* Button incremented */}
-						<button
-							type='button'
-							onClick={() => updateCount(count + 1)}
-							className='flex-item cart__count-button'> + </button>
-
-						{/* Count */}
-						<span className='flex-item cart__count'>{count}</span>
-
 						{/* Button decremented */}
 						<button
 							type='button'
 							onClick={() => updateCount(count - 1)}
 							disabled={count <= 1 ? true : false}
 							className='flex-item cart__count-button'> - </button>
+
+						{/* Count */}
+						<span className='flex-item cart__count'>{count}</span>
+
+						{/* Button incremented */}
+						<button
+							type='button'
+							onClick={() => updateCount(count + 1)}
+							className='flex-item cart__count-button'> + </button>
 					</div>
 				</div>
 			</div>
