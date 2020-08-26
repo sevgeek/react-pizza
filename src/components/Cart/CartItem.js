@@ -24,14 +24,16 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 	// Текстовое представление
 	let sizeText, doughText = undefined
 
-	/** State: pizza count */
-	const [count, setCount] = React.useState(defaultCount)
+	/** State: pizza props */
+	const [pizzaProps, setPizzaProps] = React.useState({
+		...pizzaId
+	})
 
-	/** Update count */
-	const updateCount = value => {
-		setCount(value)
-		upPizzaCount({ ...pizzaId, count: value })
-	}
+	/** useEffect */
+	React.useEffect(() => {
+		upPizzaCount(pizzaProps)
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [pizzaProps])
 
 	// Switch size
 	switch (config.size) {
@@ -98,7 +100,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 			{/* Price, count */}
 			<div className='col-1'>
 				<div className='grid grid-2-col grid-col-gap-0 grid-row-gap-s'>
-					<h4 className='cart-list__price col-1 col-align-self_center'>{price * count} ₽</h4>
+					<h4 className='cart-list__price col-1 col-align-self_center'>{price * pizzaProps.count} ₽</h4>
 
 					<img
 						alt='Удалить'
@@ -111,17 +113,17 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 						{/* Button decremented */}
 						<button
 							type='button'
-							onClick={() => updateCount(count - 1)}
-							disabled={count <= 1 ? true : false}
+							onClick={() => setPizzaProps({...pizzaProps, count: pizzaProps.count - 1})}
+							disabled={pizzaProps.count <= 1 ? true : false}
 							className='flex-item cart__count-button'> - </button>
 
 						{/* Count */}
-						<span className='flex-item cart__count'>{count}</span>
+						<span className='flex-item cart__count'>{pizzaProps.count}</span>
 
 						{/* Button incremented */}
 						<button
 							type='button'
-							onClick={() => updateCount(count + 1)}
+							onClick={() => setPizzaProps({...pizzaProps, count: pizzaProps.count + 1})}
 							className='flex-item cart__count-button'> + </button>
 					</div>
 				</div>
