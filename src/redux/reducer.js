@@ -69,7 +69,7 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	let pizzas = { ...state.pizzas }
 
 	// Получаем объект выбранной пиццы
-	const currentPizza = pizzas[type].filter(pizza => pizza.id === id)[0]
+	const currentPizza = pizzas[type].find(pizza => pizza.id === id)
 
 	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = pizzas[type].indexOf(currentPizza, 0)
@@ -173,7 +173,7 @@ const removePizzaFromCart = (state, { type, id }) => {
 	/** Работаем с массивом всех пицц */
 
 	// Получаем объект выбранной пиццы
-	const currentPizza = pizzas[type].filter(pizza => pizza.id === id)[0]
+	const currentPizza = pizzas[type].find(pizza => pizza.id === id)
 
 	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = pizzas[type].indexOf(currentPizza, 0)
@@ -212,7 +212,7 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 	let cart = [...state.cart]
 
 	// Получаем объект выбранной пиццы
-	const currentPizza = cart.filter(pizza => pizza.id === id && pizza.type === type)[0]
+	const currentPizza = cart.find(pizza => pizza.id === id && pizza.type === type)
 
 	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = cart.indexOf(currentPizza)
@@ -297,7 +297,7 @@ const changePizzaCountInCart = (state, { id, type, count }) => {
 	let cart = [...state.cart]
 
 	// Получаем объект выбранной пиццы
-	const currentPizza = cart.filter(pizza => pizza.id === id && pizza.type === type)[0]
+	const currentPizza = cart.find(pizza => pizza.id === id && pizza.type === type)
 
 	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = cart.indexOf(currentPizza)
