@@ -30,17 +30,17 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 	})
 
 	/** useCallback */
-	const changePizzaCount = React.useCallback((value) => {
-		// ...new state
+	const onChangePizzaCount = React.useCallback((value) => {
+		// New state
 		const newState = {
 			...pizzaProps,
 			count: value
 		}
 
-		// Update state
+		// Set new state
 		setPizzaProps(newState)
 
-		// Up state to props
+		/** Up state to props `upPizzaCount` */
 		upPizzaCount(newState)
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,7 +124,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 						{/* Button decremented */}
 						<button
 							type='button'
-							onClick={() => changePizzaCount(pizzaProps.count - 1)}
+							onClick={() => onChangePizzaCount(pizzaProps.count - 1)}
 							disabled={pizzaProps.count <= 1 ? true : false}
 							className='flex-item cart__count-button'> - </button>
 
@@ -134,7 +134,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 						{/* Button incremented */}
 						<button
 							type='button'
-							onClick={() => changePizzaCount(pizzaProps.count + 1)}
+							onClick={() => onChangePizzaCount(pizzaProps.count + 1)}
 							className='flex-item cart__count-button'> + </button>
 					</div>
 				</div>
