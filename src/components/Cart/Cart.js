@@ -31,19 +31,24 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 	/** State: статус заказа */
 	const [ordered, setOrder] = React.useState(false)
 
-	/** Оформление заказа */
-	const orderReg = () => {
-		// Обновляем состояние
-		setOrder(true)
+	/**
+	 * @name onOrderReg
+	 * @description Функция изменения состояния (оформления заказа) и отправки изменений родительскому компоненту в store
+	 */
+	const onOrderReg = React.useCallback(() => {
+		// Set new state
+		setOrder((value) => !value)
 
-		// Обращаемся к функции очистки корзины
+		/** Callback-function: очистка корзины */
 		orderCart()
-	}
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ordered])
 
 	// DOM-node: кнопка завершения заказа
 	const orderButton = cart.length > 0
 		? <button
-			onClick={() => orderReg()}
+			onClick={() => onOrderReg()}
 			className='cart-order flex-item p-s'>Заказать</button>
 		: <button
 			className='cart-order flex-item p-s'
