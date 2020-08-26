@@ -29,10 +29,21 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 		...pizzaId
 	})
 
-	/** useEffect */
-	React.useEffect(() => {
-		upPizzaCount(pizzaProps)
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+	/** useCallback */
+	const changePizzaCount = React.useCallback((value) => {
+		// ...new state
+		const newState = {
+			...pizzaProps,
+			count: value
+		}
+
+		// Update state
+		setPizzaProps(newState)
+
+		// Up state to props
+		upPizzaCount(newState)
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pizzaProps])
 
 	// Switch size
@@ -113,7 +124,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 						{/* Button decremented */}
 						<button
 							type='button'
-							onClick={() => setPizzaProps({...pizzaProps, count: pizzaProps.count - 1})}
+							onClick={() => changePizzaCount(pizzaProps.count - 1)}
 							disabled={pizzaProps.count <= 1 ? true : false}
 							className='flex-item cart__count-button'> - </button>
 
@@ -123,7 +134,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 						{/* Button incremented */}
 						<button
 							type='button'
-							onClick={() => setPizzaProps({...pizzaProps, count: pizzaProps.count + 1})}
+							onClick={() => changePizzaCount(pizzaProps.count + 1)}
 							className='flex-item cart__count-button'> + </button>
 					</div>
 				</div>
