@@ -29,7 +29,10 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 		...pizzaId
 	})
 
-	/** useCallback */
+	/**
+	 * @name onChangePizzaCount
+	 * @description Функция изменения состояния (свойств пиццы) и отправки изменений родительскому компоненту в store
+	 */
 	const onChangePizzaCount = React.useCallback((value) => {
 		// New state
 		const newState = {
