@@ -11,9 +11,9 @@
 .App {
 	@include displayBlock;
 	@include blockParams(100%, 100%);
+	padding: $padding-step * 6;
 	background-color: #ffffff;
 	border-radius: $padding-step;
-	padding: $padding-step * 6;
 }
 
 // Logo
@@ -33,7 +33,7 @@
 	@include displayBlock;
 	box-sizing: border-box;
 	width: 900px;
-	margin: 0 auto
+	margin: 0 auto;
 }
 
 .cart_title {
@@ -66,12 +66,12 @@
 .cart-order {
 	@include displayBlock;
 	width: auto;
-	border: none;
-	font-size: 18px;
 	min-width: 100px;
+	font-size: 18px;
 	color: #ffffff;
 	transition: $transition;
 	background-color: $orange;
+	border: none;
 	border-radius: $padding-step;
 
 	&:hover {
@@ -88,12 +88,12 @@
 .cart-button {
 	@include displayBlock;
 	width: auto;
-	color: #ffffff;
 	min-width: 100px;
+	color: #ffffff;
 	transition: $transition;
+	background-color: $orange;
 	border: 1px solid $orange;
 	border-radius: $padding-step;
-	background-color: $orange;
 
 	&:hover {
 		cursor: pointer;
@@ -113,8 +113,8 @@
 	width: 45px;
 	border: none;
 	border-radius: 4px;
-	text-align: center;
 	font-size: 22px;
+	text-align: center;
 	transition: $transition;
 }
 
@@ -153,11 +153,11 @@
 	&::before {
 		content: "";
 		display: inline-block;
+		top: 4px;
 		height: 20px;
 		width: 1px;
-		opacity: 0.4;
 		position: relative;
-		top: 4px;
+		opacity: 0.4;
 		margin: -2px 12px;
 		background: rgb(255, 255, 255);
 	}
@@ -220,13 +220,13 @@
 }
 
 .pizza-config_value {
-	width: auto;
-	color: $black;
 	display: block;
+	box-sizing: border-box;
+	width: auto;
 	cursor: pointer;
+	color: $black;
 	text-align: center;
 	border-radius: 5px;
-	box-sizing: border-box;
 	transition: $transition;
 	padding: $padding-step / 2 $padding-step * 2;
 }
@@ -237,7 +237,6 @@
 
 .pizza-config_value.selected {
 	background-color: #ffffff;
-	// box-shadow: 3px 0px 9px #cccccc;
 	box-shadow: 1px 0px 6px 0px #cccccc;
 }
 
