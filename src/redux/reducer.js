@@ -160,7 +160,7 @@ const addPizzaToCart = (state, pizza) => {
 const removePizzaFromCart = (state, { type, id }) => {
 	// Копируем актуальный state: корзина и все пицыы
 	const cart = [...state.cart]
-	const pizzas = {...state.pizzas}
+	const pizzas = { ...state.pizzas }
 
 	/** Работаем с корзиной */
 
@@ -276,6 +276,14 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
  * @returns {Object} Новое состояние
  */
 const orderCart = state => {
+
+	let defaultConfig = {
+		size: 'small',
+		dough: 'standart',
+	}
+
+	Object.values(state.pizzas.meaty).forEach((item) => item.config = defaultConfig)
+
 	return {
 		...state,
 		selectedPizzaType: undefined,
