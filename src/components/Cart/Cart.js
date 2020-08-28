@@ -64,7 +64,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 		{cart.length > 0
 			? cart.map((item, index) =>
 				<CartItem
-					key={index}
+					key={`${item.type}${++index}`}
 					data={item}
 					selectProps={selectProps}
 					callBack={onRemovePizzaFromCart}
