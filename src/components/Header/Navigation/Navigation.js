@@ -29,4 +29,8 @@ const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) =
 	)
 }
 
-export default Navigation
+function areEqual(prevProps, nextProps) {
+	return prevProps.pizzaTypes !== nextProps.pizzaTypes ? true: false
+}
+
+export default React.memo(Navigation, areEqual)

@@ -22,4 +22,8 @@ const Logo = ({ path }) => (
 	</Link>
 )
 
-export default Logo
+function areEqual(prevProps, nextProps) {
+	return prevProps.path !== nextProps.path ? true: false
+}
+
+export default React.memo(Logo, areEqual)
