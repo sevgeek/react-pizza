@@ -9,14 +9,8 @@ import {
 	CHANGE_PIZZA_COUNT_IN_CART,
 } from './actions/actionTypes'
 
-/**
- * @name reducer
- * @description Main reducer
- * @param {Object} state Initial store
- * @param {Object} action Action object
- */
 export default function reducer(state = initState, action) {
-	/** Switch actions */
+
 	switch (action.type) {
 		// Select pizza type...
 		case SELECT_PIZZA_TYPE:
@@ -65,21 +59,17 @@ export default function reducer(state = initState, action) {
  * @returns {Object} Новое состояние
  */
 const changePropsOfPizza = (state, { id, type, size, dough }) => {
-	// Копируем актуальный объект всех пицц из хранилища
+	// Копируем данные всех пицц из хранилища
 	let pizzas = { ...state.pizzas }
 
 	// Получаем объект выбранной пиццы
 	const currentPizza = pizzas[type].find(pizza => pizza.id === id)
-
-	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = pizzas[type].indexOf(currentPizza, 0)
 
-	// Получаем свойства
 	let { price, defaultPrice, config: { size: prevSize } } = currentPizza
 
 	// Делаем проверку на изменение размера пиццы
 	if (prevSize !== size) {
-		console.log(`Размер пиццы изменился`)
 		price = defaultPrice
 
 		switch (size) {
@@ -102,8 +92,6 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 				price = defaultPrice
 				break;
 		}
-	} else {
-		console.log(`Размер пиццы не изменился`)
 	}
 
 	// Обновляем свойства выбранной пиццы
@@ -119,7 +107,6 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
 	pizzas[type].splice(currentPizzaIndex, 1, newPropsForCurrentPizza)
 
-	// Возвращаем обновлённое состояние
 	return {
 		...state,
 		pizzas
@@ -166,7 +153,6 @@ const removePizzaFromCart = (state, { type, id }) => {
 
 	// Определяем индекс удаляемой пиццы из корзины
 	const removedPizzaiIndex = cart.findIndex(item => item.type === type && item.id === id)
-
 	// Удаляем пиццу
 	cart.splice(removedPizzaiIndex, 1)
 
@@ -174,8 +160,6 @@ const removePizzaFromCart = (state, { type, id }) => {
 
 	// Получаем объект выбранной пиццы
 	const currentPizza = pizzas[type].find(pizza => pizza.id === id)
-
-	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = pizzas[type].indexOf(currentPizza, 0)
 
 	// Сбрасываем свойства пиццы
@@ -213,16 +197,12 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 
 	// Получаем объект выбранной пиццы
 	const currentPizza = cart.find(pizza => pizza.id === id && pizza.type === type)
-
-	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = cart.indexOf(currentPizza)
 
-	// Получаем свойства
 	let { price, defaultPrice, config: { size: prevSize } } = currentPizza
 
 	// Делаем проверку на изменение размера пиццы
 	if (prevSize !== size) {
-		console.log(`Размер пиццы изменился`)
 		price = defaultPrice
 
 		switch (size) {
@@ -245,8 +225,6 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 				price = defaultPrice
 				break;
 		}
-	} else {
-		console.log(`Размер пиццы не изменился`)
 	}
 
 	// Обновляем свойства выбранной пиццы
@@ -262,7 +240,6 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
 	cart.splice(currentPizzaIndex, 1, newPropsForCurrentPizza)
 
-	// Возвращаем обновлённое состояние
 	return {
 		...state,
 		cart
@@ -276,13 +253,16 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
  * @returns {Object} Новое состояние
  */
 const orderCart = state => {
-
+	// Определяем стандартные свойства
 	let defaultConfig = {
 		size: 'small',
 		dough: 'standart',
 	}
 
-	Object.values(state.pizzas.meaty).forEach((item) => item.config = defaultConfig)
+	// Проходимся по каждому объекту каждого типа и присваиваем стандартные свойства
+	Object.values(state.pizzas)
+		.map((pizza) => pizza
+			.forEach((item) => item.config = defaultConfig))
 
 	return {
 		...state,
@@ -306,8 +286,6 @@ const changePizzaCountInCart = (state, { id, type, count }) => {
 
 	// Получаем объект выбранной пиццы
 	const currentPizza = cart.find(pizza => pizza.id === id && pizza.type === type)
-
-	// Получаем индекс выбранной пиццы
 	const currentPizzaIndex = cart.indexOf(currentPizza)
 
 	// Обновляем свойства выбранной пиццы
@@ -319,7 +297,6 @@ const changePizzaCountInCart = (state, { id, type, count }) => {
 	// Заменяем объект выбранной пиццы на новый, модифицируя копию массива
 	cart.splice(currentPizzaIndex, 1, newCountForCurrentPizza)
 
-	// Возвращаем обновлённое состояние
 	return {
 		...state,
 		cart

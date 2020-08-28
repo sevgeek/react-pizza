@@ -9,10 +9,10 @@ import classNames from 'classnames'
  * @param {String} selectedPizzaType Значение выбранного типа пиццы
  * @param {Function} choosingTheTypeOfPizza Функция передачи выбранного типа пиццы
  */
-const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) => {
-	return (
-		<ul className='navigation flexbox flex-justify_around'>
-			{pizzaTypes.map((type, index) => {
+const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) => (
+	<ul className='navigation flexbox flex-justify_around'>
+		{pizzaTypes
+			.map((type, index) => {
 				return (
 					<li
 						key={`pizzaType_${index}`}
@@ -25,12 +25,12 @@ const Navigation = ({ pizzaTypes, selectedPizzaType, choosingTheTypeOfPizza }) =
 					</li>
 				)
 			})}
-		</ul>
-	)
-}
+	</ul>
+)
 
+/** Сравнение входящих props */
 function areEqual(prevProps, nextProps) {
-	return prevProps.pizzaTypes !== nextProps.pizzaTypes ? true: false
+	return prevProps.pizzaTypes !== nextProps.pizzaTypes ? true : false
 }
 
 export default React.memo(Navigation, areEqual)

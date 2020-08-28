@@ -4,9 +4,7 @@
  * @param {String} string Описание состава пиццы
  * @returns {String} Единое описание состава пиццы
  */
-export const transfromPizzaContentToText = (string) => {
-	return string[0].toUpperCase() + string.slice(1)
-}
+export const transfromPizzaContentToText = string => string[0].toUpperCase() + string.slice(1)
 
 /**
 * @name checkPizzaInTheCart

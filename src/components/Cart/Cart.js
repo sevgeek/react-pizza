@@ -2,7 +2,6 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
-// Import actions
 import {
 	orderCart,
 	removePizzaFromCart,
@@ -23,7 +22,6 @@ import CartItem from './CartItem'
  * @param {Function} upPizzaCount Функция Redux, изменяющая количество пиццы в корзине
  */
 const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCount }) => {
-
 	const totalPrice = (
 		cart.length > 0
 			? cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0)
@@ -35,38 +33,27 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 
 	/**
 	 * @name onOrderReg
-	 * @description Функция изменения состояния (оформления заказа) и отправки изменений родительскому компоненту в store
+	 * @description useCallback-хук изменения состояния (оформления заказа)
+	 * и отправки изменений родительскому компоненту в store
 	 */
 	const onOrderReg = React.useCallback(() => {
 		// Set new state
 		setOrder(!ordered)
 
-		/** Callback-function: очистка корзины */
+		/** Очистка корзины */
 		orderCart()
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ordered])
 
-	// DOM-node: кнопка завершения заказа
-	const orderButton = (
-		cart.length > 0
-			? <button
-				onClick={onOrderReg}
-				className='cart-order flex-item p-s'>Заказать</button>
-			: <button
-				className='cart-order flex-item p-s'
-				style={
-					{
-						color: 'rgba(255, 255, 255, 0.5)',
-						backgroundColor: 'rgb(246, 172, 119)'
-					}
-				}>Заказать</button>
-	)
+	// DOM-node: кнопка оформления заказа
+	const orderButton = <button onClick={onOrderReg} className='cart-order flex-item p-s'>Заказать</button>
 
 	// DOM-node: заказ пустой
 	const emptyCart = (
 		<React.Fragment>
 			{cart.length > 0
+				// Корзина не пуста, выведем элементы
 				? cart.map((item, index) =>
 					<CartItem
 						key={`${item.type}${++index}`}
@@ -74,12 +61,11 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 						selectProps={selectProps}
 						callBack={onRemovePizzaFromCart}
 						upPizzaCount={(props) => upPizzaCount(props)} />)
+				// Надо что-то заказать
 				: <p className='txt-m mt-m'>Добавьте что-нибудь из меню.</p>}
 
 			<div className='flexbox flex-justify_between flex-align-items_center mt-m'>
 				<h4 className='cart__total-price flex-item'>Сумма заказа: <span>{totalPrice}</span> ₽</h4>
-
-				{/* Вывод кнопки заказа */}
 				{totalPrice > 0 ? orderButton : null}
 			</div>
 		</React.Fragment>
@@ -88,7 +74,10 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 	// DOM-node: заказ оформлен
 	const orderedCart = (
 		<div className='flex-align-items_center flex-justify_around flexbox'>
-			<p className='flex-item txt-m mt-m'>Спасибо за Ваш заказ!<br />Ваша пицца уже в пути! <span style={{ color: 'rgb(171, 173, 186)' }}>(но это не точно)</span></p>
+			<p className='flex-item txt-m mt-m'>
+				Спасибо за Ваш заказ!<br />Ваша пицца уже в пути!&nbsp;
+				<span className='txt-placeholder'>(но это не точно)</span>
+			</p>
 			<img className='flex-item' src='/img/svg/delivery.svg' width='350px' alt='Delivery' />
 		</div>
 	)

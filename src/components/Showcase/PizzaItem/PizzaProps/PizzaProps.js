@@ -14,23 +14,11 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
 		<div className='pizza-config'>
 			<div className='mb-xs'>
 				<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
-					{/* Рендер свойств размера пиццы */}
-					{renderSizeProps(
-						props,
-						config,
-						pizza,
-						selectProps
-					)}
+					{renderSizeProps(props, config, pizza, selectProps)}
 				</div>
 			</div>
 			<div className='grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
-				{/* Рендер свойств вида пиццы */}
-				{renderDoughProps(
-					props,
-					config,
-					pizza,
-					selectProps
-				)}
+				{renderDoughProps(props, config, pizza, selectProps)}
 			</div>
 		</div>
 	</React.Fragment>
@@ -45,26 +33,28 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
 const renderSizeProps = (props, config, pizza, selectProps) =>
-	props.size.map(({ size, alias }, index) => {
-		// Определяем актуальное свойство
-		const selected = config.size === size ? true : false
+	props.size
+		.map(({ size, alias }, index) => {
+			let selected = config.size === size ? true : false
 
-		return (
-			<div
-				data-props='size'
-				onClick={() => selectProps({
-					size,
-					id: pizza.id,
-					type: pizza.type,
-					dough: config.dough,
-				})}
-				className={classNames(
-					'col-1',
-					'pizza-config_value',
-					{ 'selected': selected })}
-				key={`sizeProps${index}For_${pizza.type}${pizza.id}`}>{alias}</div>
-		)
-	})
+			return (
+				<div
+					data-props='size'
+					onClick={() => selectProps({
+						size,
+						id: pizza.id,
+						type: pizza.type,
+						dough: config.dough,
+					})}
+					className={classNames(
+						'col-1',
+						'pizza-config_value',
+						{ 'selected': selected })}
+					key={`sizeProps${index}For_${pizza.type}${pizza.id}`}>
+					{alias}
+				</div>
+			)
+		})
 
 /**
  * @name renderDoughProps
@@ -74,25 +64,28 @@ const renderSizeProps = (props, config, pizza, selectProps) =>
  * @param {Number} pizza Порядковый номер (индекс) пиццы
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(({ dough, alias }, index) => {
-	// Определяем актуальное свойство
-	const selected = config.dough === dough ? true : false
+const renderDoughProps = (props, config, pizza, selectProps) =>
+	props.dough
+		.map(({ dough, alias }, index) => {
+			let selected = config.dough === dough ? true : false
 
-	return (
-		<div
-			data-props='dough'
-			onClick={() => selectProps({
-				dough,
-				id: pizza.id,
-				type: pizza.type,
-				size: config.size,
-			})}
-			className={classNames(
-				'col-1',
-				'pizza-config_value',
-				{ 'selected': selected })}
-			key={`doughProps${index}For_${pizza.type}${pizza.id}`}>{alias}</div>
-	)
-})
+			return (
+				<div
+					data-props='dough'
+					onClick={() => selectProps({
+						dough,
+						id: pizza.id,
+						type: pizza.type,
+						size: config.size,
+					})}
+					className={classNames(
+						'col-1',
+						'pizza-config_value',
+						{ 'selected': selected })}
+					key={`doughProps${index}For_${pizza.type}${pizza.id}`}>
+					{alias}
+				</div>
+			)
+		})
 
 export default PizzaProps

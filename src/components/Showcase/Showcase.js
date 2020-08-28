@@ -2,7 +2,6 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
-// Import actions
 import { selectPizzaProps, addPizzaToCart } from '../../redux/actions/actions'
 
 /** Import components */
@@ -73,23 +72,22 @@ const renderPizzaItems = (data, selectProps, addPizzaToCart, cart) =>
 
 /**
  * @name mapStateToProps
- * @description Преобразование state в props
+ * @param {Array} cart Массив объектов в корзине
  * @param {Array} pizzas Массив всех пицц
  * @param {String} selectedPizzaType Выбранный тип пицц
- * @param {Array} cart Массив объектов в корзине
  */
 const mapStateToProps = ({ pizzas, selectedPizzaType, cart }) => ({
-	pizzas, selectedPizzaType, cart
+	cart,
+	pizzas,
+	selectedPizzaType,
 })
 
 /**
  * @name mapDispatchToProps
- * @description Преобразование dispatch в props
- * @param {Object} dispatch
  */
 const mapDispatchToProps = dispatch => ({
+	addPizzaToCart: pizza => dispatch(addPizzaToCart(pizza)),
 	onSelectPizzaProps: props => dispatch(selectPizzaProps(props)),
-	addPizzaToCart: pizza => dispatch(addPizzaToCart(pizza))
 })
 
 

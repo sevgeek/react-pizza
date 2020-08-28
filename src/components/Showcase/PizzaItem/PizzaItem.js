@@ -1,12 +1,9 @@
 import React from 'react'
-
-/** Import components */
 import { Link } from 'react-router-dom'
 
 /** Import components */
 import PizzaProps from './PizzaProps/PizzaProps'
 
-/** Import functions */
 import { transfromPizzaContentToText, checkPizzaInTheCart } from '../../../functions'
 
 /**

@@ -2,13 +2,12 @@ import React from 'react'
 
 /** Redux */
 import { connect } from 'react-redux'
-// Import actions
 import { selectPizzaType } from '../../redux/actions/actions'
 
 /** Import components */
-import CartButton from './CartButton/CartButton'
-import Logo from './Logo/Logo'
-import Navigation from './Navigation/Navigation'
+import Logo from './Logo'
+import CartButton from './CartButton'
+import Navigation from './Navigation'
 
 /**
  * @name Header
@@ -30,8 +29,8 @@ const Header = ({ displayNavigation, pizzaTypes, selectedPizzaType, onSelectPizz
 		</div>
 
 		<div className='col-3'>
-			{displayNavigation
-				&& <Navigation
+			{displayNavigation &&
+				<Navigation
 					pizzaTypes={pizzaTypes}
 					selectedPizzaType={selectedPizzaType}
 					choosingTheTypeOfPizza={(value) => onSelectPizzaType(value)} />}

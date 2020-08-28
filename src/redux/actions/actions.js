@@ -1,4 +1,3 @@
-/** Import actions types */
 import {
 	ADD_CART,
 	ORDER_CART,

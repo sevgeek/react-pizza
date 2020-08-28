@@ -1,10 +1,10 @@
 import React from 'react'
 
-/** Function */
-import transfromPizzaContentToText from '../../functions'
-
 /** Import components */
 import PizzaProps from '../Showcase/PizzaItem/PizzaProps/PizzaProps'
+
+/** Function */
+import transfromPizzaContentToText from '../../functions'
 
 /**
  * @name CartItem
@@ -15,7 +15,6 @@ import PizzaProps from '../Showcase/PizzaItem/PizzaProps/PizzaProps'
  * @param {Function} upPizzaCount Функция поднятия состояния count к родителю
  */
 const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
-
 	const { id, type, config, img, title, content, price, count: defaultCount } = data
 
 	// Уникальный идентификатор пиццы
@@ -31,10 +30,10 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 
 	/**
 	 * @name onChangePizzaCount
-	 * @description Функция изменения состояния (свойств пиццы) и отправки изменений родительскому компоненту в store
+	 * @description useCallback-хук изменения состояния (свойств пиццы)
+	 * и отправки изменений родительскому компоненту в store
 	 */
 	const onChangePizzaCount = React.useCallback((value) => {
-
 		const newState = {
 			...pizzaProps,
 			count: value
@@ -93,9 +92,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 			{/* Props */}
 			<div className='col-3 col-justify-self_center cart-list__item-desc'>
 					<h4>{title}</h4>
-
 					<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
-
 					<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 					{/* PizzaProps */}

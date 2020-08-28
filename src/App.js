@@ -1,7 +1,5 @@
 import React from 'react';
 import './sass/style.scss'
-
-/** Import React Router */
 import {
 	Switch,
 	Route

@@ -22,8 +22,9 @@ const Logo = ({ path }) => (
 	</Link>
 )
 
+/** Сравнение входящих props */
 function areEqual(prevProps, nextProps) {
-	return prevProps.path !== nextProps.path ? true: false
+	return prevProps.path !== nextProps.path ? true : false
 }
 
 export default React.memo(Logo, areEqual)
