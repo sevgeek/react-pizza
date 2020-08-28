@@ -62,7 +62,7 @@ const renderSizeProps = (props, config, pizza, selectProps) =>
 					'col-1',
 					'pizza-config_value',
 					{ 'selected': selected })}
-				key={`${pizza.type}${pizza.id}_${index}`}>{alias}</div>
+				key={`${pizza.type}${pizza.id}_${++index}`}>{alias}</div>
 		)
 	})
 
@@ -91,7 +91,7 @@ const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(
 				'col-1',
 				'pizza-config_value',
 				{ 'selected': selected })}
-			key={`${pizza.type}${pizza.id}`}>{alias}</div>
+			key={`${pizza.type}${pizza.id}_${++index}`}>{alias}</div>
 	)
 })
 
