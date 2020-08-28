@@ -15,12 +15,22 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
 			<div className='mb-xs'>
 				<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
 					{/* Рендер свойств размера пиццы */}
-					{renderSizeProps(props, config, pizza, selectProps)}
+					{renderSizeProps(
+						props,
+						config,
+						pizza,
+						selectProps
+					)}
 				</div>
 			</div>
 			<div className='grid grid-2-col grid-row-gap-0 grid-col-gap-xs'>
 				{/* Рендер свойств вида пиццы */}
-				{renderDoughProps(props, config, pizza, selectProps)}
+				{renderDoughProps(
+					props,
+					config,
+					pizza,
+					selectProps
+				)}
 			</div>
 		</div>
 	</React.Fragment>
@@ -81,7 +91,7 @@ const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(
 				'col-1',
 				'pizza-config_value',
 				{ 'selected': selected })}
-			key={`${pizza.type}${pizza.id}_${index}`}>{alias}</div>
+			key={`${pizza.type}${pizza.id}`}>{alias}</div>
 	)
 })
 
