@@ -39,7 +39,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 	 */
 	const onOrderReg = React.useCallback(() => {
 		// Set new state
-		setOrder((value) => !value)
+		setOrder(!ordered)
 
 		/** Callback-function: очистка корзины */
 		orderCart()
