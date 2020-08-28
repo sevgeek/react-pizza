@@ -23,10 +23,12 @@ import CartItem from './CartItem'
  * @param {Function} upPizzaCount Функция Redux, изменяющая количество пиццы в корзине
  */
 const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCount }) => {
-	// Итоговая цена
-	const totalPrice = cart.length > 0
-		? cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0)
-		: 0
+
+	const totalPrice = (
+		cart.length > 0
+			? cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0)
+			: 0
+	)
 
 	/** State: статус заказа */
 	const [ordered, setOrder] = React.useState(false)
@@ -46,51 +48,54 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 	}, [ordered])
 
 	// DOM-node: кнопка завершения заказа
-	const orderButton = cart.length > 0
-		? <button
-			onClick={onOrderReg}
-			className='cart-order flex-item p-s'>Заказать</button>
-		: <button
-			className='cart-order flex-item p-s'
-			style={
-				{
-					color: 'rgba(255, 255, 255, 0.5)',
-					backgroundColor: 'rgb(246, 172, 119)'
-				}
-			}>Заказать</button>
+	const orderButton = (
+		cart.length > 0
+			? <button
+				onClick={onOrderReg}
+				className='cart-order flex-item p-s'>Заказать</button>
+			: <button
+				className='cart-order flex-item p-s'
+				style={
+					{
+						color: 'rgba(255, 255, 255, 0.5)',
+						backgroundColor: 'rgb(246, 172, 119)'
+					}
+				}>Заказать</button>
+	)
 
 	// DOM-node: заказ пустой
-	const emptyCart = <React.Fragment>
-		{cart.length > 0
-			? cart.map((item, index) =>
-				<CartItem
-					key={`${item.type}${++index}`}
-					data={item}
-					selectProps={selectProps}
-					callBack={onRemovePizzaFromCart}
-					upPizzaCount={(props) => upPizzaCount(props)} />)
-			: <p className='txt-m mt-m'>Добавьте что-нибудь из меню.</p>}
+	const emptyCart = (
+		<React.Fragment>
+			{cart.length > 0
+				? cart.map((item, index) =>
+					<CartItem
+						key={`${item.type}${++index}`}
+						data={item}
+						selectProps={selectProps}
+						callBack={onRemovePizzaFromCart}
+						upPizzaCount={(props) => upPizzaCount(props)} />)
+				: <p className='txt-m mt-m'>Добавьте что-нибудь из меню.</p>}
 
-		<div className='flexbox flex-justify_between flex-align-items_center mt-m'>
-			<h4 className='cart__total-price flex-item'>Сумма заказа: <span>{totalPrice}</span> ₽</h4>
+			<div className='flexbox flex-justify_between flex-align-items_center mt-m'>
+				<h4 className='cart__total-price flex-item'>Сумма заказа: <span>{totalPrice}</span> ₽</h4>
 
-			{/* Вывод кнопки заказа */}
-			{totalPrice > 0 ? orderButton : null}
-		</div>
-	</React.Fragment>
+				{/* Вывод кнопки заказа */}
+				{totalPrice > 0 ? orderButton : null}
+			</div>
+		</React.Fragment>
+	)
 
 	// DOM-node: заказ оформлен
-	const orderedCart =
+	const orderedCart = (
 		<div className='flex-align-items_center flex-justify_around flexbox'>
 			<p className='flex-item txt-m mt-m'>Спасибо за Ваш заказ!<br />Ваша пицца уже в пути! <span style={{ color: 'rgb(171, 173, 186)' }}>(но это не точно)</span></p>
 			<img className='flex-item' src='/img/svg/delivery.svg' width='350px' alt='Delivery' />
 		</div>
+	)
 
 	return (
 		<section className='cart'>
 			<h2 className='cart_title'>Корзина</h2>
-
-			{/* Вывод DOM-nodes */}
 			{!ordered
 				? emptyCart
 				: orderedCart}
@@ -99,8 +104,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 }
 
 /**
- * @name mapStateToProps
- * @description Преобразование state в props
+ * mapStateToProps
  * @param {Array} cart Массив всех пицц из корзины
  */
 const mapStateToProps = ({ cart }) => ({
@@ -108,9 +112,7 @@ const mapStateToProps = ({ cart }) => ({
 })
 
 /**
- * @name mapDispatchToProps
- * @description Преобразование dispatch в props
- * @param {Object} dispatch
+ * mapDispatchToProps
  */
 const mapDispatchToProps = dispatch => ({
 	orderCart: () => dispatch(orderCart()),

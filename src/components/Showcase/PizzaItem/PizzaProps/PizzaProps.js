@@ -45,7 +45,7 @@ const PizzaProps = ({ config, pizza, selectProps }) => (
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
 const renderSizeProps = (props, config, pizza, selectProps) =>
-	props.size.map(({ size, alias }, index) => {
+	props.size.map(({ size, alias }) => {
 		// Определяем актуальное свойство
 		const selected = config.size === size ? true : false
 
@@ -62,7 +62,7 @@ const renderSizeProps = (props, config, pizza, selectProps) =>
 					'col-1',
 					'pizza-config_value',
 					{ 'selected': selected })}
-				key={`${pizza.type}${pizza.id}_${++index}`}>{alias}</div>
+				key={`sizePropsFor_${pizza.type}${pizza.id}`}>{alias}</div>
 		)
 	})
 
@@ -74,7 +74,7 @@ const renderSizeProps = (props, config, pizza, selectProps) =>
  * @param {Number} pizza Порядковый номер (индекс) пиццы
  * @param {Function} selectProps Функция выбора свойства пиццы
  */
-const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(({ dough, alias }, index) => {
+const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(({ dough, alias }) => {
 	// Определяем актуальное свойство
 	const selected = config.dough === dough ? true : false
 
@@ -91,7 +91,7 @@ const renderDoughProps = (props, config, pizza, selectProps) => props.dough.map(
 				'col-1',
 				'pizza-config_value',
 				{ 'selected': selected })}
-			key={`${pizza.type}${pizza.id}_${++index}`}>{alias}</div>
+			key={`doughPropsFor_${pizza.type}${pizza.id}`}>{alias}</div>
 	)
 })
 

@@ -15,7 +15,7 @@ import PizzaProps from '../Showcase/PizzaItem/PizzaProps/PizzaProps'
  * @param {Function} upPizzaCount Функция поднятия состояния count к родителю
  */
 const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
-	// Получаем данные
+
 	const { id, type, config, img, title, content, price, count: defaultCount } = data
 
 	// Уникальный идентификатор пиццы
@@ -34,7 +34,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 	 * @description Функция изменения состояния (свойств пиццы) и отправки изменений родительскому компоненту в store
 	 */
 	const onChangePizzaCount = React.useCallback((value) => {
-		// New state
+
 		const newState = {
 			...pizzaProps,
 			count: value
@@ -49,7 +49,6 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pizzaProps])
 
-	// Switch size
 	switch (config.size) {
 		case 'small':
 			sizeText = 'Маленькая 25 см'
@@ -68,7 +67,6 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 			break;
 	}
 
-	// Switch dough
 	switch (config.dough) {
 		case 'standart':
 			doughText = 'традиционное тесто'

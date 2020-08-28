@@ -42,8 +42,6 @@ const Header = ({ displayNavigation, pizzaTypes, selectedPizzaType, onSelectPizz
 
 /**
  * mapStateToProps
- * @name mapStateToProps
- * @description Преобразование state в props
  * @param {Array} pizzaTypes Массив видов пиццы
  * @param {String} selectedPizzaType Значение выбранного типа пиццы
  * @param {Array} cart Корзина заказа
@@ -56,9 +54,6 @@ const mapStateToProps = ({ pizzaTypes, selectedPizzaType, cart }) => ({
 
 /**
  * mapDispatchToProps
- * @name mapDispatchToProps
- * @description Преобразование dispatch в props
- * @param {Function} dispatch Функция Redux
  */
 const mapDispatchToProps = dispatch => ({
 	onSelectPizzaType: pizzaType => dispatch(selectPizzaType(pizzaType))
