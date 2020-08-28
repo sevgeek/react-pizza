@@ -16,29 +16,43 @@ import PizzaItem from './PizzaItem/PizzaItem'
  * @param {Function} onSelectPizzaProps Функция выбора свойства пиццы
  * @param {Array} cart Массив объектов в корзине
  */
-const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPizzaToCart, cart }) => (
-	<section className='mt-xl'>
-		<div className='grid grid-4-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
+const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPizzaToCart, cart }) => {
 
-			{/* Делаем проверку типа отображаемых пицц */}
-			{selectedPizzaType === 'all'
-				? Object.values(pizzas)
-					.map(array =>
-						renderPizzaItems(
-							array,
-							onSelectPizzaProps,
-							addPizzaToCart,
-							cart
-						))
-				: renderPizzaItems(
-					pizzas[selectedPizzaType],
-					onSelectPizzaProps,
-					addPizzaToCart,
-					cart
-				)}
-		</div>
-	</section>
-)
+	/**
+	 * @name renderPizzasByType
+	 * @description Рендер пицц в зависимости от выбора пользователя
+	 * @param {String} type Тип выбираем пользователем пиццы
+	 * @param {Object} pizzas Объект пицц
+	 */
+	const renderPizzasByType = (type, pizzas) => {
+		// Проверяем выбор пользователя
+		return type === 'all'
+			// Делаем рендер всех пицц по очереди
+			? Object.values(pizzas)
+				.map(array =>
+					renderPizzaItems(
+						array,
+						onSelectPizzaProps,
+						addPizzaToCart,
+						cart
+					))
+			// Делаем рендер определённого типа
+			: renderPizzaItems(
+				pizzas[selectedPizzaType],
+				onSelectPizzaProps,
+				addPizzaToCart,
+				cart
+			)
+	}
+
+	return (
+		<section className='mt-xl'>
+			<div className='grid grid-4-col grid-row-gap-xl grid-col-gap-0 col-justify-self_center'>
+				{renderPizzasByType(selectedPizzaType, pizzas)}
+			</div>
+		</section>
+	)
+}
 
 /**
  * @name renderPizzaItems
