@@ -48,7 +48,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 	// DOM-node: кнопка завершения заказа
 	const orderButton = cart.length > 0
 		? <button
-			onClick={() => onOrderReg()}
+			onClick={onOrderReg}
 			className='cart-order flex-item p-s'>Заказать</button>
 		: <button
 			className='cart-order flex-item p-s'

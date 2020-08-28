@@ -36,7 +36,7 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 			<p className='pizza-price col-1 txt-l col-align-self_center'>{price} ₽</p>
 			<div
 				className='pizza-order col-1'
-				onClick={() => { addPizzaToCart(pizzaId) }}>Выбрать</div>
+				onClick={() => addPizzaToCart(pizzaId)}>Выбрать</div>
 		</React.Fragment>
 
 	return (

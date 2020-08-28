@@ -24,8 +24,18 @@ const Showcase = ({ pizzas, selectedPizzaType = 'all', onSelectPizzaProps, addPi
 			{selectedPizzaType === 'all'
 				? Object.values(pizzas)
 					.map(array =>
-						renderPizzaItems(array, onSelectPizzaProps, addPizzaToCart, cart))
-				: renderPizzaItems(pizzas[selectedPizzaType], onSelectPizzaProps, addPizzaToCart, cart)}
+						renderPizzaItems(
+							array,
+							onSelectPizzaProps,
+							addPizzaToCart,
+							cart
+						))
+				: renderPizzaItems(
+					pizzas[selectedPizzaType],
+					onSelectPizzaProps,
+					addPizzaToCart,
+					cart
+				)}
 		</div>
 	</section>
 )
@@ -42,7 +52,7 @@ const renderPizzaItems = (data, selectProps, addPizzaToCart, cart) =>
 	data.map((item, index) =>
 		<PizzaItem
 			cart={cart}
-			key={index}
+			key={`${item.type}_${++index}`}
 			data={item}
 			selectProps={selectProps}
 			addPizzaToCart={addPizzaToCart} />)
