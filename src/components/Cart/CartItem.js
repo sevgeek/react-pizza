@@ -93,8 +93,7 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 				className='col-1 col-align-self_center col-justify-self_center' />
 
 			{/* Props */}
-			<div className='col-3 col-justify-self_center'>
-				<div style={{ width: '450px' }}>
+			<div className='col-3 col-justify-self_center cart-list__item-desc'>
 					<h4>{title}</h4>
 
 					<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
@@ -102,13 +101,12 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 					<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 					{/* PizzaProps */}
-					<div style={{ marginTop: '12px' }}>
+					<div className='mt-s'>
 						<PizzaProps
 							config={config}
 							pizza={pizzaId}
 							selectProps={(props) => selectProps(props)} />
 					</div>
-				</div>
 			</div>
 
 			{/* Price, count */}

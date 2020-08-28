@@ -46,6 +46,10 @@
 	border-bottom: 1px solid $ligthGrey;
 }
 
+.cart-list__item-desc {
+	width: 450px;
+}
+
 .cart-list__config {
 	color: $textPlaceholder;
 	margin-bottom: $margin-step;
