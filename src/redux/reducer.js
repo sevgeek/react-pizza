@@ -10,7 +10,6 @@ import {
 } from './actions/actionTypes'
 
 export default function reducer(state = initState, action) {
-
 	switch (action.type) {
 		// Select pizza type...
 		case SELECT_PIZZA_TYPE:
@@ -80,12 +79,12 @@ const changePropsOfPizza = (state, { id, type, size, dough }) => {
 
 			// Increase by 75
 			case 'medium':
-				price = price + 75
+				price += 75
 				break;
 
 			// Increase by 100
 			case 'big':
-				price = price + 100
+				price += 100
 				break;
 
 			default:
@@ -213,12 +212,12 @@ const changePropsOfPizzaInCart = (state, { id, type, size, dough }) => {
 
 			// Increase by 75
 			case 'medium':
-				price = price + 75
+				price += 75
 				break;
 
 			// Increase by 100
 			case 'big':
-				price = price + 100
+				price += 100
 				break;
 
 			default:
