@@ -1,11 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 /** Redux */
 import { connect } from 'react-redux'
 import { selectPizzaType } from '../../redux/actions/actions'
 
 /** Import components */
-import Logo from './Logo'
 import CartButton from './CartButton'
 import Navigation from './Navigation'
 
@@ -21,7 +21,7 @@ const Header = ({ displayNavigation, pizzaTypes, selectedPizzaType, onSelectPizz
 	<header className='grid grid-3-col grid-gap-m'>
 
 		<div className='col-2 col-align-self_center col-justify-self_start'>
-			<Logo path={"/img/svg/react-pizza.svg"} />
+			{appLogo('/img/svg/react-pizza.svg')}
 		</div>
 
 		<div className='col-1 col-align-self_center col-justify-self_end'>
@@ -37,6 +37,27 @@ const Header = ({ displayNavigation, pizzaTypes, selectedPizzaType, onSelectPizz
 		</div>
 
 	</header>
+)
+
+/**
+ * @name appLogo
+ * @description Логотип
+ * @param {String} path Путь к изображению логотипа
+ */
+const appLogo = (path) => (
+	<Link to='/'>
+		<div className='flexbox flex-align-items_center'>
+			<img
+				alt='Logo'
+				src={path}
+				width='120px'
+				className='flex-item mr-m' />
+			<div id='logo-text' className='flex-item'>
+				<h1 className='mr-m'>REACT PIZZA</h1>
+				<h5 className='txt-m m-0 p-0'>Реактивное веб-приложение для заказа пиццы</h5>
+			</div>
+		</div>
+	</Link>
 )
 
 /**
