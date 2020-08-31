@@ -2,8 +2,6 @@
 Реактивное веб-приложение для заказа пиццы на ReactJS и Redux.
 Оригинальный дизайн заимствован с сети пиццерий в России Додо Пицца.
 
-![screenshot](https://github.com/sevgeek/react-pizza/blob/master/public/img/screenshot_ui.png?raw=true)
-
 ## Стэк технологий
 1. React JS
 2. Redux
