@@ -56,9 +56,9 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 				// Корзина не пуста, выведем элементы
 				? cart.map((item, index) =>
 					<CartItem
-						key={`${item.type}${++index}`}
 						data={item}
 						selectProps={selectProps}
+						key={`${item.type}${++index}`}
 						callBack={onRemovePizzaFromCart}
 						upPizzaCount={(props) => upPizzaCount(props)} />)
 				// Надо что-то заказать
@@ -85,9 +85,7 @@ const Cart = ({ cart, onRemovePizzaFromCart, selectProps, orderCart, upPizzaCoun
 	return (
 		<section className='cart'>
 			<h2 className='cart_title'>Корзина</h2>
-			{!ordered
-				? emptyCart
-				: orderedCart}
+			{!ordered ? emptyCart : orderedCart}
 		</section>
 	)
 }

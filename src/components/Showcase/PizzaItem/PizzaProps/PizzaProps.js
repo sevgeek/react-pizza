@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import props from './props'
+import props from './propsData'
 
 /**
  * @name PizzaProps

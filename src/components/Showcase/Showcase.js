@@ -65,9 +65,9 @@ const renderPizzaItems = (data, selectProps, addPizzaToCart, cart) =>
 	data.map((item, index) =>
 		<PizzaItem
 			cart={cart}
-			key={`${item.type}_${++index}`}
 			data={item}
 			selectProps={selectProps}
+			key={`${item.type}_${++index}`}
 			addPizzaToCart={addPizzaToCart} />)
 
 /**
