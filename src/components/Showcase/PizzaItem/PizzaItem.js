@@ -39,9 +39,9 @@ const PizzaItem = ({ data, selectProps, addPizzaToCart, cart }) => {
 	return (
 		<div className='col-1' key={`${type}${id}`}>
 			<div className='pizza'>
-				<img className='pizza-img mb-s' alt={title} src={img} />
-				<p className='pizza-title txt-l mb-s'>{title}</p>
-				<p className='pizza-content txt-m mb-s'>{transfromPizzaContentToText(content.join(', '))}</p>
+				<img className='pizza__img mb-s' alt={title} src={img} />
+				<p className='txt-l mb-s'>{title}</p>
+				<p className='pizza__content txt-m mb-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
 				{/* Render pizza props */}
 				{pizzaStatus

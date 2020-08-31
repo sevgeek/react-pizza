@@ -15,7 +15,7 @@ const CartButton = ({ cart = [] }) => {
 	if (cart.length > 0) {
 		// Определяем количество пицц в заказе
 		totalPrice = (
-			<div className='flex-item cart-button_count'>
+			<div className='flex-item all-cart'>
 				{cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0)}&nbsp;₽
 			</div>
 		)

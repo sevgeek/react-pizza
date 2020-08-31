@@ -35,7 +35,7 @@
 	width: 900px;
 	margin: 0 auto;
 
-	&_title {
+	&__title {
 		margin: $margin-step * 4 0 $margin-step * 4 0;
 	}
 
@@ -152,7 +152,7 @@
 
 }
 
-.cart-button_count {
+.all-cart {
 	display: inherit;
 	width: auto;
 	min-width: 50px;
@@ -204,7 +204,7 @@
 	width: 325px;
 	margin: 0 auto;
 
-	&-img {
+	&__img {
 		width: 292px;
 		transition: $transition;
 
@@ -213,19 +213,19 @@
 		}
 	}
 
-	&-content {
+	&__content {
 		height: auto;
 		min-height: 100px;
 		color: rgb(115, 121, 140)
 	}
 
-	&-config {
+	&__config {
 		padding: 8px;
 		margin-bottom: $margin-step * 1.5;
 		background-color: $ligthGrey;
 		border-radius: $padding-step;
 
-		&_value {
+		&-value {
 			display: block;
 			box-sizing: border-box;
 			width: auto;

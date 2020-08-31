@@ -11,7 +11,7 @@ import props from './props'
  */
 const PizzaProps = ({ config, pizza, selectProps }) => (
 	<React.Fragment>
-		<div className='pizza-config'>
+		<div className='pizza__config'>
 			<div className='mb-xs'>
 				<div className='grid grid-3-col grid-row-gap-0 grid-col-gap-xs'>
 					{renderSizeProps(props, config, pizza, selectProps)}
@@ -48,7 +48,7 @@ const renderSizeProps = (props, config, pizza, selectProps) =>
 					})}
 					className={classNames(
 						'col-1',
-						'pizza-config_value',
+						'pizza__config-value',
 						{ 'selected': selected })}
 					key={`sizeProps${index}For_${pizza.type}${pizza.id}`}>
 					{alias}
@@ -80,7 +80,7 @@ const renderDoughProps = (props, config, pizza, selectProps) =>
 					})}
 					className={classNames(
 						'col-1',
-						'pizza-config_value',
+						'pizza__config-value',
 						{ 'selected': selected })}
 					key={`doughProps${index}For_${pizza.type}${pizza.id}`}>
 					{alias}
