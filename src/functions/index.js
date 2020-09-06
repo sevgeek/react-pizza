@@ -23,5 +23,3 @@ export const checkPizzaInTheCart = (pizza, cart) => {
 		return searchPizza.length > 0 ? true : false
 	} else return false
 }
-
-export default transfromPizzaContentToText

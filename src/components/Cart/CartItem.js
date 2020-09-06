@@ -4,7 +4,7 @@ import React from 'react'
 import PizzaProps from '../Showcase/PizzaItem/PizzaProps/PizzaProps'
 
 /** Function */
-import transfromPizzaContentToText from '../../functions'
+import { transfromPizzaContentToText } from '../../functions'
 
 /**
  * @name CartItem
@@ -91,17 +91,17 @@ const CartItem = ({ data, callBack, selectProps, upPizzaCount }) => {
 
 			{/* Props */}
 			<div className='col-3 col-justify-self_center cart-list__item-desc'>
-					<h4>{title}</h4>
-					<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
-					<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
+				<h4>{title}</h4>
+				<p className='cart-list__config txt-s'>{sizeText}, {doughText}</p>
+				<p className='txt-s'>{transfromPizzaContentToText(content.join(', '))}</p>
 
-					{/* PizzaProps */}
-					<div className='mt-s'>
-						<PizzaProps
-							config={config}
-							pizza={pizzaId}
-							selectProps={(props) => selectProps(props)} />
-					</div>
+				{/* PizzaProps */}
+				<div className='mt-s'>
+					<PizzaProps
+						config={config}
+						pizza={pizzaId}
+						selectProps={(props) => selectProps(props)} />
+				</div>
 			</div>
 
 			{/* Price, count */}
